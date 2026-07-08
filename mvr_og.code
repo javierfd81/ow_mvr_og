@@ -1,0 +1,5553 @@
+settings
+{
+	main
+	{
+		Description: "For those who enjoy the original Mercy VS Rein, this is for you! No silenced souls. No broken maps. Flying Reins and Mercy GA galore!\n\r\nCredits to all OW players, like you, for the reverted changes.\r\nCredits to the original code, W77BP under game mode author VOZ."
+		Mode Name: "OG mvr"
+	}
+
+	lobby
+	{
+		Data Center Preference: USA - Central
+		Map Rotation: After A Game
+		Match Voice Chat: Enabled
+		Max Spectators: 3
+		Max Team 1 Players: 2
+		Max Team 2 Players: 10
+		Return To Lobby: Never
+		Team Balancing: After A Game
+	}
+
+	modes
+	{
+		Capture the Flag
+		{
+			Damage Interrupts Flag Interaction: Enabled
+			Flag Dropped Lock Time: 10.0
+			Flag Pickup Time: 5.0
+			Flag Return Time: 0.0
+			Flag Score Respawn Time: 20.0
+
+			enabled maps
+			{
+				Busan Downtown Lunar New Year 972777519512063901
+			}
+		}
+
+		Elimination
+		{
+			Capture Objective Tiebreaker: Disabled
+			Draw After Match Time Elapsed With No Tiebreaker: 175
+
+			disabled maps
+			{
+				Black Forest
+				Ecopoint: Antarctica
+				Lijiang Control Center Lunar New Year
+				Lijiang Garden Lunar New Year
+				Lijiang Night Market Lunar New Year
+				Workshop Chamber
+				Workshop Expanse
+				Workshop Expanse Night
+				Workshop Green Screen
+				Workshop Island
+				Workshop Island Night
+			}
+		}
+
+		Skirmish
+		{
+			Limit Valid Control Points: First
+
+			enabled maps
+			{
+				Blizzard World 972777519512068154 972777519512068194
+				Busan 972777519512068154 972777519512068153 972777519512068194
+				Circuit royal 972777519512068154 972777519512068153
+				Colosseo 972777519512068154 972777519512068292
+				Dorado 972777519512068292 972777519512068153
+				Eichenwalde 972777519512068154 972777519512068292
+				Esperança 972777519512068154
+				Havana 972777519512068154 972777519512068153
+				Hollywood 972777519512068154 972777519512068153
+				Horizon Lunar Colony 972777519512068154
+				Junkertown 972777519512068154 972777519512068153
+				New Queen Street 972777519512068154 972777519512068197
+				Numbani 972777519512068154
+				Paraíso 972777519512068154 972777519512068292
+				Paris 972777519512068292
+				Rialto 972777519512068154 972777519512068292
+				Route 66 972777519512068154 972777519512068153 972777519512068194
+				Samoa 972777519512068154
+				Shambali Monastery 972777519512068153
+				Temple of Anubis 972777519512068154
+				Volskaya Industries 972777519512068292
+			}
+		}
+
+		Team Deathmatch
+		{
+			Game Length In Minutes: 5
+			Mercy Resurrect Counteracts Kills: Off
+			Score To Win: 3
+			Self Initiated Respawn: Off
+
+			enabled maps
+			{
+				Blizzard World Winter 972777519512063901
+				Château Guillard Halloween 972777519512063901
+				Dorado 972777519512068292 972777519512068153
+				Eichenwalde Halloween 972777519512063901
+				Hanamura Winter 972777519512063901
+				Hollywood Halloween 972777519512063901
+				Horizon Lunar Colony 972777519512068154
+				Kanezaka 972777519512063901
+				King's Row 972777519512068153
+				King's Row Winter 972777519512063901
+				Malevento 972777519512063901
+				Paris 972777519512068292
+				Petra 972777519512068154
+				Route 66 972777519512068154 972777519512068153
+				Temple of Anubis 972777519512068154
+				Volskaya Industries 972777519512068292
+			}
+		}
+
+		General
+		{
+			Allow Hero Switching: Disabled
+			Game Mode Start: Immediately
+			Hero Limit: Off
+			Kill Cam: Disabled
+			Respawn As Random Hero: Enabled
+			Spawn Health Packs: Disabled
+		}
+	}
+
+	heroes
+	{
+		Team 1
+		{
+			enabled heroes
+			{
+				Reinhardt
+			}
+		}
+
+		Team 2
+		{
+			enabled heroes
+			{
+				Mercy
+			}
+		}
+
+		General
+		{
+			Mercy
+			{
+				Ammunition Clip Size Scalar: 166%
+				Damage Dealt: 200%
+				Damage Received: 10%
+				Guardian Angel Cooldown Time: 0%
+				Healing Dealt: 10%
+				Healing Received: 25%
+				Health: 10%
+				Jump Vertical Speed: 180%
+				Movement Speed: 300%
+				Projectile Speed: 4%
+				Resurrect Cooldown Time: 250%
+				Ultimate Generation - Combat Valkyrie: 0%
+				Ultimate Generation - Passive Valkyrie: 0%
+			}
+
+			Reinhardt
+			{
+				Barrier Field Recharge Rate: 0%
+				Charge Cooldown Time: 7%
+				Charge Knockback Scalar: 69%
+				Fire Strike Cooldown Time: 30%
+				Health: 500%
+				Movement Speed: 300%
+				Projectile Speed: 300%
+				Quick Melee: Disabled
+				Rocket Hammer Knockback Scalar: 69%
+				Spawn With Ultimate Ready: Enabled
+				Ultimate Generation - Combat Earthshatter: 300%
+				Ultimate Generation - Passive Earthshatter: 175%
+				Ultimate Generation Earthshatter: 175%
+			}
+		}
+	}
+
+	workshop
+	{
+		Double Jump Disable When Stunned: Off
+		Double Jump Disabled When Stunned Duration: 2.000
+		Double Jump Disabled While Stunned Duration: 2.000
+		Experimental Charge Only: On
+		GA Recharge Rate: 7.000
+		Mercy Back StabRein Kill To Resurrect: On
+		Mercy Boop To Earn Invis: On
+		Multi Jump Count: 10
+		Rein Heal Per Elim: On
+		Respawn On Envir Death: On
+		Respawn On Map: On
+		Sacrifice Health for GA Charge: On
+		Sacrifice Health for Ult Charge: On
+		Super Jump CoolDown: 15
+	}
+}
+
+variables
+{
+	global:
+		0: TDMSpawnPositions
+		1: MercyRezScalar
+		2: PlayerSlot
+		3: RoundStart
+		4: PlayerNamesLength
+		5: NumMercysDead
+		6: TDMCountDown
+		7: NumMercysAlive
+		8: Spacing
+		9: ChargeOnlyMap
+		10: TractorBeamPosition
+		11: BubblePosition
+		13: DeathOrbPositions
+		14: DeathOrbRadii
+		15: Loop
+		16: Score
+		17: SkirmishSpawns
+		18: RevealTime
+		19: JumpPadPosition
+		20: FencePosition
+		21: DeadRein
+		22: SortedNames
+		23: NameList
+		24: MaxGACount
+		25: ExpectedGamemode
+		26: TeleporterPositions
+		27: D
+		28: RevealedMercys
+		29: CurrentSeekers
+		30: SetUpHUDText
+		31: SpawnNoClip
+		32: SpawnClipRein
+		33: NextSeekers
+		34: CombineBackStabReinResurrect
+		35: ExperimentalChargeOnlyMap
+		36: TeleporterCD
+		37: IsOwnerAfk
+		38: ShowServerLoad
+		39: Tips
+		40: RezzedMercy
+		41: GracePeriod
+		51: SparkleLayer
+
+	player:
+		0: perspectivetoggle
+		1: LeaveSpawnTimer
+		2: Allowed
+		3: Health
+		4: HUDText
+		5: TDMDeathSpectate
+		6: IsImmuneToWall
+		7: IsInMap
+		8: MercyDeathSparkles
+		9: OutlineHidden
+		10: HealthSacrificed
+		11: MercyIsBeaming
+		12: MercyInvis
+		13: RezzedMercy
+		18: WallDamageOT
+		19: TP
+		21: VotedKick
+		22: rezstop
+		24: TeleporterRingCD
+		25: TeleporterCD
+		26: KnockedDown
+		28: HasRez
+		29: ReinFlyCoolDown
+		32: MercyDiedRezCD
+		33: MercyGACount
+		35: mercydeath
+		36: ReinJumpCount
+		37: ReinSetupJumpCount
+		40: HasNoGAs
+		41: DoubleJump
+		47: MercyBoopToInvis
+}
+
+subroutines
+{
+	0: ResetRound
+	1: SpawnSetter
+	3: EndRound
+	4: MatchPointMessage
+	5: RemoveMomentum
+	6: StartRoundMessages
+	7: SetWallImmune
+	8: ReinTips
+	9: PlayerVariableSetter
+	10: DeathOrbKill
+	11: DisplayTips
+	12: SkirmishSpawnSetter
+	13: EnsureTDMSpawns
+	14: RespawnRein
+	15: WallBoop
+	16: OutOfMapAbilityRestriction
+	17: WallBoop2
+}
+
+rule("Global Startup")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		Disable Inspector Recording;
+		Create HUD Text(All Living Players(All Teams), Null, Global.ShowServerLoad && Local Player == Host Player ? Custom String(
+			"C{0}, A{1}, P{2}", Server Load, Server Load Average, Server Load Peak) : Empty Array, Null, Left, 4.100, Null, Color(White),
+			Null, Visible To and String, Default Visibility);
+		disabled Create HUD Text(Host Player == Local Player && Global.ShowServerLoad ? Local Player : Null, Server Load, Server Load Average,
+			Server Load Peak, Left, 4.100, Color(White), Color(White), Color(White), Visible To and String, Default Visibility);
+		Global.MaxGACount = Workshop Setting Integer(Custom String("Mercy Settings"), Custom String("GA count"), 3, 1, 3, 0);
+		Global.NextSeekers = Empty Array;
+		Global.CurrentSeekers[0] = Custom String("");
+		Global.CurrentSeekers[1] = Custom String("");
+		Global.CurrentSeekers[2] = Empty Array;
+		Global.IsOwnerAfk[5] = Vector(0, 1, 0);
+		Global.Tips = Array(Array(Custom String("  Jump Midair to {0} Double Jump (touch ground to reset)", Ability Icon String(Hero(
+			Winston), Button(Ability 1))), Custom String("  {0} Quick Melee to {1} Super Jump (45s CD)", Ability Icon String(Hero(
+			Reinhardt), Button(Melee)), Ability Icon String(Hero(Baptiste), Button(Crouch))), Custom String(
+			"  Press and Hold {0} Shatter to Sacrifice Health for % ult charge", Ability Icon String(Hero(Reinhardt), Button(Ultimate))),
+			Custom String("  Crouch while using {0} Shatter to Ground Pound", Ability Icon String(Hero(Reinhardt), Button(Ultimate)))),
+			Array(Custom String("  Interact to Toggle Perspective"), Custom String("  Crouch + Reload to Lay Down"), Custom String(
+			"  {0} Melee reins to boop and reduce rez CD by 3s", Ability Icon String(Hero(Mercy), Button(Melee))), Custom String(
+			"  Hit Rez While {0} Rezzing To {1} Cancel Early", Ability Icon String(Hero(Mercy), Button(Ability 2)), Icon String(No))));
+		Abort If(Current Game Mode != Game Mode(Elimination));
+		Wait Until(Is Assembling Heroes, 9999);
+		Global.NextSeekers = Empty Array;
+		Global.CurrentSeekers[0] = Custom String("");
+		Global.CurrentSeekers[1] = Custom String("");
+		Global.CurrentSeekers[2] = Empty Array;
+	}
+}
+
+rule("Disable Team Voice")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	actions
+	{
+		Disable Voice Chat(Event Player, True, False, False);
+	}
+}
+
+disabled rule("'Mercy Invis BOOP'")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Current Game Mode == Game Mode(Elimination);
+	}
+
+	actions
+	{
+		Create HUD Text(Event Player, Null, Custom String("5 Mercy Boops = Mercy Ult Invis"), Null, Right, 0, Color(White), Color(White),
+			Color(White), None, Default Visibility);
+	}
+}
+
+disabled rule("=========================================================CAMERA=============================================================")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+}
+
+rule("perspective toggle")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Is Button Held(Event Player, Button(Interact)) == True;
+	}
+
+	actions
+	{
+		Event Player.perspectivetoggle = !Event Player.perspectivetoggle;
+		If(Event Player.perspectivetoggle == True);
+			Start Camera(Event Player, Ray Cast Hit Position(Eye Position(Event Player), Eye Position(Event Player) + World Vector Of(Vector(0,
+				0.400, 0.300), Event Player, Rotation) + Facing Direction Of(Event Player) * -2.500, Null, Event Player, False),
+				Event Player + Facing Direction Of(Event Player) * 1000, 40);
+		Else;
+			Stop Camera(Event Player);
+		End;
+	}
+}
+
+disabled rule("=====================================================MERCY POWER UPS============================================================")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+}
+
+rule("Mercy Activate Invis (Ultimate)")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Mercy;
+	}
+
+	conditions
+	{
+		Event Player.MercyBoopToInvis >= 5;
+		Is Button Held(Event Player, Button(Ultimate)) == True;
+		Is Alive(Event Player) == True;
+		Is Dead(Event Player) != True;
+	}
+
+	actions
+	{
+		Set Invisible(Event Player, Enemies);
+		Big Message(Event Player, Custom String("You're Invisible"));
+		Create Icon(All Players(Team Of(Event Player)), Event Player, Arrow: Down, Visible To and Position, Color(White), True);
+		Event Player.MercyInvis = Last Created Entity;
+		Event Player.MercyBoopToInvis = 0;
+		Wait(6, Ignore Condition);
+		Destroy Icon(Event Player.MercyInvis);
+		Set Invisible(Event Player, None);
+		Big Message(Event Player, Custom String("Now Visible"));
+	}
+}
+
+rule("Mercy Boop To Invis Setup")
+{
+	event
+	{
+		Player Dealt Knockback;
+		All;
+		Mercy;
+	}
+
+	conditions
+	{
+		Workshop Setting Toggle(Custom String("Mercy Settings"), Custom String("Mercy Boop To Earn Invis"), False, 0) == True;
+	}
+
+	actions
+	{
+		Event Player.MercyBoopToInvis = Event Player.MercyBoopToInvis + 1;
+		Skip If(Event Player.MercyBoopToInvis >= 5, 1);
+		Small Message(Event Player, Custom String("  {0} boops", Event Player.MercyBoopToInvis));
+		If(Event Player.MercyBoopToInvis >= 5);
+			Small Message(Event Player, Custom String("  Invis Ready, Ult to Invis"));
+		End;
+	}
+}
+
+rule("Mercy burn when hit by firestrike")
+{
+	event
+	{
+		Player Died;
+		Team 2;
+		All;
+	}
+
+	conditions
+	{
+		Is Game In Progress == True;
+		Is Using Ability 2(Attacker) == True;
+	}
+
+	actions
+	{
+		Set Status(Event Player, Attacker, Burning, 4);
+	}
+}
+
+rule("PlayerVariableSetter SUBROUTINE")
+{
+	event
+	{
+		Subroutine;
+		PlayerVariableSetter;
+	}
+
+	actions
+	{
+		If(!Global.ChargeOnlyMap);
+			Set Ability Cooldown(All Players(Team 2), Button(Ability 2), 0);
+			Set Ability Cooldown(All Players(Team 2), Button(Secondary Fire), 0);
+			All Players(Team 2).MercyDiedRezCD = False;
+		End;
+		All Players(All Teams).IsInMap = True;
+		All Players(All Teams).KnockedDown = False;
+		All Players(Team 1).ReinFlyCoolDown = 0;
+		Global.CombineBackStabReinResurrect[1] = False;
+		Set Healing Received(All Players(Team 1), 0);
+		Set Healing Received(All Players(Team 2), 100);
+	}
+}
+
+rule("Mercy reset rez cd for each round")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Current Game Mode == Game Mode(Elimination);
+		Is In Setup == True;
+	}
+
+	actions
+	{
+		Wait(2, Ignore Condition);
+		If(!Global.ChargeOnlyMap);
+			Set Ability 2 Enabled(Players On Hero(Hero(Reinhardt), All Teams), True);
+			Set Primary Fire Enabled(Players On Hero(Hero(Reinhardt), All Teams), True);
+			Set Ability 1 Enabled(All Players(Team 2), True);
+		End;
+		Call Subroutine(PlayerVariableSetter);
+	}
+}
+
+rule("Mercy: rez cancel")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Mercy;
+	}
+
+	conditions
+	{
+		(Is Button Held(Event Player, Button(Ability 2)) || Is Button Held(Event Player, Button(Secondary Fire))) == True;
+	}
+
+	actions
+	{
+		If(Event Player.rezstop);
+			Event Player.rezstop = False;
+			Cancel Primary Action(Event Player);
+			Wait(0.250, Ignore Condition);
+			Set Ability Cooldown(Event Player, Button(Ability 2), 0);
+			Set Ability Cooldown(Event Player, Button(Secondary Fire), 0);
+		End;
+	}
+}
+
+rule("Mercy Used Rez")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Mercy;
+	}
+
+	conditions
+	{
+		Is Using Ability 2(Event Player) == True;
+	}
+
+	actions
+	{
+		Wait(0.400, Ignore Condition);
+		Event Player.rezstop = True;
+		Wait Until(!Is Using Ability 2(Event Player), 3);
+		If(Ability Cooldown(Event Player, Button(Ability 2)) == Ability Cooldown(Event Player, Button(Secondary Fire)));
+			Event Player.rezstop = False;
+		End;
+		If(Event Player.rezstop);
+			Event Player.rezstop = False;
+			Set Ability Cooldown(Event Player, Button(Ability 2), Global.MercyRezScalar);
+			Set Ability Cooldown(Event Player, Button(Secondary Fire), Global.MercyRezScalar);
+			Event Player.RezzedMercy = Global.RezzedMercy;
+			If(Ability Cooldown(Event Player, Button(Ability 2)) > 0);
+				Wait Until(Ability Cooldown(Event Player, Button(Ability 2)) <= 20, Global.MercyRezScalar);
+			Else;
+				Wait Until(Ability Cooldown(Event Player, Button(Secondary Fire)) <= 20, Global.MercyRezScalar);
+			End;
+			Event Player.RezzedMercy = Null;
+		End;
+	}
+}
+
+rule("Set rezzed mercy")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Mercy;
+	}
+
+	conditions
+	{
+		Is Alive(Event Player) == True;
+	}
+
+	actions
+	{
+		Global.RezzedMercy = Event Player;
+	}
+}
+
+rule("Mercy GA Recharge + Reenable GA")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Mercy;
+	}
+
+	conditions
+	{
+		((!Global.ExperimentalChargeOnlyMap && Event Player.MercyGACount < Global.MaxGACount) || (
+			Global.ExperimentalChargeOnlyMap && Event Player.MercyGACount < 1)) == True;
+		(Is On Ground(Event Player) || Is Dead(Event Player)) == True;
+	}
+
+	actions
+	{
+		disabled Chase Player Variable Over Time(Event Player, MercyGACount, 3, Workshop Setting Real(Custom String("Mercy Settings"),
+			Custom String("GA Recharge Rate"), 1, 0, 100, 6), Destination and Duration);
+		If(Global.ExperimentalChargeOnlyMap);
+			If(Is Dead(Event Player));
+				Stop Chasing Player Variable(Event Player, MercyGACount);
+				Event Player.MercyGACount = 1;
+				Set Ability 1 Enabled(Event Player, True);
+				Abort;
+			End;
+			Chase Player Variable At Rate(Event Player, MercyGACount, 1, 1, None);
+			Wait Until(!Is On Ground(Event Player), 1 - Event Player.MercyGACount);
+			Stop Chasing Player Variable(Event Player, MercyGACount);
+			If(!Is On Ground(Event Player));
+				Chase Player Variable At Rate(Event Player, MercyGACount, 0.999, 0.250, Destination and Rate);
+				Abort;
+			End;
+		Else;
+			Event Player.MercyGACount = Global.MaxGACount;
+		End;
+		If(Is Alive(Event Player));
+			Play Effect(Event Player, Buff Impact Sound, Null, Event Player, 16);
+		End;
+		Set Ability 1 Enabled(Event Player, True);
+	}
+}
+
+rule("GA use")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Mercy;
+	}
+
+	conditions
+	{
+		Event Player.MercyGACount >= 1;
+		Ability Cooldown(Event Player, Button(Ability 1)) != 0;
+		Is On Ground(Event Player) == False;
+	}
+
+	actions
+	{
+		Event Player.MercyGACount = Event Player.MercyGACount - 1;
+		If(Event Player.MercyGACount == 0);
+			Set Ability 1 Enabled(Event Player, False);
+			If(!Event Player.HasNoGAs);
+				If(Global.ExperimentalChargeOnlyMap);
+					disabled Create Effect(All Players(All Teams), Good Aura, Color(Orange), Event Player.MercyGACount < 1 ? Eye Position(Event Player)
+						- Vector(Sine From Degrees(Horizontal Facing Angle Of(Event Player)) * 0.175, Is On Ground(Event Player) ? 0 : (Is Button Held(
+						Event Player, Button(Jump)) ? -0.200 : -0.320), Cosine From Degrees(Horizontal Facing Angle Of(Event Player)) * 0.175)
+						: Vector(0, -36, 0), (1 - Event Player.MercyGACount) / 20, Visible To Position and Radius);
+					Create Effect(All Players(All Teams), Good Aura, Color(Orange), Event Player.MercyGACount < 1 ? Eye Position(Event Player)
+						- Vector(Sine From Degrees(Horizontal Facing Angle Of(Event Player)) * 0.175, Is On Ground(Event Player) ? 0 : (Is Button Held(
+						Event Player, Button(Jump)) ? -0.200 : -0.320), Cosine From Degrees(Horizontal Facing Angle Of(Event Player)) * 0.175)
+						: Vector(0, -36, 0), 0.010, Visible To Position and Radius);
+				Else;
+					Create Effect(All Players(All Teams), Good Aura, Color(Orange), Event Player.MercyGACount < 1 ? Eye Position(Event Player)
+						- Vector(Sine From Degrees(Horizontal Facing Angle Of(Event Player)) * 0.175, Is Button Held(Event Player, Button(Jump))
+						? -0.200 : -0.320, Cosine From Degrees(Horizontal Facing Angle Of(Event Player)) * 0.175) : Vector(0, -36, 0), 0.010,
+						Visible To Position and Radius);
+				End;
+				Event Player.HasNoGAs = True;
+			End;
+		End;
+	}
+}
+
+rule("Mercy No Envir Death")
+{
+	event
+	{
+		Player Died;
+		Team 2;
+		All;
+	}
+
+	conditions
+	{
+		Attacker == Event Player;
+		Workshop Setting Toggle(Custom String("Mercy Settings"), Custom String("Respawn On Map"), False, 0) == True;
+		Is On Ground(Event Player) == False;
+	}
+
+	actions
+	{
+		If(!Event Player.mercydeath);
+			Event Player.mercydeath = True;
+			Wait(3, Ignore Condition);
+			Skip If(Current Game Mode != Game Mode(Elimination) && !Global.RoundStart, 8);
+			Teleport(Event Player, Nearest Walkable Position(Event Player));
+			Resurrect(Event Player);
+			Wait(0.100, Ignore Condition);
+			Kill(Event Player, Null);
+			Wait(0.250, Ignore Condition);
+			If(Array Contains(Array(Map(King's Row Winter), Map(Rialto)), Current Map) || (Current Map == Map(Dorado) && Distance Between(
+				Vector(36, 3, 21), Event Player) <= 17 && Current Game Mode == Game Mode(Team Deathmatch)) || (Current Map == Map(
+				Eichenwalde Halloween) && X Component Of(Position Of(Event Player)) < 36));
+				Teleport(Event Player, Global.TDMSpawnPositions[1] + Vector(Random Real(-3.069, 3.069), 0.069, Random Real(-3.069, 3.069)));
+				Event Player.IsInMap = True;
+			Else If(Current Map == Map(Circuit royal) && Z Component Of(Position Of(Event Player)) > 45);
+				Teleport(Event Player, Vector(80, 18, 50));
+			Else If(Current Map == Map(Hanamura) && Current Game Mode == Game Mode(Skirmish));
+				Event Player.IsInMap = True;
+			End;
+			Event Player.mercydeath = False;
+		End;
+	}
+}
+
+rule("Mercy: record dead mercy for rez cd")
+{
+	event
+	{
+		Player Died;
+		All;
+		Mercy;
+	}
+
+	actions
+	{
+		Event Player.MercyDiedRezCD = True;
+	}
+}
+
+rule("Mercy: change mercy rez cd when they are ressed")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Mercy;
+	}
+
+	conditions
+	{
+		Is Alive(Event Player) == True;
+		Event Player.MercyDiedRezCD == True;
+		Event Player.mercydeath != True;
+	}
+
+	actions
+	{
+		Event Player.MercyDiedRezCD = False;
+		If(Ability Cooldown(Event Player, Button(Ability 2)) < 20);
+			Set Ability Cooldown(Event Player, Button(Ability 2), 20);
+		End;
+		If(Ability Cooldown(Event Player, Button(Secondary Fire)) < 20);
+			Set Ability Cooldown(Event Player, Button(Secondary Fire), 20);
+		End;
+	}
+}
+
+rule("Global HUD text spacing")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		If(Current Game Mode == Game Mode(Elimination));
+			Create HUD Text(All Players(All Teams), Null, Null, Custom String("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"), Top, 1, Null, Null,
+				Null, Visible To, Default Visibility);
+		Else If(Current Game Mode == Game Mode(Team Deathmatch));
+			Create HUD Text(All Players(All Teams), Null, Null, Custom String("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"), Top, 1, Null, Null, Null,
+				Visible To, Default Visibility);
+		Else;
+			Create HUD Text(All Players(All Teams), Null, Custom String(" "), Custom String("\n\n\n\n\n"), Top, 1, Null, Null, Null,
+				Visible To, Default Visibility);
+			Create HUD Text(All Players(All Teams), Null, Custom String(" "), Custom String("\n\n\n\n\n"), Top, 1, Null, Null, Null,
+				Visible To, Default Visibility);
+		End;
+		Create HUD Text(All Players(Team 1), Null, Null, Custom String("\n\n\n\n\n\n\n\n\n"), Top, 1.690, Null, Null, Null, Visible To,
+			Default Visibility);
+	}
+}
+
+rule("Mercy Player HUD")
+{
+	event
+	{
+		Ongoing - Each Player;
+		Team 2;
+		All;
+	}
+
+	actions
+	{
+		Create HUD Text(Team Of(Event Player) == Team 2 ? Event Player : Null, Null, Custom String("{0}{1}{2}",
+			Event Player.MercyGACount >= 1 ? Custom String("  {0}", Ability Icon String(Hero(Mercy), Button(Ability 1))) : Custom String(
+			"{0}", Icon String(X)), Event Player.MercyGACount >= 2 ? Ability Icon String(Hero(Mercy), Button(Ability 1)) : Empty Array,
+			Event Player.MercyGACount > 2 ? Ability Icon String(Hero(Mercy), Button(Ability 1)) : Empty Array), Null, Top, 1.500, Null,
+			Color(White), Null, Visible To and String, Default Visibility);
+		Create HUD Text(Team Of(Event Player) == Team 2 ? Event Player : Null, Null, Null, Custom String("\n"), Top,
+			Event Player.MercyIsBeaming ? 1.550 : 1.400, Null, Null, Color(White), Visible To and Sort Order, Default Visibility);
+	}
+}
+
+disabled rule("Mercy: put rez on cooldown when game starts (WIP)")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Mercy;
+	}
+
+	conditions
+	{
+		Match Time == 180;
+	}
+
+	actions
+	{
+		Set Ability Cooldown(Event Player, Button(Ability 2), 70);
+	}
+}
+
+disabled rule("Mercy: Mutli Jump Setup")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Mercy;
+	}
+
+	actions
+	{
+		Event Player.ReinSetupJumpCount = Workshop Setting Integer(Custom String("Mercy Settings"), Custom String("Double Jump Count"), 1,
+			1, 10, 0);
+	}
+}
+
+disabled rule("Mercy: Multi Jump")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Mercy;
+	}
+
+	conditions
+	{
+		Is In Air(Event Player) == True;
+		Is Button Held(Event Player, Button(Jump)) == True;
+		Event Player.ReinJumpCount >= 1;
+		(Has Status(Event Player, Frozen) || Has Status(Event Player, Knocked Down) || Has Status(Event Player, Stunned) || Has Status(
+			Event Player, Hacked) || Has Status(Event Player, Asleep) || Has Status(Event Player, Rooted)) == False;
+		Event Player.Allowed == True;
+		Workshop Setting Toggle(Custom String("Mercy Settings"), Custom String("Double Jump"), True, 0) == True;
+		disabled Event Player.DoubleJump == True;
+	}
+
+	actions
+	{
+		Event Player.ReinJumpCount = Event Player.ReinJumpCount - 1;
+		Apply Impulse(Event Player, Vector(0, 1, 0), 10, To World, Cancel Contrary Motion);
+	}
+}
+
+disabled rule("Mercy: Jump Condition True")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Mercy;
+	}
+
+	conditions
+	{
+		Is In Air(Event Player) == True;
+		Altitude Of(Event Player) > 0.800;
+		Is Button Held(Event Player, Button(Jump)) == False;
+	}
+
+	actions
+	{
+		Event Player.Allowed = True;
+	}
+}
+
+disabled rule("Mercy: Reset Double Jump")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Mercy;
+	}
+
+	conditions
+	{
+		Is On Ground(Event Player) == True;
+	}
+
+	actions
+	{
+		Event Player.ReinJumpCount = Event Player.ReinSetupJumpCount;
+		Event Player.Allowed = False;
+	}
+}
+
+disabled rule("Mercy: Doublejump setup")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Mercy;
+	}
+
+	actions
+	{
+		Event Player.DoubleJump = True;
+	}
+}
+
+disabled rule("Mercy: disable doublejump")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Mercy;
+	}
+
+	conditions
+	{
+		Event Player == Has Status(Event Player, Stunned);
+		Workshop Setting Toggle(Custom String("Mercy Settings"), Custom String("Double Jump Disable While Stunned"), True, 0) == True;
+	}
+
+	actions
+	{
+		Event Player.DoubleJump = False;
+		Wait(Workshop Setting Real(Custom String("Mercy Settings"), Custom String("Double Jump Disabled While Stunned Duration"), 2, 0, 10,
+			0), Ignore Condition);
+		Event Player.DoubleJump = True;
+	}
+}
+
+disabled rule("Mercy Backwards Boop")
+{
+	event
+	{
+		Player Dealt Knockback;
+		Team 2;
+		All;
+	}
+
+	conditions
+	{
+		Is Meleeing(Event Player) == True;
+		Vertical Facing Angle Of(Event Player) <= 0;
+	}
+
+	actions
+	{
+		"Boops direction facing or sideways"
+		disabled Apply Impulse(Victim, Facing Direction Of(Event Player), 200 ^ 200, To World, Incorporate Contrary Motion);
+		"Boops sideways"
+		Apply Impulse(Victim, Direction From Angles(Horizontal Facing Angle Of(Event Player), 0), 50, To World,
+			Incorporate Contrary Motion);
+	}
+}
+
+disabled rule("Mercy Hide Outline")
+{
+	event
+	{
+		Ongoing - Each Player;
+		Team 2;
+		All;
+	}
+
+	conditions
+	{
+		Is Standing(Event Player) == True;
+		Is Alive(Event Player) == True;
+		Event Player.OutlineHidden == False;
+	}
+
+	actions
+	{
+		Wait(5, Abort When False);
+		Event Player.OutlineHidden = True;
+		Start Forcing Player Outlines(Event Player, All Players(Team 1), False, Color(White), Default);
+		Small Message(Event Player, Custom String("Outline Hidden"));
+	}
+}
+
+disabled rule("Show Mercy Outline")
+{
+	event
+	{
+		Ongoing - Each Player;
+		Team 2;
+		All;
+	}
+
+	conditions
+	{
+		(!Is Standing(Event Player) || Is Dead(Event Player)) == False;
+		Event Player.OutlineHidden == True;
+	}
+
+	actions
+	{
+		Stop Forcing Player Outlines(Event Player, All Players(All Teams));
+		Event Player.OutlineHidden = False;
+		Small Message(Event Player, Custom String("Outline Visible"));
+	}
+}
+
+rule("Mercy Rez Balancing with Map Size")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		"Big Maps"
+		If(Array Contains(Array(Map(Hanamura Winter), Map(Hollywood), Map(Hollywood Halloween), Map(Ilios Lighthouse), Map(Ilios Ruins),
+			Map(Ilios Well), Map(Lijiang Control Center), Map(Lijiang Control Center Lunar New Year), Map(Nepal Sanctum), Map(Petra), Map(
+			Runasapi)), Current Map));
+			Global.MercyRezScalar = 80;
+			Global.RevealTime = 4;
+		"Extra Big Maps"
+		Else If(Array Contains(Array(Map(New Junk City), Map(Suravasa)), Current Map));
+			Global.MercyRezScalar = 90;
+			Global.RevealTime = 4;
+		"Small Maps"
+		Else If(Array Contains(Array(Map(Black Forest), Map(Black Forest Winter), Map(Busan Downtown Lunar New Year), Map(
+				Busan Sanctuary Lunar New Year), Map(Castillo), Map(Colosseo), Map(Eichenwalde), Map(Havana), Map(Hollywood), Map(Necropolis),
+				Map(Rialto), Map(Workshop Chamber)), Current Map) || (Current Game Mode == Game Mode(Skirmish) && Array Contains(Array(Map(
+				Dorado), Map(Temple of Anubis), Map(Volskaya Industries)), Current Map)));
+			Global.MercyRezScalar = 65;
+			Global.RevealTime = 2;
+		"Average Maps"
+		Else;
+			Global.MercyRezScalar = 75;
+			Global.RevealTime = 3;
+		End;
+	}
+}
+
+disabled rule("Reveal Mercys")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Is In Setup == Is Assembling Heroes;
+		Global.RevealTime * Count Of(All Living Players(Team 2)) + 5 >= Match Time;
+	}
+
+	actions
+	{
+		Big Message(All Players(All Teams), Custom String("Mercys Will Be Revealed in 5 secs!"));
+		Wait(5, Ignore Condition);
+		Global.RevealedMercys = True;
+	}
+}
+
+disabled rule("Reveal Alive Mercy Outlines")
+{
+	event
+	{
+		Ongoing - Each Player;
+		Team 2;
+		All;
+	}
+
+	conditions
+	{
+		Global.RevealedMercys == True;
+		Is Alive(Event Player) == True;
+	}
+
+	actions
+	{
+		Start Forcing Player Outlines(Event Player, All Players(All Teams), True, Color(Red), Always);
+	}
+}
+
+disabled rule("Stop Revealing Dead Mercys")
+{
+	event
+	{
+		Player Died;
+		Team 2;
+		All;
+	}
+
+	conditions
+	{
+		Global.RevealedMercys == True;
+	}
+
+	actions
+	{
+		Stop Forcing Player Outlines(Event Player, All Players(All Teams));
+	}
+}
+
+rule("Check Mercy is using beam")
+{
+	event
+	{
+		Ongoing - Each Player;
+		Team 2;
+		All;
+	}
+
+	conditions
+	{
+		Weapon(Event Player) == 1;
+		Is Firing Primary(Event Player) != Is Firing Secondary(Event Player);
+	}
+
+	actions
+	{
+		Wait Until(Is True For Any(Players in View Angle(Event Player, Team 2, 30), Distance Between(Event Player, Current Array Element)
+			<= 15.500 && Is In Line of Sight(Event Player, Current Array Element, Barriers Do Not Block LOS) && Is Alive(
+			Current Array Element)), 9999);
+		Abort If Condition Is False;
+		Event Player.MercyIsBeaming = True;
+		Wait Until(Weapon(Event Player) != 1 || !(Is Firing Primary(Event Player) || Is Firing Secondary(Event Player)), 9999);
+		Event Player.MercyIsBeaming = False;
+	}
+}
+
+rule("Mercy sacrifice health for extra ga")
+{
+	event
+	{
+		Ongoing - Each Player;
+		Team 2;
+		All;
+	}
+
+	conditions
+	{
+		Workshop Setting Toggle(Custom String("Mercy Settings"), Custom String("Sacrifice Health for GA Charge"), False, 0) == True;
+		Event Player.MercyGACount < 1;
+		Is Button Held(Event Player, Button(Ability 1)) == True;
+	}
+
+	actions
+	{
+		Damage(Event Player, Null, 10);
+		If(Event Player.MercyGACount >= 0.900);
+			Event Player.MercyGACount = 1;
+			Play Effect(Event Player, Buff Impact Sound, Null, Event Player, 16);
+			Set Ability 1 Enabled(Event Player, True);
+		Else;
+			Event Player.MercyGACount += Random Real(0, 0.100);
+		End;
+		If(Health(Event Player) <= 1);
+			Event Player.mercydeath = True;
+			Wait(0.250, Ignore Condition);
+			Event Player.mercydeath = False;
+		End;
+	}
+}
+
+disabled rule("======================================================REIN POWER UPS============================================================")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+}
+
+rule("DisplayTips SUBROUTINE")
+{
+	event
+	{
+		Subroutine;
+		DisplayTips;
+	}
+
+	actions
+	{
+		Wait(1, Ignore Condition);
+		For Global Variable(Loop, 0, 4, 1);
+			Small Message(All Players(Team 1), Global.Tips[0][Global.Loop]);
+			Small Message(All Players(Team 2), Global.Tips[1][Global.Loop]);
+			Wait(2, Ignore Condition);
+		End;
+		Start Rule(ReinTips, Restart Rule);
+		If(Global.TeleporterPositions != 0 && !Global.SkirmishSpawns);
+			Small Message(All Players(Team 2), Custom String("  Jump While Within Blue Circles to {0} Teleport ({1}s CD)", Ability Icon String(
+				Hero(Symmetra), Button(Ability 2)), Global.TeleporterCD));
+			Wait(2, Ignore Condition);
+		End;
+		Small Message(All Players(Team 2), Custom String("  {0} Match Voice Chat is Open! {1}", Hero Icon String(Hero(Mercy)),
+			Hero Icon String(Hero(Reinhardt))));
+		Wait(2, Ignore Condition);
+		Small Message(All Players(Team 2), Custom String("  (press L to open lobby, then click on the map)"));
+		Small Message(All Players(Team 2), Custom String("  Check Description for more information"));
+		If(Team Of(Host Player) == Team 2);
+			Wait(2, Ignore Condition);
+			Small Message(Host Player, Custom String("  Crouch Interact to show/hide server load stats"));
+		End;
+	}
+}
+
+rule("ReinTips SUBROUTINE")
+{
+	event
+	{
+		Subroutine;
+		ReinTips;
+	}
+
+	actions
+	{
+		If(Global.TeleporterPositions != 0);
+			Small Message(All Players(Team 1), Custom String("  Jump While Within Blue Circles to {0} Teleport", Ability Icon String(Hero(
+				Symmetra), Button(Ability 2))));
+			Wait(2, Ignore Condition);
+		End;
+		If(Global.JumpPadPosition != 0);
+			Small Message(All Players(Team 1), Custom String("  Jump While Within Green Circles to use {0} Jump Pad", Ability Icon String(Hero(
+				Baptiste), Button(Crouch))));
+			Wait(2, Ignore Condition);
+		End;
+		Small Message(All Players(Team 1), Custom String("  {1} Match Voice Chat is Open! {0}", Hero Icon String(Hero(Mercy)),
+			Hero Icon String(Hero(Reinhardt))));
+		Wait(1.690, Ignore Condition);
+		Small Message(All Players(Team 1), Custom String("  (press L to open lobby, then click on the map)"));
+		Small Message(All Players(Team 1), Custom String("  Check Description for more information"));
+		If(Team Of(Host Player) == Team 1);
+			Wait(2, Ignore Condition);
+			Small Message(Host Player, Custom String("  Crouch Interact to show/hide server load stats"));
+		End;
+	}
+}
+
+rule("Rein tip messages at start of round")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Is In Setup == True;
+		Match Time < 2.500;
+		Current Game Mode == Game Mode(Elimination);
+	}
+
+	actions
+	{
+		Call Subroutine(DisplayTips);
+	}
+}
+
+rule("Rein Super-Jump Announce CD (Secondary Fire)")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Reinhardt;
+	}
+
+	conditions
+	{
+		Is Button Held(Event Player, Button(Secondary Fire)) == True;
+	}
+
+	actions
+	{
+		If(Event Player.ReinFlyCoolDown);
+			Small Message(Event Player, Custom String("  {0}s cooldown", Round To Integer(Event Player.ReinFlyCoolDown, Down)));
+		Else;
+			Small Message(Event Player, Custom String("  Super-Jump CD Ready", Round To Integer(Event Player.ReinFlyCoolDown, Down)));
+	}
+}
+
+disabled rule("Rein Nerf (Firestrike/Charge OFF for 7 seconds) Workshop Maps")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Reinhardt;
+	}
+
+	conditions
+	{
+		Array Contains(Array(Map(Workshop Island), Map(Workshop Island Night), Map(Workshop Expanse), Map(Workshop Expanse Night), Map(
+			Workshop Green Screen)), Current Map) == True;
+		Has Spawned(Event Player) == True;
+	}
+
+	actions
+	{
+		Big Message(Event Player, Custom String("FireStrike/Charge Disabled 7 Seconds."));
+		Set Ability Cooldown(Event Player, Button(Ability 1), 7);
+		Set Ability Cooldown(Event Player, Button(Ability 2), 7);
+	}
+}
+
+rule("Rein: Heal per Elim")
+{
+	event
+	{
+		Player Earned Elimination;
+		Team 1;
+		Reinhardt;
+	}
+
+	conditions
+	{
+		Workshop Setting Toggle(Custom String("Rein Settings"), Custom String("Rein Heal Per Elim"), False, 0) == True;
+	}
+
+	actions
+	{
+		Set Player Health(Event Player, Health(Event Player) + 250);
+	}
+}
+
+rule("Rein Respawn on enviro death")
+{
+	event
+	{
+		Player Died;
+		All;
+		Reinhardt;
+	}
+
+	conditions
+	{
+		Attacker == Event Player;
+		Workshop Setting Toggle(Custom String("Rein Settings"), Custom String("Respawn On Envir Death"), False, 0) == True;
+		Is Game In Progress == True;
+		(Global.RoundStart || Current Game Mode == Game Mode(Elimination)) == True;
+		Event Player.mercydeath != True;
+		Count Of(All Living Players(Team 1)) >= 1;
+		Team Of(Event Player) == Team 1;
+		Is Dead(Event Player) == True;
+	}
+
+	actions
+	{
+		Wait(0.250, Abort When False);
+		If(Match Time >= 45);
+			Big Message(All Players(All Teams), Custom String("Rein Respawning in 15 Seconds"));
+		Else;
+			Big Message(All Players(All Teams), Custom String("Reins will no longer respawn!"));
+			Abort;
+		End;
+		Wait(15, Abort When False);
+		Global.DeadRein = Event Player;
+		Call Subroutine(RespawnRein);
+	}
+}
+
+rule("RespawnRein SUBROUTINE")
+{
+	event
+	{
+		Subroutine;
+		RespawnRein;
+	}
+
+	actions
+	{
+		If(Global.DeadRein != Null && Team Of(Global.DeadRein) == Team Of(Event Player));
+			Attach Players(Global.DeadRein, Closest Player To(Global.DeadRein, Team Of(Global.DeadRein)), Vector(0, 1.690, -0.690));
+			Wait(0.250, Ignore Condition);
+			Play Effect(All Players(Opposite Team Of(Team Of(Global.DeadRein))), Bad Explosion, Color(Red), Farthest Player From(
+				Global.DeadRein, Team Of(Global.DeadRein)), 100);
+			Play Effect(All Players(Opposite Team Of(Team Of(Global.DeadRein))), Ring Explosion Sound, Color(White), Farthest Player From(
+				Global.DeadRein, Team Of(Global.DeadRein)), 100);
+			Play Effect(All Players(Team Of(Global.DeadRein)), Good Pickup Effect, Color(Green), Farthest Player From(Global.DeadRein, Team Of(
+				Global.DeadRein)), 100);
+			Play Effect(All Players(Team Of(Global.DeadRein)), Buff Impact Sound, Color(White), Farthest Player From(Global.DeadRein, Team Of(
+				Global.DeadRein)), 100);
+			Resurrect(Global.DeadRein);
+			Start Scaling Player(Global.DeadRein, 0.400, False);
+			Set Player Health(Global.DeadRein, Global.DeadRein.Health);
+			Small Message(Global.DeadRein, Custom String("Jump or Crouch to Dismount"));
+			If(Ultimate Charge Percent(Global.DeadRein) == 0);
+				Set Ultimate Charge(Global.DeadRein, 1);
+			End;
+			Wait Until(Is Button Held(Global.DeadRein, Button(Jump)) || Is Button Held(Global.DeadRein, Button(Crouch)) || Is Button Held(
+				Global.DeadRein, Button(Ability 1)) || Is Button Held(Global.DeadRein, Button(Melee)) || Ultimate Charge Percent(
+				Global.DeadRein) == 0 || Is Dead(Farthest Player From(Global.DeadRein, Team Of(Global.DeadRein))), 5);
+			Detach Players(Global.DeadRein);
+			Stop Scaling Player(Global.DeadRein);
+			Teleport(Global.DeadRein, Position Of(Global.DeadRein) + Vector(0, -1, 0));
+			Global.DeadRein.IsInMap = Farthest Player From(Global.DeadRein, Team Of(Global.DeadRein)).IsInMap;
+			If(Is Button Held(Global.DeadRein, Button(Jump)));
+				Apply Impulse(Global.DeadRein, Up, 10, To World, Cancel Contrary Motion);
+			End;
+			If(!Is In Line of Sight(Event Player, Global.DeadRein, Barriers Do Not Block LOS));
+				Teleport(Global.DeadRein, Event Player);
+			End;
+			Global.DeadRein = Null;
+		End;
+	}
+}
+
+rule("Draw Rein HUD first person Rein Super Jump Cooldown HUD Text")
+{
+	event
+	{
+		Ongoing - Each Player;
+		Team 1;
+		All;
+	}
+
+	conditions
+	{
+		Event Player.HUDText[0] != True;
+	}
+
+	actions
+	{
+		Create HUD Text(Team Of(Event Player) == Team 1 ? Event Player : Null, Custom String("{0}",
+			Event Player.ReinFlyCoolDown == 0 ? Ability Icon String(Hero(Baptiste), Button(Crouch)) : Round To Integer(
+			Event Player.ReinFlyCoolDown, Down)), Null, Null, Top, 2, Event Player.ReinFlyCoolDown == 0 ? Color(White) : Color(Orange),
+			Color(White), Color(White), Visible To String and Color, Default Visibility);
+		Create HUD Text(Team Of(Event Player) == Team 1 ? Event Player : Null, Custom String("{0}{1}", Ability Icon String(Hero(Winston),
+			Button(Ability 1)), Event Player.ReinJumpCount), Null, Null, Top, 3, Event Player.ReinJumpCount == 0 ? Color(Red) : Color(
+			White), Color(White), Color(White), Visible To String and Color, Default Visibility);
+		Event Player.HUDText[0] = True;
+	}
+}
+
+rule("Rein: Kill to Respawn Dead")
+{
+	event
+	{
+		Player Earned Elimination;
+		Team 1;
+		Reinhardt;
+	}
+
+	conditions
+	{
+		Global.CombineBackStabReinResurrect == True;
+		Is Alive(Event Player) == True;
+		Is Dead(Farthest Player From(Event Player, Team Of(Event Player))) == True;
+	}
+
+	actions
+	{
+		Abort If(Global.CombineBackStabReinResurrect[1]);
+		Set Status(All Dead Players(Team 1), Null, Invincible, 1.500);
+		Wait Until(Global.DeadRein == Null, 5);
+		Global.DeadRein = First Of(All Dead Players(Team Of(Event Player)));
+		Call Subroutine(RespawnRein);
+		Set Player Health(Farthest Player From(Event Player, Team 1), 2750);
+	}
+}
+
+rule("Rein set Health Remaining")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Reinhardt;
+	}
+
+	conditions
+	{
+		Is Alive(Event Player) == True;
+		Event Player.Health != Health(Event Player);
+	}
+
+	actions
+	{
+		Wait(1, Abort When False);
+		Event Player.Health = Health(Event Player);
+	}
+}
+
+rule("Rein Super Jump")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Reinhardt;
+	}
+
+	conditions
+	{
+		Is Button Held(Event Player, Button(Melee)) == True;
+		Is Alive(Event Player) == True;
+		Workshop Setting Toggle(Custom String("Rein Settings"), Custom String("Super Jump"), True, 0) == True;
+	}
+
+	actions
+	{
+		If(Event Player.ReinFlyCoolDown == 0);
+			Apply Impulse(Event Player, Up, 10000, To World, Cancel Contrary Motion);
+			Event Player.ReinFlyCoolDown = Workshop Setting Integer(Custom String("Rein Settings"), Custom String("Super Jump CoolDown"), 60,
+				0, 300, 0);
+			Chase Player Variable At Rate(Event Player, ReinFlyCoolDown, 0, 1, None);
+			Play Effect(All Players(All Teams), Good Explosion, Color(Green), Event Player, 7);
+			Play Effect(All Players(All Teams), Explosion Sound, Color(Green), Event Player, 100);
+		End;
+		Small Message(Event Player, Custom String("  {0}s cooldown", Round To Integer(Event Player.ReinFlyCoolDown, Up)));
+		Wait(1, Ignore Condition);
+	}
+}
+
+rule("Rein Super Jump Reset On Kill")
+{
+	event
+	{
+		Player Earned Elimination;
+		Team 1;
+		All;
+	}
+
+	conditions
+	{
+		Workshop Setting Toggle(Custom String("Rein Settings"), Custom String("Super Jump Reset on Kill"), False, 0) == True;
+	}
+
+	actions
+	{
+		Attacker.ReinFlyCoolDown = 0;
+	}
+}
+
+rule("Rein Mutli Jump Setup")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Reinhardt;
+	}
+
+	actions
+	{
+		Event Player.ReinSetupJumpCount = Workshop Setting Integer(Custom String("Rein Settings"), Custom String("Multi Jump Count"), 1, 1,
+			10, 0);
+	}
+}
+
+rule("Rein: Multi Jump")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Reinhardt;
+	}
+
+	conditions
+	{
+		Is In Air(Event Player) == True;
+		Is Button Held(Event Player, Button(Jump)) == True;
+		Event Player.ReinJumpCount >= 1;
+		(Has Status(Event Player, Frozen) || Has Status(Event Player, Knocked Down) || Has Status(Event Player, Stunned) || Has Status(
+			Event Player, Hacked) || Has Status(Event Player, Asleep) || Has Status(Event Player, Rooted)) == False;
+		Event Player.Allowed == True;
+		Workshop Setting Toggle(Custom String("Rein Settings"), Custom String("Multi Jump"), True, 0) == True;
+		disabled Event Player.DoubleJump == True;
+	}
+
+	actions
+	{
+		Event Player.ReinJumpCount = Event Player.ReinJumpCount - 1;
+		Apply Impulse(Event Player, Vector(0, 1, 0), 10, To World, Cancel Contrary Motion);
+	}
+}
+
+rule("Rein: Jump Condition True")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Reinhardt;
+	}
+
+	conditions
+	{
+		Is In Air(Event Player) == True;
+		disabled Altitude Of(Event Player) > 0.800;
+		Is Button Held(Event Player, Button(Jump)) == False;
+	}
+
+	actions
+	{
+		Event Player.Allowed = True;
+	}
+}
+
+rule("Rein: Reset Double Jump")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Reinhardt;
+	}
+
+	conditions
+	{
+		Is On Ground(Event Player) == True;
+	}
+
+	actions
+	{
+		Event Player.ReinJumpCount = Event Player.ReinSetupJumpCount;
+		Event Player.Allowed = False;
+	}
+}
+
+rule("Rein Doublejump setup")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Reinhardt;
+	}
+
+	actions
+	{
+		Event Player.DoubleJump = True;
+	}
+}
+
+rule("Rein disable doublejump")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Reinhardt;
+	}
+
+	conditions
+	{
+		Event Player == Has Status(Event Player, Stunned);
+		Workshop Setting Toggle(Custom String("Rein Settings"), Custom String("Double Jump Disable When Stunned"), True, 0) == True;
+	}
+
+	actions
+	{
+		Event Player.DoubleJump = False;
+		Wait(Workshop Setting Real(Custom String("Rein Settings"), Custom String("Double Jump Disabled When Stunned Duration"), 2, 0, 10,
+			0), Ignore Condition);
+		Event Player.DoubleJump = True;
+	}
+}
+
+rule("Rein Cancel Charge")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Reinhardt;
+	}
+
+	conditions
+	{
+		Is Using Ability 1(Event Player) == True;
+		Is Button Held(Event Player, Button(Ability 1)) == True;
+		Horizontal Speed Of(Event Player) > 45;
+		Workshop Setting Toggle(Custom String("Rein Settings"), Custom String("Charge Cancel"), True, 0) == True;
+	}
+
+	actions
+	{
+		Cancel Primary Action(Event Player);
+		Small Message(Event Player, Custom String("  Cancelled Charge"));
+	}
+}
+
+rule("Boop Rein into skybox + reduce mercy rez cd + backstab bonus damage")
+{
+	event
+	{
+		Player Received Knockback;
+		All;
+		Reinhardt;
+	}
+
+	actions
+	{
+		If(Global.CombineBackStabReinResurrect && !Is In View Angle(Event Player, Attacker, 110));
+			If(Angle Between Vectors(Facing Direction Of(Event Player), Facing Direction Of(Attacker)) <= 85);
+				Play Effect(All Players(All Teams), Debuff Impact Sound, Color(Red), Position Of(Event Player), 100);
+				If(Number Of Players(Team 1) == 1 || Global.CombineBackStabReinResurrect[1]);
+					Damage(Event Player, Attacker, 650);
+				Else;
+					Kill(Event Player, Attacker);
+				End;
+			End;
+		End;
+		Apply Impulse(Event Player, Vector Towards(Attacker, Event Player), 5, To World, Cancel Contrary Motion);
+		Apply Impulse(Event Player, Up, 69, To World, Cancel Contrary Motion);
+		Set Ability Cooldown(Attacker, Button(Ability 2), Ability Cooldown(Attacker, Button(Ability 2)) - 3);
+		Set Ability Cooldown(Attacker, Button(Secondary Fire), Ability Cooldown(Attacker, Button(Secondary Fire)) - 3);
+		If(Attacker.TeleporterCD > 2);
+			Attacker.TeleporterCD -= 2;
+		Else;
+			Attacker.TeleporterCD = 0;
+		End;
+	}
+}
+
+rule("Rein Ult Slam Down")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Reinhardt;
+	}
+
+	conditions
+	{
+		Ultimate Charge Percent(Event Player) == 0;
+		Is Using Ability 1(Event Player) != True;
+		Is Using Ability 2(Event Player) != True;
+		Has Status(Event Player, Knocked Down) != True;
+		Is Button Held(Event Player, Button(Crouch)) == True;
+		Event Player.MercyDiedRezCD == True;
+	}
+
+	actions
+	{
+		Apply Impulse(Event Player, Down, 70, To World, Cancel Contrary Motion);
+		Event Player.MercyDiedRezCD = False;
+	}
+}
+
+rule("Rein ult variable setter")
+{
+	event
+	{
+		Ongoing - Each Player;
+		Team 1;
+		All;
+	}
+
+	conditions
+	{
+		Ultimate Charge Percent(Event Player) == 100;
+	}
+
+	actions
+	{
+		Event Player.MercyDiedRezCD = True;
+	}
+}
+
+rule("Rein invisible")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Reinhardt;
+	}
+
+	conditions
+	{
+		Workshop Setting Toggle(Custom String("Rein Settings"), Custom String("Invisible Reins"), False, 0) == True;
+		Is Game In Progress == True;
+	}
+
+	actions
+	{
+		Set Invisible(Event Player, Enemies);
+	}
+}
+
+rule("Rein sniped mercy explosion")
+{
+	event
+	{
+		Player Died;
+		Team 2;
+		All;
+	}
+
+	conditions
+	{
+		Distance Between(Event Player, Attacker) > 40;
+	}
+
+	actions
+	{
+		Play Effect(All Players(All Teams), Good Explosion, Color(Rose), Event Player, 6);
+		Play Effect(All Players(All Teams), Ring Explosion, Color(Rose), Event Player, 6);
+		Play Effect(All Players(All Teams), Ring Explosion Sound, Color(Rose), Attacker, 69);
+		Play Effect(All Players(All Teams), Ring Explosion Sound, Color(Rose), Event Player, 69);
+	}
+}
+
+rule("Rein sacrifice health for ult charge")
+{
+	event
+	{
+		Ongoing - Each Player;
+		Team 1;
+		All;
+	}
+
+	conditions
+	{
+		Workshop Setting Toggle(Custom String("Rein Settings"), Custom String("Sacrifice Health for Ult Charge"), False, 0) == True;
+		Is Button Held(Event Player, Button(Ultimate)) == True;
+		Ultimate Charge Percent(Event Player) < 100;
+	}
+
+	actions
+	{
+		Wait(1, Abort When False);
+		Create Effect(All Players(All Teams), Bad Aura, Color(Red), Event Player, 1, Position and Radius);
+		Event Player.MercyDeathSparkles[2] = Last Created Entity;
+		Create Effect(All Players(All Teams), Energy Sound, Color(White), Event Player, Event Player.HealthSacrificed * 6,
+			Position and Radius);
+		Event Player.MercyDeathSparkles[1] = Last Created Entity;
+		Chase Player Variable At Rate(Event Player, HealthSacrificed, 20, 5, None);
+		Start Damage Over Time(Event Player, Null, 4, 2000);
+		Set Move Speed(Event Player, 70);
+		Wait Until(!Is Button Held(Event Player, Button(Ultimate)) || Is Dead(Event Player) || Ultimate Charge Percent(Event Player)
+			+ Event Player.HealthSacrificed >= 100, 4);
+		disabled Wait Until(!Is Button Held(Event Player, Button(Ultimate)) || Ultimate Charge Percent(Event Player)
+			+ Event Player.HealthSacrificed >= 100, 4);
+		Stop Chasing Player Variable(Event Player, HealthSacrificed);
+		Set Ultimate Charge(Event Player, Ultimate Charge Percent(Event Player) + Event Player.HealthSacrificed);
+		Event Player.HealthSacrificed = 0;
+		Stop Damage Over Time(Last Damage Over Time ID);
+		Set Move Speed(Event Player, 100);
+		Destroy Effect(Event Player.MercyDeathSparkles[2]);
+		Destroy Effect(Event Player.MercyDeathSparkles[1]);
+		Play Effect(All Players(All Teams), Good Explosion, Color(Blue), Event Player, 1);
+		Play Effect(All Players(All Teams), Buff Impact Sound, Null, Event Player, 30);
+	}
+}
+
+disabled rule("=======================================================MOD POWERS============================================================")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+}
+
+rule("sparkles")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Workshop Setting Toggle(Custom String("General"), Custom String("Sparkles"), False, 0) == True;
+	}
+
+	actions
+	{
+		Wait(1, Ignore Condition);
+		Global.SparkleLayer = Position Of(Players In Slot(0, Team 1));
+		For Global Variable(Loop, 0, 50, 1);
+			Create Effect(All Players(All Teams), Sparkles, Array(Color(White), Color(Yellow), Color(Green), Color(Blue), Color(Red), Color(
+				Aqua), Color(Sky Blue), Color(Orange), Color(Violet), Color(Rose))[Global.Loop % 10], Vector(X Component Of(Position Of(
+				Global.SparkleLayer)) + 0, Y Component Of(Global.SparkleLayer) - 5 + 2 * Global.Loop, Z Component Of(Global.SparkleLayer) + 0),
+				500, Visible To);
+		End;
+	}
+}
+
+disabled rule("Spam List")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Is True For Any(Array(Custom String("kyli3k1m"), Custom String("Name goes here"), Custom String("Name goes here")), Custom String(
+			"{0}", Host Player) == Current Array Element) == True;
+	}
+
+	actions
+	{
+		Big Message(Host Player, Custom String("Your behavior as Lobby Owner is disruptive, give Lobby Owner to somebody else! {0}",
+			Hero Icon String(Hero(Mercy))));
+		Small Message(Host Player, Custom String("Your behavior as Lobby Owner is disruptive, give Lobby Owner to somebody else! {0}",
+			Hero Icon String(Hero(Mercy))));
+		Wait(3, Ignore Condition);
+		Loop If Condition Is True;
+	}
+}
+
+disabled rule("Spawn Dummy Bots")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Is Button Held(Host Player, Button(Ultimate)) == True;
+	}
+
+	actions
+	{
+		Create Dummy Bot(Hero(Mercy), Team 2, -1, Position Of(Host Player), Vector(0, 0, 0));
+		Create Dummy Bot(Hero(Reinhardt), Team 1, -1, Position Of(Host Player), Vector(0, 0, 0));
+	}
+}
+
+disabled rule("Check if raycast can hit surface")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Event Player == Host Player;
+	}
+
+	actions
+	{
+		Create Effect(All Players(All Teams), Sphere, Color(White), Ray Cast Hit Position(Eye Position(Event Player), Eye Position(
+			Event Player) + World Vector Of(Vector(0, 0, 0.300), Event Player, Rotation) + Facing Direction Of(Event Player) * 10, Null,
+			Event Player, False), 0.100, Visible To Position and Radius);
+	}
+}
+
+disabled rule("Walk through walls enable")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Is Button Held(Host Player, Button(Primary Fire)) == True;
+	}
+
+	actions
+	{
+		Disable Movement Collision With Environment(Host Player, False);
+	}
+}
+
+disabled rule("Walk through walls disable")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Is Button Held(Host Player, Button(Primary Fire)) != True;
+	}
+
+	actions
+	{
+		Enable Movement Collision With Environment(Host Player);
+	}
+}
+
+disabled rule("Show Host Coords")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		Create HUD Text(Host Player, Custom String("{0}, {1}", Position Of(Host Player), Facing Direction Of(Host Player)), Null, Null,
+			Left, 0, Color(White), Color(White), Color(White), Visible To and String, Default Visibility);
+	}
+}
+
+disabled rule("Start forcing host positions")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Host Player.perspectivetoggle == False;
+	}
+
+	actions
+	{
+		Start Forcing Player Position(Host Player, Position Of(Host Player), False);
+	}
+}
+
+disabled rule("Stop forcing host position")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Host Player.perspectivetoggle == False;
+	}
+
+	actions
+	{
+		Stop Forcing Player Position(Host Player);
+	}
+}
+
+disabled rule("Host get ground height")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Is Button Held(Host Player, Button(Primary Fire)) == True;
+	}
+
+	actions
+	{
+		If(Global.M == 0);
+			Create HUD Text(Host Player, Custom String("{0}", Global.M), Null, Null, Left, 69, Color(White), Color(White), Color(White),
+				Visible To and String, Default Visibility);
+		End;
+		Global.M = Y Component Of(Ray Cast Hit Position(Eye Position(Host Player), Eye Position(Host Player) + Vector(0, -21, 0), Null,
+			Host Player, False));
+		Heal(Host Player, Null, 100000);
+		Set Match Time(3599);
+		Set Ultimate Charge(Host Player, 100);
+		If(Is Dead(Host Player));
+			Resurrect(Host Player);
+	}
+}
+
+rule("Host Show/Hide server load")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		(Is Button Held(Host Player, Button(Crouch)) && Is Button Held(Host Player, Button(Interact))) == True;
+	}
+
+	actions
+	{
+		Global.ShowServerLoad = !Global.ShowServerLoad;
+	}
+}
+
+disabled rule("=======================================================MISCELLANEOUS======================================================")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+}
+
+rule("All Players: Death Animation")
+{
+	event
+	{
+		Player Died;
+		All;
+		All;
+	}
+
+	actions
+	{
+		Create Effect(All Players(All Teams), Sparkles, Color(Rose), Event Player, 5, Visible To Position Radius and Color);
+		Event Player.MercyDeathSparkles[0] = Last Created Entity;
+		Wait(5, Ignore Condition);
+		Destroy Effect(Event Player.MercyDeathSparkles[0]);
+	}
+}
+
+rule("All Players: LIE DOWN")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Is Button Held(Event Player, Button(Crouch)) == True;
+		Is Button Held(Event Player, Button(Reload)) == True;
+		Has Status(Event Player, Knocked Down) == False;
+	}
+
+	actions
+	{
+		Set Status(Event Player, Null, Knocked Down, 9999);
+		Wait(1, Ignore Condition);
+		Event Player.KnockedDown = True;
+	}
+}
+
+rule("All Players: STAND UP")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Has Status(Event Player, Knocked Down) == True;
+		Event Player.KnockedDown == True;
+		Is True For Any(Array(Button(Primary Fire), Button(Secondary Fire), Button(Ability 1), Button(Ability 2), Button(Ultimate), Button(
+			Jump), Button(Crouch), Button(Melee), Button(Reload)), Is Button Held(Event Player, Current Array Element)) == True;
+	}
+
+	actions
+	{
+		Clear Status(Event Player, Knocked Down);
+		Wait(1, Ignore Condition);
+		Event Player.KnockedDown = False;
+	}
+}
+
+rule("Last Hero Remaining")
+{
+	event
+	{
+		Player Died;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		(Count Of(All Living Players(Team 1)) == 1 || Count Of(All Living Players(Team 2)) == 1) == True;
+		(Global.RoundStart || Current Game Mode == Game Mode(Elimination)) == True;
+	}
+
+	actions
+	{
+		Wait Until(!Event Player.mercydeath, 0.260);
+		Abort If(Event Player.mercydeath);
+		If(Count Of(All Living Players(Team 1)) == 1 && Team Of(Event Player) == Team 1);
+			Big Message(All Players(All Teams), Custom String("Last Rein Remaining"));
+			If(Is True For Any(Array(Game Mode(Capture the Flag), Game Mode(Team Deathmatch)), Current Array Element == Current Game Mode));
+				Play Effect(All Players(Team 1), Ring Explosion Sound, Null, First Of(All Living Players(Team 1)), 99);
+			End;
+		Else If(Count Of(All Living Players(Team 2)) == 1 && Team Of(Event Player) == Team 2);
+			Big Message(All Players(All Teams), Custom String("Last Mercy Remaining"));
+			If(Is True For Any(Array(Game Mode(Capture the Flag), Game Mode(Team Deathmatch)), Current Array Element == Current Game Mode));
+				Play Effect(All Players(Team 2), Ring Explosion Sound, Null, First Of(All Living Players(Team 2)), 99);
+			End;
+		End;
+	}
+}
+
+rule("30 seconds remaining message")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Match Time <= 30;
+	}
+
+	actions
+	{
+		Big Message(All Players(All Teams), Custom String("30 secs remaining!"));
+	}
+}
+
+rule("Backstab Active Big Message Non-Elim Maps")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Global.TDMCountDown == True;
+		Global.CombineBackStabReinResurrect == True;
+	}
+
+	actions
+	{
+		Wait(13, Ignore Condition);
+		Big Message(Event Player, Custom String("{0} Backstab {1} {2} Active", Hero Icon String(Hero(Mercy)), Ability Icon String(Hero(
+			Mercy), Button(Melee)), Hero Icon String(Hero(Reinhardt))));
+	}
+}
+
+rule("Backstab Active Big Message Elim Maps")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Is In Setup == True;
+		Current Game Mode == Game Mode(Elimination);
+		Global.CombineBackStabReinResurrect == True;
+	}
+
+	actions
+	{
+		Wait(8, Ignore Condition);
+		Big Message(Event Player, Custom String("{0} Backstab {1} {2} Active", Hero Icon String(Hero(Mercy)), Ability Icon String(Hero(
+			Mercy), Button(Melee)), Hero Icon String(Hero(Reinhardt))));
+	}
+}
+
+rule("Backstab/Rein Kill to Resurrect")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Workshop Setting Toggle(Custom String("Mercy Settings"), Custom String("Mercy Back Stab/Rein Kill To Resurrect"), False, 0)
+			== True;
+	}
+
+	actions
+	{
+		Global.CombineBackStabReinResurrect = True;
+	}
+}
+
+rule("Prevent built in respawning")
+{
+	event
+	{
+		Player Died;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Current Game Mode != Game Mode(Elimination);
+	}
+
+	actions
+	{
+		Disable Built-In Game Mode Respawning(Event Player);
+	}
+}
+
+rule("Auto Swap Rein")
+{
+	event
+	{
+		Player Joined Match;
+		Team 1;
+		All;
+	}
+
+	conditions
+	{
+		Total Time Elapsed >= 3;
+		Is Match Complete != True;
+		Count Of(All Players(Team 1)) > 1;
+		Count Of(All Players(Team 2)) < 6;
+		Count Of(All Players(All Teams)) < 8;
+	}
+
+	actions
+	{
+		Wait(0.690, Abort When False);
+		Move Player to Team(Event Player, Team 2, -1);
+	}
+}
+
+rule("Auto Swap Rein at start of round")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Total Time Elapsed > 2;
+		Total Time Elapsed < 3;
+		Count Of(All Players(Team 1)) > 1;
+		Count Of(All Players(Team 2)) < 6;
+		Count Of(All Players(All Teams)) < 8;
+	}
+
+	actions
+	{
+		Wait(0.690, Abort When False);
+		Move Player to Team(Players In Slot(1, Team 1), Team 2, -1);
+	}
+}
+
+rule("Add/remove player from Seeker Priority List")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Is Button Held(Event Player, Button(Interact)) == True;
+		Is Button Held(Event Player, Button(Secondary Fire)) == True;
+		Is Button Held(Event Player, Button(Primary Fire)) == True;
+		Is Match Complete != True;
+	}
+
+	actions
+	{
+		If(Array Contains(Global.NextSeekers, Event Player));
+			Small Message(Event Player, Custom String("You have been removed from the Seekers queue"));
+			Modify Global Variable(NextSeekers, Remove From Array By Value, Event Player);
+			Global.CurrentSeekers[0] = Custom String("{0}{1}", Global.NextSeekers[0], Global.CurrentSeekers[2]);
+			Global.CurrentSeekers[1] = Custom String("{1}{0}", Global.NextSeekers[0], Global.CurrentSeekers[2]);
+			If(Count Of(Global.NextSeekers) > 0);
+				For Global Variable(Loop, 1, Count Of(Global.NextSeekers), 1);
+					Global.CurrentSeekers[0] = Custom String("{0}\n{1}{2}", Global.CurrentSeekers[0], Global.NextSeekers[Global.Loop],
+						Global.CurrentSeekers[2]);
+					Global.CurrentSeekers[1] = Custom String("{0}\n{2}{1}", Global.CurrentSeekers[1], Global.NextSeekers[Global.Loop],
+						Global.CurrentSeekers[2]);
+				End;
+			Else;
+				Global.CurrentSeekers[0] = Custom String("");
+				Global.CurrentSeekers[1] = Custom String("");
+			End;
+		Else;
+			If(Count Of(Global.NextSeekers) < 6);
+				Small Message(Event Player, Custom String("You have been added to the Seekers queue"));
+				Modify Global Variable(NextSeekers, Append To Array, Event Player);
+				If(Count Of(Global.NextSeekers) == 1);
+					Global.CurrentSeekers[0] = Custom String("{0}{1}", Global.NextSeekers[0], Global.CurrentSeekers[2]);
+					Global.CurrentSeekers[1] = Custom String("{1}{0}", Global.NextSeekers[0], Global.CurrentSeekers[2]);
+				Else;
+					Global.CurrentSeekers[0] = Custom String("{0}\n{1}{2}", Global.CurrentSeekers[0], Last Of(Global.NextSeekers),
+						Global.CurrentSeekers[2]);
+					Global.CurrentSeekers[1] = Custom String("{0}\n{2}{1}", Global.CurrentSeekers[1], Last Of(Global.NextSeekers),
+						Global.CurrentSeekers[2]);
+				End;
+			Else;
+				Small Message(Event Player, Custom String("Sorry, queue is too full"));
+			End;
+		End;
+		Wait(1, Ignore Condition);
+	}
+}
+
+rule("Rein List HUD text Seeker Priority List")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		Create HUD Text(Number Of Players(All Teams) < 12 ? All Players(Team 1) : Null, Null, Is Button Held(Local Player, Button(
+			Interact)) && Is Button Held(Local Player, Button(Secondary Fire)) ? Custom String("Rein List {1} to add/remove {0}{2}",
+			Hero Icon String(Hero(Reinhardt)), Input Binding String(Button(Primary Fire)), Global.CurrentSeekers[2]) : Custom String(
+			"Hold {0} and {1} to Show Rein List{2}", Input Binding String(Button(Interact)), Input Binding String(Button(Secondary Fire)),
+			Global.CurrentSeekers[2]), Null, Left, 6, Null, Color(Gray), Null, Visible To and String, Default Visibility);
+		Create HUD Text(Number Of Players(All Teams) < 12 ? All Players(Team 1) : Null, Null, Null, Is Button Held(Local Player, Button(
+			Interact)) && Is Button Held(Local Player, Button(Secondary Fire)) ? Empty Array : Custom String(
+			"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\nn\n\n\n\n\n\n\n\n\n\n"), Left, 7, Null, Null, Null,
+			Visible To and String, Default Visibility);
+		Create HUD Text(Number Of Players(All Teams) < 12 ? All Players(Team 1) : Null, Null, Global.CurrentSeekers[0], Null, Left, 8,
+			Null, Color(White), Null, Visible To and String, Default Visibility);
+		Create HUD Text(Number Of Players(All Teams) < 12 ? All Players(Team 2) : Null, Null, Is Button Held(Local Player, Button(
+			Interact)) && Is Button Held(Local Player, Button(Secondary Fire)) ? Custom String("{2}Rein {0} List {1} to add/remove",
+			Hero Icon String(Hero(Reinhardt)), Input Binding String(Button(Primary Fire)), Global.CurrentSeekers[2]) : Custom String(
+			"{2}Hold {0} and {1} to Show Rein List", Input Binding String(Button(Interact)), Input Binding String(Button(Secondary Fire)),
+			Global.CurrentSeekers[2]), Null, Right, 6, Null, Color(Gray), Null, Visible To and String, Default Visibility);
+		Create HUD Text(Number Of Players(All Teams) < 12 ? All Players(Team 2) : Null, Null, Null, Is Button Held(Local Player, Button(
+			Interact)) && Is Button Held(Local Player, Button(Secondary Fire)) ? Empty Array : Custom String(
+			"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\nn\n\n\n\n\n\n\n\n\n\n"), Right, 7, Null, Null, Null,
+			Visible To and String, Default Visibility);
+		Create HUD Text(Number Of Players(All Teams) < 12 ? All Players(Team 2) : Null, Null, Global.CurrentSeekers[1], Null, Right, 8,
+			Null, Color(White), Null, Visible To and String, Default Visibility);
+	}
+}
+
+disabled rule("Switch Reins at end of round (new unreliable but more attempted functionality)")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Is Match Complete == True;
+		Number Of Players(All Teams) < 12;
+	}
+
+	actions
+	{
+		Set Slow Motion(100);
+		Wait(25.400, Abort When False);
+		Global.CurrentSeekers = Filtered Array(All Players(Team 1), Current Array Element != 0);
+		Global.NextSeekers = Array Slice(Randomized Array(Filtered Array(Global.NextSeekers, Current Array Element != 0)), 0, 2);
+		If(Count Of(Global.NextSeekers) < 2 && Count Of(All Players(All Teams) > 7));
+			Modify Global Variable(NextSeekers, Append To Array, Array Slice(Randomized Array(All Players(Team 2)), 0, 2 - Count Of(
+				Global.NextSeekers)));
+		Else If(Count Of(Global.NextSeekers) == 0);
+			Modify Global Variable(NextSeekers, Append To Array, Random Value In Array(All Players(Team 2)));
+		End;
+		If(Number Of Players(Team 1) == 2);
+			If(Team Of(Global.NextSeekers[0]) != Team 1);
+				Move Player to Team(Global.CurrentSeekers[0], Team 2, -1);
+				Move Player to Team(Global.NextSeekers[0], Team 1, -1);
+			End;
+			If(Count Of(Global.NextSeekers) > 1);
+				If(Team Of(Global.NextSeekers[1]) != Team 1);
+					Move Player to Team(Global.CurrentSeekers[1], Team 2, -1);
+					Move Player to Team(Global.NextSeekers[1], Team 1, -1);
+				End;
+			Else If(Count Of(All Players(All Teams)) < 8);
+				Move Player to Team(Global.CurrentSeekers[1], Team 2, -1);
+			End;
+		Else;
+			If(Team Of(Global.NextSeekers[0]) != Team 1);
+				Move Player to Team(Global.NextSeekers[0], Team 1, -1);
+				Move Player to Team(Global.CurrentSeekers[0], Team 2, -1);
+			End;
+			If(Count Of(Global.NextSeekers) > 1);
+				If(Team Of(Global.NextSeekers[1]) != Team 1);
+					Move Player to Team(Global.NextSeekers[1], Team 1, -1);
+					Move Player to Team(Global.CurrentSeekers[1], Team 2, -1);
+				End;
+			End;
+		End;
+		Wait(0.550, Ignore Condition);
+		Restart Match;
+	}
+}
+
+rule("Switch Reins at end of round test")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Number Of Players(All Teams) < 12;
+		Is True For All(Array(Button(Ability 1), Button(Ability 2), Button(Reload)), Is Button Held(Host Player, Current Array Element))
+			== True;
+	}
+
+	actions
+	{
+		Global.CurrentSeekers = Filtered Array(All Players(Team 1), Current Array Element != 0);
+		Global.NextSeekers = Array Slice(Randomized Array(Filtered Array(Global.NextSeekers, Current Array Element != 0)), 0, 2);
+		If(Count Of(Global.NextSeekers) < 2 && Count Of(All Players(All Teams) > 7));
+			Modify Global Variable(NextSeekers, Append To Array, Array Slice(Randomized Array(All Players(Team 2)), 0, 2 - Count Of(
+				Global.NextSeekers)));
+		Else If(Count Of(Global.NextSeekers) == 0);
+			Modify Global Variable(NextSeekers, Append To Array, Random Value In Array(All Players(Team 2)));
+		End;
+		If(Number Of Players(Team 1) == 2);
+			If(Team Of(Global.NextSeekers[0]) != Team 1);
+				Move Player to Team(Global.CurrentSeekers[0], Team 2, -1);
+				Move Player to Team(Global.NextSeekers[0], Team 1, -1);
+			End;
+			If(Count Of(Global.NextSeekers) > 1);
+				If(Team Of(Global.NextSeekers[1]) != Team 1);
+					Move Player to Team(Global.CurrentSeekers[1], Team 2, -1);
+					Move Player to Team(Global.NextSeekers[1], Team 1, -1);
+				End;
+			Else If(Count Of(All Players(All Teams)) < 8);
+				Move Player to Team(Global.CurrentSeekers[1], Team 2, -1);
+			End;
+		Else;
+			If(Team Of(Global.NextSeekers[0]) != Team 1);
+				Move Player to Team(Global.NextSeekers[0], Team 1, -1);
+				Move Player to Team(Global.CurrentSeekers[0], Team 2, -1);
+			End;
+			If(Count Of(Global.NextSeekers) > 1);
+				If(Team Of(Global.NextSeekers[1]) != Team 1);
+					Move Player to Team(Global.NextSeekers[1], Team 1, -1);
+					Move Player to Team(Global.CurrentSeekers[1], Team 2, -1);
+				End;
+			End;
+		End;
+		Global.NextSeekers = Empty Array;
+	}
+}
+
+rule("Switch Players (old reliable)")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Is Match Complete == True;
+		Number Of Players(All Teams) < 12;
+	}
+
+	actions
+	{
+		Set Slow Motion(100);
+		Wait(25.750, Abort When False);
+		Global.CurrentSeekers = Filtered Array(All Players(Team 1), Current Array Element != 0);
+		Global.NextSeekers = Array Slice(Randomized Array(Global.NextSeekers), 0, 2);
+		If(Count Of(Global.NextSeekers) < 2);
+			Modify Global Variable(NextSeekers, Append To Array, Array Slice(Randomized Array(All Players(Team 2)), 0, 2 - Count Of(
+				Global.NextSeekers)));
+		End;
+		If(Number Of Players(Team 1) == 2);
+			If(Team Of(Global.NextSeekers[0]) != Team 1);
+				Move Player to Team(Global.CurrentSeekers[0], Team 2, -1);
+				Move Player to Team(Global.NextSeekers[0], Team 1, -1);
+			End;
+			If(Team Of(Global.NextSeekers[1]) != Team 1);
+				Move Player to Team(Global.CurrentSeekers[1], Team 2, -1);
+				Move Player to Team(Global.NextSeekers[1], Team 1, -1);
+			End;
+		Else;
+			If(Team Of(Global.NextSeekers[0]) != Team 1);
+				Move Player to Team(Global.NextSeekers[0], Team 1, -1);
+				Move Player to Team(Global.CurrentSeekers[0], Team 2, -1);
+			End;
+			If(Team Of(Global.NextSeekers[1]) != Team 1);
+				Move Player to Team(Global.NextSeekers[1], Team 1, -1);
+				Move Player to Team(Global.CurrentSeekers[1], Team 2, -1);
+			End;
+		End;
+		Wait(0.250, Ignore Condition);
+		Restart Match;
+	}
+}
+
+rule("Check is Owner Afk only moving 1 direction V2")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		(Throttle Of(Host Player) != Global.IsOwnerAfk[5]) != (Is Button Held(Host Player, Button(Primary Fire)) != Global.IsOwnerAfk[6]);
+		disabled Throttle Of(Host Player) != Global.IsOwnerAfk[5];
+		Global.IsOwnerAfk[0] != True;
+	}
+
+	actions
+	{
+		Wait(15, Ignore Condition);
+		Global.IsOwnerAfk[5] = Throttle Of(Host Player);
+		Global.IsOwnerAfk[6] = Is Button Held(Host Player, Button(Primary Fire));
+		Wait(150, Restart When True);
+		If(!Global.IsOwnerAfk[1]);
+			If(Current Game Mode == Game Mode(Elimination));
+				Global.IsOwnerAfk[4] = Empty Array;
+			Else;
+				Global.IsOwnerAfk[4] = Custom String(
+					"                                                                                                                             {0}",
+					Custom String("                                                                           "));
+			End;
+			Create HUD Text(Global.IsOwnerAfk[0] && Match Time > 145 ? All Players(Team 1) : Null, Null, Custom String(
+				"Vote to Kick AFK Owner: {0}\n({1}+{2}", Host Player, Input Binding String(Button(Primary Fire)), Custom String(
+				"{0}+{1} to add/remove)\nVotes Required: {2}", Input Binding String(Button(Secondary Fire)), Input Binding String(Button(
+				Melee)), Custom String("{0}          {1}", Global.IsOwnerAfk[2], Global.CurrentSeekers[2]))), Custom String(
+				"Current Votes: {0} {2}\nVote Time Remaining: {1}s", Global.IsOwnerAfk[3], Round To Integer(Match Time - 145, Up),
+				Local Player.VotedKick ? Icon String(Checkmark) : Icon String(X)), Left, 4.500, Null, Color(Purple), Color(Red),
+				Visible To and String, Default Visibility);
+			Create HUD Text(Global.IsOwnerAfk[0] && Match Time > 145 ? All Players(Team 2) : Null, Null, Custom String(
+				"{0}Vote to Kick AFK Owner: {1}\n{0}({2}", Global.CurrentSeekers[2], Host Player, Custom String("{0}+{1}+{2}",
+				Input Binding String(Button(Primary Fire)), Input Binding String(Button(Secondary Fire)), Custom String(
+				"{0} to add/remove)\n{1}Votes Required: {2}", Input Binding String(Button(Melee)), Global.CurrentSeekers[2],
+				Global.IsOwnerAfk[2]))), Custom String("{0}Current Votes: {1}{2}", Global.IsOwnerAfk[4], Global.IsOwnerAfk[3], Custom String(
+				" {0}\n{1}Vote Time Remaining: {2}s", Local Player.VotedKick ? Icon String(Checkmark) : Icon String(X), Global.IsOwnerAfk[4],
+				Round To Integer(Match Time - 145, Up))), Right, 4.500, Null, Color(Purple), Color(Red), Visible To and String,
+				Default Visibility);
+			Create HUD Text(Host Player == Local Player && Global.IsOwnerAfk[0] ? Local Player : Null, Custom String("!!!AFK WARNING!!!",
+				Input Binding String(Button(Primary Fire))), Null, Null, Top, 0, Color(White), Null, Null, Visible To, Default Visibility);
+			Create HUD Text(Host Player == Local Player && Global.IsOwnerAfk[0] ? Local Player : Null, Null, Null, Custom String(
+				"Hit Primary Fire to prevent\n    VoteKick next round!!"), Top, 0, Null, Null, Color(White), Visible To, Default Visibility);
+			Global.IsOwnerAfk[1] = True;
+		End;
+		Global.IsOwnerAfk[0] = True;
+		Global.IsOwnerAfk[2] = Round To Integer(Number Of Players(All Teams) * 0.500, Down);
+		Global.IsOwnerAfk[6] = Is Button Held(Host Player, Button(Primary Fire));
+		Wait Until(Is Button Held(Host Player, Button(Primary Fire)) != Global.IsOwnerAfk[6], 9999);
+		Global.IsOwnerAfk[0] = False;
+	}
+}
+
+rule("Player Vote to Kick AFK Owner")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Global.IsOwnerAfk[0] == True;
+		(Is Button Held(Event Player, Button(Primary Fire)) && Is Button Held(Event Player, Button(Secondary Fire)) && Is Button Held(
+			Event Player, Button(Melee))) == True;
+		Match Time > 145;
+	}
+
+	actions
+	{
+		If(Event Player.VotedKick);
+			Global.IsOwnerAfk[3] -= 1;
+			Event Player.VotedKick = False;
+		Else;
+			Global.IsOwnerAfk[3] += 1;
+			Event Player.VotedKick = True;
+		End;
+		Wait(1, Ignore Condition);
+	}
+}
+
+rule("Kick Afk Owner")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global.IsOwnerAfk[0] == True;
+		Global.IsOwnerAfk[3] >= Global.IsOwnerAfk[2];
+		Global.IsOwnerAfk[2] > 0;
+	}
+
+	actions
+	{
+		Remove Player(Host Player);
+	}
+}
+
+rule("Player Left Reset Variables")
+{
+	event
+	{
+		Player Left Match;
+		All;
+		All;
+	}
+
+	actions
+	{
+		If(Array Contains(Global.NextSeekers, Event Player));
+			Modify Global Variable(NextSeekers, Remove From Array By Value, Event Player);
+		End;
+		If(Event Player.VotedKick);
+			Global.IsOwnerAfk[3] -= 1;
+			Event Player.VotedKick = False;
+		End;
+		If(Event Player == Host Player);
+			All Players(All Teams).VotedKick = False;
+			Global.IsOwnerAfk[3] = 0;
+			Global.IsOwnerAfk[0] = False;
+		End;
+		If(Team Of(Event Player) == Team 1);
+			Global.CombineBackStabReinResurrect[1] = True;
+		Else;
+			Global.RezzedMercy = Filtered Array(All Players(Team 2), Current Array Element.RezzedMercy == Event Player);
+			Set Ability Cooldown(Global.RezzedMercy, Button(Ability 2), 0);
+			Set Ability Cooldown(Global.RezzedMercy, Button(Secondary Fire), 0);
+			Small Message(Global.RezzedMercy, Custom String("  Refunded {0} Resurrect", Ability Icon String(Hero(Mercy), Button(Ability 2))));
+		End;
+	}
+}
+
+disabled rule("===============================================================TIMERS===========================================================")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+}
+
+rule("Assembling Heroes Timer + Stop Revealing Outlines")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Is Assembling Heroes == True;
+	}
+
+	actions
+	{
+		Set Match Time(15);
+		Stop Forcing Player Outlines(All Players(All Teams), All Players(All Teams));
+		Global.RevealedMercys = False;
+	}
+}
+
+rule("Is In Setup Timer")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Is In Setup == True;
+	}
+
+	actions
+	{
+		Set Match Time(3);
+	}
+}
+
+disabled rule("============================================================MAP CHANGES=========================================================")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+}
+
+rule("Set Death Orbs")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		If(Current Map == Map(Busan));
+			Global.DeathOrbPositions = Array(Vector(177.164, -9, 276.085), Vector(279.039, -9, 228.835));
+			Global.DeathOrbRadii = Array(12, 12);
+		Else If(Current Map == Map(Castillo));
+			Global.DeathOrbPositions = Array(Vector(-72.627, 42.280, 21.283));
+			Global.DeathOrbRadii = Array(0.690);
+		Else If(Current Map == Map(Circuit royal));
+			Global.DeathOrbPositions = Array(Vector(-83.500, 18.500, -56.500));
+			Global.DeathOrbRadii = Array(5.500);
+		Else If(Current Map == Map(Ilios Lighthouse));
+			Global.DeathOrbPositions = Array(Vector(278.610, -15.794, -66.113));
+			Global.DeathOrbRadii = Array(1.690);
+		Else If(Current Map == Map(Ilios Well));
+			Global.DeathOrbPositions = Array(Vector(-168.183, 2.213, -39.329), Vector(-231.659, 2.260, 23.936));
+			Global.DeathOrbRadii = Array(1.750, 1.750);
+		Else If(Current Map == Map(King's Row));
+			Global.DeathOrbPositions = Array(Vector(-93.835, 19.460, 43.144));
+			Global.DeathOrbRadii = Array(2);
+		Else If(Current Map == Map(Lijiang Night Market));
+			Global.DeathOrbPositions = Array(Vector(78.928, -15, -72.330), Vector(-79.715, -13.595, -78.171), Vector(-95.246, -17.014,
+				-70.898));
+			Global.DeathOrbRadii = Array(26, 15, 14);
+		End;
+		For Global Variable(Loop, 0, Count Of(Global.DeathOrbPositions), 1);
+			Create Effect(All Players(All Teams), Sphere, Color(Red), Global.DeathOrbPositions[Global.Loop], Global.DeathOrbRadii[Global.Loop],
+				Visible To);
+		End;
+	}
+}
+
+rule("Execute Death Orbs")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Mercy;
+	}
+
+	conditions
+	{
+		Is True For Any(Global.DeathOrbPositions, Distance Between(Event Player, Current Array Element)
+			< Global.DeathOrbRadii[Current Array Index]) == True;
+		Is Alive(Event Player) == True;
+	}
+
+	actions
+	{
+		Call Subroutine(DeathOrbKill);
+	}
+}
+
+rule("Death Orb Kill Subroutine")
+{
+	event
+	{
+		Subroutine;
+		DeathOrbKill;
+	}
+
+	actions
+	{
+		If(Current Map == Map(Paris));
+			Big Message(Event Player, Custom String("Get Back in Sphere!"));
+		Else;
+			Big Message(Event Player, Custom String("Don't Hide Here"));
+		End;
+		If(Current Map == Map(Busan) || Current Map == Map(Circuit royal) || Current Map == Map(Lijiang Night Market));
+			Kill(Event Player, Null);
+			If(Distance Between(Event Player, Global.DeathOrbPositions[0]) > 69);
+				Event Player.mercydeath = True;
+				If(Current Map == Map(Busan));
+					Teleport(Event Player, Global.TDMSpawnPositions[0]);
+				End;
+				If(Current Map == Map(Lijiang Night Market));
+					Teleport(Event Player, Vector(-63.586, 3.479, -47.659));
+				End;
+				Wait(0.250, Ignore Condition);
+				Event Player.mercydeath = False;
+			Else If(Current Map == Map(Busan) || Current Map == Map(Circuit royal));
+				Event Player.mercydeath = True;
+				Teleport(Event Player, Global.TDMSpawnPositions[1]);
+				Wait(0.250, Ignore Condition);
+				Event Player.mercydeath = False;
+			End;
+		Else;
+			Wait(3, Abort When False);
+			Apply Impulse(Event Player, Up, 18, To World, Cancel Contrary Motion);
+			Big Message(Event Player, Custom String("illegal hiding spot."));
+			Wait(0.750, Ignore Condition);
+			Event Player.mercydeath = True;
+			Kill(Event Player, Event Player);
+			Wait(0.250, Ignore Condition);
+			Event Player.mercydeath = False;
+		End;
+	}
+}
+
+rule("Ayutthaya Boop Mercy from Stuck Spot")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Mercy;
+	}
+
+	conditions
+	{
+		(False || Current Map == Map(Ayutthaya)) == True;
+		Distance Between(Event Player, Vector(43.384, 4, -30.695)) <= 1.750;
+	}
+
+	actions
+	{
+		Apply Impulse(Event Player, Up, 6, To World, Cancel Contrary Motion);
+	}
+}
+
+rule("Castillo, EcoPoint: Antarctica, Workshop Maps GA, FS, M1 Turned OFF")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Array Contains(Array(Map(Castillo), Map(Ecopoint: Antarctica), Map(Ecopoint: Antarctica Winter), Map(Rialto), Map(
+			Workshop Expanse), Map(Workshop Expanse Night), Map(Workshop Green Screen)), Current Map) == True;
+		Is In Setup == True;
+		Global.ExperimentalChargeOnlyMap != True;
+	}
+
+	actions
+	{
+		Global.ExperimentalChargeOnlyMap = Workshop Setting Toggle(Custom String("General"), Custom String("Experimental Charge Only"),
+			False, 0);
+		Wait(1.250, Ignore Condition);
+		If(Global.ExperimentalChargeOnlyMap);
+			Big Message(Players On Hero(Hero(Reinhardt), All Teams), Custom String("Hammer Swing Reduces Move Speed For This Map"));
+			Big Message(Players On Hero(Hero(Mercy), All Teams), Custom String("GA Charges Reduced For This Map"));
+			All Players(Team 2).MercyGACount = 1;
+		Else;
+			Global.ChargeOnlyMap = True;
+			Set Primary Fire Enabled(Players On Hero(Hero(Reinhardt), All Teams), False);
+			Set Ability 1 Enabled(Players On Hero(Hero(Mercy), All Teams), False);
+			Set Ability 2 Enabled(All Players(Team 2), False);
+			Wait(1.690, Ignore Condition);
+			Big Message(Players On Hero(Hero(Reinhardt), All Teams), Custom String("Hammer Swing Disabled For This Map"));
+			Big Message(Players On Hero(Hero(Mercy), All Teams), Custom String("Rez Disabled For This Map"));
+			Big Message(Players On Hero(Hero(Mercy), All Teams), Custom String("GA Disabled For This Map"));
+			If(Current Map != Map(Castillo));
+				Set Ability 2 Enabled(Players On Hero(Hero(Reinhardt), All Teams), False);
+				Big Message(Players On Hero(Hero(Reinhardt), All Teams), Custom String("Fire Strike Disabled For This Map"));
+			End;
+		End;
+	}
+}
+
+rule("Experimental Alternative To Charge Only Maps")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Reinhardt;
+	}
+
+	conditions
+	{
+		Global.ExperimentalChargeOnlyMap == True;
+		Is Firing Primary(Event Player) == True;
+	}
+
+	actions
+	{
+		If(Horizontal Speed Of(Event Player) > 12.400);
+			Apply Impulse(Event Player, -1 * Velocity Of(Event Player), Horizontal Speed Of(Event Player) - 12.400, To World,
+				Incorporate Contrary Motion);
+		End;
+		Set Move Speed(Event Player, 75);
+		Wait Until(!Is Firing Primary(Event Player), 180);
+		Set Move Speed(Event Player, 100);
+	}
+}
+
+disabled rule("Ecopoint: Antartica Disable Rez After Use")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Mercy;
+	}
+
+	conditions
+	{
+		Array Contains(Array(Map(Castillo), Map(Ecopoint: Antarctica), Map(Ecopoint: Antarctica Winter), Map(Workshop Expanse), Map(
+			Workshop Expanse Night), Map(Workshop Green Screen)), Current Map) == True;
+		Ability Cooldown(Event Player, Button(Ability 2)) > 20;
+	}
+
+	actions
+	{
+		Set Ability 2 Enabled(Event Player, False);
+		Event Player.HasRez = False;
+	}
+}
+
+disabled rule("Ecopoint: Antartica Enable Rez After Spawning")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Mercy;
+	}
+
+	conditions
+	{
+		Array Contains(Array(Map(Castillo), Map(Ecopoint: Antarctica), Map(Ecopoint: Antarctica Winter), Map(Workshop Expanse), Map(
+			Workshop Expanse Night), Map(Workshop Green Screen)), Current Map) == True;
+		Has Spawned(Event Player) == True;
+	}
+
+	actions
+	{
+		Set Ability 2 Enabled(Event Player, True);
+		Event Player.HasRez = True;
+	}
+}
+
+disabled rule("Ecopoint: Antartica rez indicator")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Mercy;
+	}
+
+	conditions
+	{
+		Array Contains(Array(Map(Castillo), Map(Ecopoint: Antarctica), Map(Ecopoint: Antarctica Winter), Map(Workshop Expanse), Map(
+			Workshop Expanse Night), Map(Workshop Green Screen)), Current Map) == True;
+	}
+
+	actions
+	{
+		Create In-World Text(All Players(Team 2), Custom String("{0}", Ability Icon String(Hero(Mercy), Button(Ability 2))), Is Alive(
+			Event Player) || !Event Player.HasRez ? Vector(0, -21, 0) : Position Of(Event Player) + Vector(0, 1.869, 0), 1,
+			Clip Against Surfaces, Visible To and Position, Color(White), Default Visibility);
+		Create Effect(All Players(Team 2), Sparkles, Color(Yellow), Is Alive(Event Player) || !Event Player.HasRez ? Vector(0, -21, 0)
+			: Event Player, 0.010, Visible To Position and Radius);
+	}
+}
+
+rule("Hanamura Disable GA/FS Out of Map")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Current Map == Map(Hanamura);
+		Current Game Mode == Game Mode(Skirmish);
+		Event Player.IsInMap == False;
+	}
+
+	actions
+	{
+		Call Subroutine(OutOfMapAbilityRestriction);
+	}
+}
+
+rule("Hanamura Out of Map Ceiling")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Current Map == Map(Hanamura);
+		Current Game Mode == Game Mode(Skirmish);
+		Event Player.IsInMap == False;
+		Y Component Of(Position Of(Event Player)) > 16;
+	}
+
+	actions
+	{
+		Apply Impulse(Event Player, Down, 1, To World, Cancel Contrary Motion);
+	}
+}
+
+rule("Hanamura Prevent Soft lock spot out of map")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Current Map == Map(Hanamura);
+		Current Game Mode == Game Mode(Skirmish);
+		Event Player.IsInMap == False;
+		Distance Between(Event Player, Vector(50.750, 0.450, 37.500)) < 2;
+		Is On Ground(Event Player) == True;
+		Y Component Of(Position Of(Event Player)) > 0.440;
+	}
+
+	actions
+	{
+		Teleport(Event Player, Vector(50.500, -1.870, 32));
+	}
+}
+
+rule("Hanamura Prevent Soft lock spot out of map 2")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Current Map == Map(Hanamura);
+		Current Game Mode == Game Mode(Skirmish);
+		Event Player.IsInMap == False;
+		Distance Between(Event Player, Vector(46.500, 0, 42.750)) < 2.125;
+		Is On Ground(Event Player) == True;
+		Y Component Of(Position Of(Event Player)) > -0.200;
+	}
+
+	actions
+	{
+		Teleport(Event Player, Global.TeleporterPositions[5]);
+	}
+}
+
+rule("Ensure Hanamura Enable GA/FS in Map")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Current Map == Map(Hanamura);
+		Current Game Mode == Game Mode(Skirmish);
+		Event Player.IsInMap == False;
+		((Z Component Of(Position Of(Event Player)) < 38 && X Component Of(Position Of(Event Player)) < 45 && Y Component Of(Position Of(
+			Event Player)) > 0) || (Z Component Of(Position Of(Event Player)) < 10 && Y Component Of(Position Of(Event Player)) > -2))
+			== True;
+	}
+
+	actions
+	{
+		Event Player.IsInMap = True;
+	}
+}
+
+rule("Illios Ruins Teleport Mercy from Stuck Spot")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Mercy;
+	}
+
+	conditions
+	{
+		(False || Current Map == Map(Ilios Ruins)) == True;
+		Distance Between(Event Player, Vector(16.728, 66.909, -144.043)) <= 1.133;
+	}
+
+	actions
+	{
+		Wait(0.250, Abort When False);
+		Teleport(Event Player, Vector(15.437, 66.982, -144.039));
+	}
+}
+
+rule("Illios Well Boop Mercy from Stuck Spots")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Mercy;
+	}
+
+	conditions
+	{
+		Current Map == Map(Ilios Well);
+		Is True For Any(Array(Vector(-175.022, 3.223, -93.080), Vector(-178.380, -5, -54.360), Vector(-285.625, 1.750, 17.430), Vector(
+			-275.938, 1.750, 11.002), Vector(-285.700, 0, 16.800)), Distance Between(Event Player, Current Array Element) <= 0.750)
+			== True;
+	}
+
+	actions
+	{
+		Apply Impulse(Event Player, Up, 6.969, To World, Cancel Contrary Motion);
+	}
+}
+
+rule("Oasis City Center Rein Enhanced Jump Spot Execute")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Global.JumpPadPosition != 0;
+		Distance Between(Event Player, Global.JumpPadPosition) <= 2;
+		Is Jumping(Event Player) == True;
+		Y Component Of(Velocity Of(Event Player)) > 0;
+	}
+
+	actions
+	{
+		If(Team Of(Event Player) == Team 1);
+			Apply Impulse(Event Player, Up, 30, To World, Cancel Contrary Motion);
+			Play Effect(All Players(All Teams), Good Explosion, Color(Green), Global.JumpPadPosition, 5);
+			Play Effect(All Players(All Teams), Explosion Sound, Color(Green), Global.JumpPadPosition, 80);
+		Else;
+			Small Message(Event Player, Custom String("  hmm maybe reinhardts can use this"));
+		End;
+	}
+}
+
+rule("Oasis City Center Rein Enhanced Jump Ring Setup")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	actions
+	{
+		If(Current Map == Map(Havana));
+			Global.JumpPadPosition = Vector(11.766, 5, -26.534);
+		Else If(Current Map == Map(Hollywood));
+			Global.JumpPadPosition = Vector(19.750, 1.600, -53.500);
+		Else If(Current Map == Map(King's Row));
+			Global.JumpPadPosition = Vector(-6.408, -0.100, 12.275);
+		Else If(Current Map == Map(Oasis City Center));
+			Global.JumpPadPosition = Vector(65.569, 1, 323.171);
+		Else If(Current Map == Map(Suravasa));
+			Global.JumpPadPosition = Vector(-94, 7, -41);
+		End;
+		If(Global.JumpPadPosition);
+			Create Effect(All Players(Team 1), Ring, Color(Green), Global.JumpPadPosition, 2, Visible To);
+			Create Effect(All Players(Team 1), Ring, Color(Green), Global.JumpPadPosition + Vector(0, 1, 0), 1, Visible To);
+			Create Effect(All Players(Team 2), Ring, Color(Gray), Global.JumpPadPosition, 2, Visible To);
+			Create Effect(All Players(Team 2), Ring, Color(Gray), Global.JumpPadPosition + Vector(0, 1, 0), 1, Visible To);
+		End;
+	}
+}
+
+rule("Paris piano mercy bullet speed")
+{
+	event
+	{
+		Ongoing - Each Player;
+		Team 2;
+		All;
+	}
+
+	conditions
+	{
+		Vertical Facing Angle Of(Event Player) > 38;
+		Is True For Any(Array(Current Map == Map(Paris) && (Distance Between(Event Player, Vector(-40.726, 12.500, 33.329))
+			< 3.690 || Distance Between(Event Player, Vector(-84.776, 13.510, -107.514)) < 3.690), Current Map == Map(Circuit royal)
+			&& Distance Between(Event Player, Vector(-102.644, 8.500, -41.489)) < 3.690), Current Array Element) == True;
+	}
+
+	actions
+	{
+		Set Projectile Speed(Event Player, 500);
+		If(Current Map == Map(Circuit royal));
+			Wait Until(Vertical Facing Angle Of(Event Player) <= 38 || Distance Between(Event Player, Vector(-102.644, 8.500, -41.489))
+				>= 3.690, 9999);
+		Else;
+			Wait Until(Vertical Facing Angle Of(Event Player) <= 38 || (Distance Between(Event Player, Vector(-40.726, 12.500, 33.329))
+				>= 3.690 && Distance Between(Event Player, Vector(-84.776, 13.510, -107.514)) >= 3.690), 9999);
+		End;
+		Set Projectile Speed(Event Player, 100);
+	}
+}
+
+rule("Paris Disable GA/FS Out of Map")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Current Map == Map(Paris);
+		Current Game Mode == Game Mode(Team Deathmatch);
+		Event Player.IsInMap == False;
+	}
+
+	actions
+	{
+		Call Subroutine(OutOfMapAbilityRestriction);
+	}
+}
+
+rule("OutOfMapAbilityRestriction SUBROUTINE")
+{
+	event
+	{
+		Subroutine;
+		OutOfMapAbilityRestriction;
+	}
+
+	actions
+	{
+		If(Team Of(Event Player) == Team 1);
+			Set Ability 2 Enabled(Event Player, False);
+		Else;
+			Set Ability 1 Enabled(Event Player, False);
+		End;
+		Wait Until(Event Player.IsInMap, 9999);
+		If(Team Of(Event Player) == Team 1);
+			Set Ability 2 Enabled(Event Player, True);
+		Else;
+			Set Ability 1 Enabled(Event Player, True);
+		End;
+	}
+}
+
+rule("Ensure Paris Enable GA/FS in Map")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Current Map == Map(Paris);
+		Current Game Mode == Game Mode(Team Deathmatch);
+		Event Player.IsInMap == False;
+		((2.025 * X Component Of(Position Of(Event Player)) - Z Component Of(Position Of(Event Player)) < -25 && X Component Of(
+			Position Of(Event Player)) > -60) || (2.025 * X Component Of(Position Of(Event Player)) - Z Component Of(Position Of(
+			Event Player)) < -54.545 && X Component Of(Position Of(Event Player)) > -85)) == True;
+		Y Component Of(Position Of(Event Player)) < 26;
+		Z Component Of(Position Of(Event Player)) < -60;
+	}
+
+	actions
+	{
+		Event Player.IsInMap = True;
+	}
+}
+
+rule("Paris Ceiling to prevent out of map")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Current Map == Map(Paris);
+		Current Game Mode == Game Mode(Team Deathmatch);
+		Event Player.IsInMap == False;
+		Y Component Of(Position Of(Event Player)) > 33;
+	}
+
+	actions
+	{
+		Apply Impulse(Event Player, Down, 1, To World, Cancel Contrary Motion);
+	}
+}
+
+rule("Paris Barrier Orb Boop")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Current Map == Map(Paris);
+		Current Game Mode == Game Mode(Team Deathmatch);
+		Distance Between(Event Player, Vector(-112.853, 20.276, -140.807)) < 3.690;
+	}
+
+	actions
+	{
+		Apply Impulse(Event Player, Vector(0.450, -0.360, 0.820), 10, To World, Cancel Contrary Motion);
+	}
+}
+
+rule("Paris invisible wall fence indicator")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Current Map == Map(Paris);
+		Current Game Mode == Game Mode(Team Deathmatch);
+	}
+
+	actions
+	{
+		For Global Variable(FencePosition, -37, -45.500, -0.675);
+			Create Beam Effect(All Players(All Teams), Grapple Beam, Vector(Global.FencePosition, 8, (Global.FencePosition - -37)
+				/ -0.675 * -1.350 + -61.600), Vector(Global.FencePosition, 16.500, (Global.FencePosition - -37) / -0.675 * -1.350 + -61.600),
+				Color(White), Visible To);
+		End;
+		Create Beam Effect(All Players(All Teams), Grapple Beam, Vector(-35.867, 15, -58.875), Vector(-45.692, 15, -79.293), Color(White),
+			Visible To);
+		For Global Variable(FencePosition, -79, -77, 0.675);
+			Create Beam Effect(All Players(All Teams), Grapple Beam, Vector((Global.FencePosition - -79) / -0.675 * 1.350 + -45.500, 10,
+				Global.FencePosition), Vector((Global.FencePosition - -79) / -0.675 * 1.350 + -45.500, 16.500, Global.FencePosition), Color(
+				White), Visible To);
+		End;
+		Create Beam Effect(All Players(All Teams), Grapple Beam, Vector(-45.100, 15, -79.181), Vector(-48.903, 15, -77.300), Color(White),
+			Visible To);
+		Create Effect(All Players(All Teams), Sphere, Color(Orange), Vector(-112.853, 20.276, -140.807), 3.690, Visible To);
+	}
+}
+
+rule("Set Bubble")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		(Current Map == Map(Castillo) || Current Map == Map(Paris)) != (Current Map == Map(Circuit royal));
+	}
+
+	actions
+	{
+		If(Current Game Mode == Game Mode(Skirmish));
+			If(Current Map == Map(Circuit royal));
+				Global.BubblePosition = Vector(-102.644, 8, -41.489);
+			Else;
+				Global.BubblePosition = Vector(-80, 15, -108);
+			End;
+		Else;
+			If(Current Map == Map(Castillo));
+				Global.BubblePosition = Vector(-84.131, 45, 20.387);
+			Else;
+				Global.BubblePosition = Vector(-41.820, 15, 30.886);
+			End;
+		End;
+		Create Effect(All Players(All Teams), Sphere, Color(Sky Blue), Global.BubblePosition, 12.400, Visible To);
+	}
+}
+
+rule("Bubble execute")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Global.BubblePosition != 0;
+		Current Game Mode != Game Mode(Skirmish);
+		(Global.RoundStart || Current Game Mode == Game Mode(Elimination)) == True;
+		Event Player.IsInMap == False;
+		Is Alive(Event Player) == True;
+		Distance Between(Event Player, Global.BubblePosition) >= 12.400;
+	}
+
+	actions
+	{
+		If(Current Map == Map(Paris));
+			If(Z Component Of(Position Of(Event Player)) < -60);
+				Abort;
+			End;
+			If(Team Of(Event Player) == Team 2);
+				Call Subroutine(DeathOrbKill);
+			End;
+		Else;
+			Teleport(Event Player, Ray Cast Hit Position(Vector(-75.985, 64.878, 27.998), (Position Of(Event Player)
+				* 5 + Global.BubblePosition) / 6, Null, Event Player, False));
+			Apply Impulse(Event Player, Direction Towards(Event Player, Global.BubblePosition), 8, To World, Cancel Contrary Motion);
+		End;
+	}
+}
+
+rule("Bubble wall immunity")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Global.BubblePosition != 0;
+		Current Game Mode == Game Mode(Skirmish);
+		Distance Between(Event Player, Global.BubblePosition) < 12.400;
+	}
+
+	actions
+	{
+		Event Player.IsImmuneToWall = True;
+		Wait Until(Distance Between(Event Player, Global.BubblePosition) >= 12.400, 9999);
+		Event Player.IsImmuneToWall = False;
+	}
+}
+
+rule("Rein kill immune mercys in piano spawn bubble")
+{
+	event
+	{
+		Ongoing - Each Player;
+		Team 1;
+		All;
+	}
+
+	conditions
+	{
+		Current Map == Map(Circuit royal);
+		Is Jumping(Event Player) == True;
+		Distance Between(Event Player, Vector(-72.750, 6, -33.500)) < 1.690;
+	}
+
+	actions
+	{
+		Kill(Players Within Radius(Global.BubblePosition, 12.400, Team 2, Off), Event Player);
+		Play Effect(All Players(All Teams), Bad Explosion, Color(Red), Global.BubblePosition, 10);
+		Play Effect(All Players(All Teams), Explosion Sound, Null, Global.BubblePosition, 69);
+		Wait(3, Ignore Condition);
+	}
+}
+
+rule("rein kill switch visual")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Current Map == Map(Circuit royal);
+	}
+
+	actions
+	{
+		Create Effect(All Players(All Teams), Sphere, Color(Yellow), Vector(-72.750, 5.500, -33.500), 1, Visible To);
+		Create In-World Text(All Players(All Teams), Custom String("Reins can jump here to Kill Mercys in Bubble"), Vector(-72.750, 6.750,
+			-33.500), 1, Clip Against Surfaces, Visible To, Color(Red), Default Visibility);
+	}
+}
+
+disabled rule("==========================================================TDM STUFF=============================================================")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+}
+
+rule("TDM Setup")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Current Game Mode != Game Mode(Elimination);
+	}
+
+	actions
+	{
+		Global.Score = Array(0, 0, True);
+		Start Rule(SpawnSetter, Do Nothing);
+		Wait(3.690, Ignore Condition);
+		If(Current Game Mode == Game Mode(Skirmish));
+			Set Respawn Max Time(All Players(All Teams), 999);
+		End;
+		Disable Built-In Game Mode Announcer;
+		Disable Built-In Game Mode Respawning(All Players(All Teams));
+		Enable Death Spectate Target HUD(All Players(All Teams));
+		Disable Built-In Game Mode Scoring;
+		Disable Built-In Game Mode Completion;
+		Global.NumMercysDead = -1;
+		If(Count Of(All Players(Team 1)) == 0);
+			Create Dummy Bot(Hero(Reinhardt), Team 1, -1, Global.TDMSpawnPositions[0], Vector(0, 0, 0));
+			Start Forcing Dummy Bot Name(Last Created Entity, Custom String(
+				"                                                                               check description for info + discord server link"));
+		End;
+		If(Count Of(All Players(Team 2)) == 0);
+			Create Dummy Bot(Hero(Mercy), Team 2, -1, Global.TDMSpawnPositions[1], Vector(0, 0, 0));
+			Start Forcing Dummy Bot Name(Last Created Entity, Custom String("check description for info + discord server link"));
+		End;
+		Global.CurrentSeekers[2] = Custom String("               {0}{0}", Custom String(
+			"                                                                                                                                "));
+	}
+}
+
+rule("Track Player Name lengths and Set Spacing")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Current Game Mode != Game Mode(Elimination);
+		(Global.NumMercysAlive != Count Of(All Living Players(Team 2)) || Global.NumMercysDead != Count Of(All Dead Players(Team 2)))
+			== True;
+		Global.SortedNames == 0;
+	}
+
+	actions
+	{
+		Global.SortedNames = 1;
+		Wait(0.250, Ignore Condition);
+		Global.SortedNames = Array(Sorted Array(All Living Players(Team 2), Slot Of(Current Array Element)), Sorted Array(All Dead Players(
+			Team 2), Slot Of(Current Array Element)));
+		Global.NameList[0] = Custom String("");
+		Global.Spacing = 0;
+		For Global Variable(NumMercysAlive, 0, Min(Count Of(All Living Players(Team 2)), 5), 1);
+			Global.NameList[0] = Custom String("{0} {1}", Global.NameList[0], Global.SortedNames[0][Global.NumMercysAlive]);
+			Global.Spacing += String Length(Global.SortedNames[0][Global.NumMercysAlive]);
+		End;
+		Global.PlayerNamesLength = Global.Spacing;
+		If(Count Of(All Living Players(Team 2)) > 5);
+			Global.NameList[0] = Custom String("{0}\n", Global.NameList[0]);
+			Global.Spacing = 0;
+			For Global Variable(NumMercysAlive, 5, Count Of(All Living Players(Team 2)), 1);
+				Global.NameList[0] = Custom String("{0} {1}", Global.NameList[0], Global.SortedNames[0][Global.NumMercysAlive]);
+				Global.Spacing += String Length(Global.SortedNames[0][Global.NumMercysAlive]);
+			End;
+			If(Global.PlayerNamesLength < Global.Spacing);
+				Global.PlayerNamesLength = Global.Spacing;
+			End;
+		End;
+		Global.NameList[1] = Custom String("");
+		Global.Spacing = 0;
+		For Global Variable(NumMercysDead, 0, Min(Count Of(All Dead Players(Team 2)), 5), 1);
+			Global.NameList[1] = Custom String("{0} {1}", Global.NameList[1], Global.SortedNames[1][Global.NumMercysDead]);
+			Global.Spacing += String Length(Global.SortedNames[1][Global.NumMercysDead]);
+		End;
+		If(Global.PlayerNamesLength < Global.Spacing);
+			Global.PlayerNamesLength = Global.Spacing;
+		End;
+		If(Count Of(All Dead Players(Team 2)) > 5);
+			Global.NameList[1] = Custom String("{0}\n", Global.NameList[1]);
+			Global.Spacing = 0;
+			For Global Variable(NumMercysDead, 5, Count Of(All Dead Players(Team 2)), 1);
+				Global.NameList[1] = Custom String("{0} {1}", Global.NameList[1], Global.SortedNames[1][Global.NumMercysDead]);
+				Global.Spacing += String Length(Global.SortedNames[1][Global.NumMercysDead]);
+			End;
+			If(Global.PlayerNamesLength < Global.Spacing);
+				Global.PlayerNamesLength = Global.Spacing;
+			End;
+		End;
+		Global.Spacing = Custom String("WWWWW");
+		For Global Variable(PlayerNamesLength, 75 - Global.PlayerNamesLength, 0, -2);
+			Global.Spacing = Custom String("{0}LLL", Global.Spacing);
+		End;
+		Global.SortedNames = 0;
+	}
+}
+
+rule("SpawnSetter SUBROUTINE")
+{
+	event
+	{
+		Subroutine;
+		SpawnSetter;
+	}
+
+	actions
+	{
+		If(Array Contains(Array(Map(Ayutthaya), Map(Black Forest), Map(Black Forest Winter), Map(Castillo), Map(Ecopoint: Antarctica), Map(
+			Ecopoint: Antarctica Winter), Map(Ilios Lighthouse), Map(Ilios Ruins), Map(Ilios Well), Map(Lijiang Control Center), Map(
+			Lijiang Control Center Lunar New Year), Map(Lijiang Garden), Map(Lijiang Garden Lunar New Year), Map(Lijiang Night Market),
+			Map(Lijiang Night Market Lunar New Year), Map(Necropolis), Map(Nepal Sanctum), Map(Nepal Shrine), Map(Nepal Village), Map(
+			Oasis City Center), Map(Oasis Gardens), Map(Oasis Gardens)), Current Map));
+			Global.ExpectedGamemode = Game Mode(Elimination);
+		Else If(Array Contains(Array(Map(Busan Downtown Lunar New Year), Map(Busan Sanctuary Lunar New Year)), Current Map));
+		Else If(Array Contains(Array(Map(Antarctic Peninsula), Map(Busan), Map(Circuit royal), Map(Colosseo), Map(Esperança), Map(
+				Hanamura), Map(Havana), Map(Hollywood), Map(Junkertown), Map(New Queen Street), Map(New Junk City), Map(Numbani), Map(Paraíso),
+				Map(Rialto), Map(Runasapi), Map(Samoa), Map(Shambali Monastery), Map(Suravasa), Map(Watchpoint: Gibraltar), Map(Aatlis)),
+				Current Map));
+			If(Current Game Mode != Game Mode(Skirmish));
+				Global.ExpectedGamemode = Game Mode(Skirmish);
+			End;
+		"should have , Map(Hanaoka)"
+		Else If(Current Game Mode == Game Mode(Capture the Flag) || Current Game Mode == Game Mode(Skirmish));
+			If(!Array Contains(Array(Map(Blizzard World), Map(Dorado), Map(Eichenwalde), Map(Horizon Lunar Colony), Map(Paris), Map(Route 66),
+				Map(Temple of Anubis), Map(Volskaya Industries)), Current Map));
+				Global.ExpectedGamemode = Game Mode(Team Deathmatch);
+			End;
+		End;
+		If(Global.ExpectedGamemode != 0 && Current Game Mode != Global.ExpectedGamemode);
+			Create HUD Text(All Players(All Teams), Custom String("{1} {0} is Not Supported!!", Current Map, Current Game Mode), Null, Null,
+				Top, 0.695, Color(White), Null, Null, Visible To, Default Visibility);
+			Create HUD Text(All Players(All Teams), Custom String("Please Turn Off This Map! This is the Wrong Gamemode!"), Null, Null, Top,
+				0.700, Color(White), Null, Null, Visible To, Default Visibility);
+			Create HUD Text(All Players(All Teams), Custom String("Instead of {0} it should be {1}", Current Game Mode,
+				Global.ExpectedGamemode), Null, Null, Top, 0.710, Color(White), Null, Null, Visible To, Default Visibility);
+			Create HUD Text(All Players(All Teams), Custom String("Game Will Restart in {0}s", Round To Integer(Global.ExpectedGamemode, Up)),
+				Null, Null, Top, 0.720, Color(White), Null, Null, Visible To and String, Default Visibility);
+			Global.ExpectedGamemode = 60;
+			Chase Global Variable Over Time(ExpectedGamemode, 0, 60, None);
+			Wait Until(Global.ExpectedGamemode == 0, 69);
+			Restart Match;
+		End;
+		disabled If(Current Map == Map(Antarctic Peninsula));
+		disabled Else If(Current Map == Map(Blizzard World) || Current Map == Map(Blizzard World Winter));
+		If(Current Map == Map(Blizzard World));
+			Global.TDMSpawnPositions = Array(Vector(35.750, 2.690, 78.500), Vector(3, -3.690, -14.500));
+			Global.FencePosition = Array(Vector(-24, -9.200, 204), 0);
+		Else If(Current Map == Map(Blizzard World Winter));
+			Global.TDMSpawnPositions = Array(Vector(-35.370, -2.250, 147.310), Vector(-20.440, 2, 64.850));
+		Else If(Current Map == Map(Busan));
+			Global.TDMSpawnPositions = Array(Vector(275.279, 10.100, 210.837), Vector(163.832, 10.100, 258.750));
+		Else If(Current Map == Map(Busan Downtown Lunar New Year));
+			Global.TDMSpawnPositions = Array(Vector(-6.104, 15.930, -125.406), Vector(109.125, 15.930, -125.750));
+		Else If(Current Map == Map(Busan Sanctuary Lunar New Year));
+			Global.TDMSpawnPositions = Array(Vector(-393.250, 9.160, 160), Vector(-267.125, 9.160, 159.375));
+		Else If(Current Map == Map(Château Guillard) || Current Map == Map(Château Guillard Halloween));
+			Global.TDMSpawnPositions = Array(Vector(173.290, 7, 66.090), Vector(233.730, 2, 91.330));
+		Else If(Current Map == Map(Circuit royal));
+		Else If(Current Map == Map(Colosseo));
+		Else If(Current Map == Map(Dorado) && Current Game Mode == Game Mode(Team Deathmatch));
+			Global.TDMSpawnPositions = Array(Vector(158.330, 10.010, -7.880), Vector(68.130, 14.010, 16.260));
+		Else If(Current Map == Map(Dorado));
+			Global.TDMSpawnPositions = Array(Vector(73.750, 7, -11.360), Vector(-2.250, 0, 9.172));
+			Global.FencePosition = Array(Vector(91, 7, -95), 0);
+			disabled Else If(Current Map == Map(Eichenwalde) || Current Map == Map(Eichenwalde Halloween));
+		Else If(Current Map == Map(Esperança));
+		Else If(Current Map == Map(Eichenwalde));
+			Global.TDMSpawnPositions = Array(Vector(12.254, 6.690, -89.700), Vector(-10.481, 0.690, -14.356));
+			Global.FencePosition = Array(Vector(43, 6, -195), 0);
+		Else If(Current Map == Map(Eichenwalde Halloween));
+			Global.TDMSpawnPositions = Array(Vector(102, 12.720, -109), Vector(42.650, 5.090, -65.130));
+		Else If(Current Map == Map(Hanamura));
+			Global.TDMSpawnPositions = Array(Vector(0.500, 1, 1), Vector(63, -2, 12.250));
+			Global.FencePosition = Array(Vector(130.600, -0.250, -32), 90);
+			disabled Else If(Current Map == Map(Hanamura Winter) || Current Map == Map(Hanamura));
+		Else If(Current Map == Map(Hanamura Winter));
+			Global.TDMSpawnPositions = Array(Vector(-21.690, 1, -95.580), Vector(14.170, -1.160, 33.080));
+		Else If(Current Map == Map(Havana));
+			Global.TDMSpawnPositions = Array(Vector(57.903, 8, 27.568), Vector(-15.460, 6, -18.154));
+		Else If(Current Map == Map(Hollywood));
+			Global.TDMSpawnPositions = Array(Vector(-20.086, 4, -150.213), Vector(0.500, 1.600, -76.500));
+			Global.FencePosition = Array(Vector(0, 2.780, -33), 90);
+			disabled Else If(Current Map == Map(Hollywood) || Current Map == Map(Hollywood Halloween));
+		Else If(Current Map == Map(Hollywood Halloween));
+			Global.TDMSpawnPositions = Array(Vector(-50.520, -0.180, -14.170), Vector(17, 6, 40));
+		Else If(Current Map == Map(Horizon Lunar Colony) && Current Game Mode == Game Mode(Team Deathmatch));
+			Global.TDMSpawnPositions = Array(Vector(-23, 4.920, -155.200), Vector(72.600, 14.040, -69));
+		Else If(Current Map == Map(Horizon Lunar Colony));
+			Global.TDMSpawnPositions = Array(Vector(54, 8.900, -90), Vector(27.250, 7, -17));
+			Global.FencePosition = Array(Vector(30, 8, -229), 0);
+		Else If(Current Map == Map(Junkertown));
+		Else If(Current Map == Map(Aatlis));
+		Else If(Current Map == Map(Kanezaka));
+			Global.TDMSpawnPositions = Array(Vector(-64, 12, -27.500), Vector(-16, 11.150, 17));
+		Else If(Current Map == Map(King's Row));
+			Global.TDMSpawnPositions = Array(Vector(21.310, -0.690, -48.813), Vector(0.350, 1.690, 39.181));
+			disabled Else If(Current Map == Map(King's Row) || Current Map == Map(King's Row Winter));
+		Else If(Current Map == Map(King's Row Winter));
+			Global.TDMSpawnPositions = Array(Vector(-95.750, -2.500, -46.660), Vector(-46.270, -0.690, 1.090));
+		Else If(Current Map == Map(Malevento));
+			Global.TDMSpawnPositions = Array(Vector(39.380, 3, 21.780), Vector(-19.340, -3, -11.260));
+			disabled Else If(Current Map == Map(New Junk City));
+		Else If(Current Map == Map(New Queen Street));
+		Else If(Current Map == Map(Numbani));
+		Else If(Current Map == Map(Paraíso));
+		Else If(Current Map == Map(Paris) && Current Game Mode == Game Mode(Team Deathmatch));
+			Global.TDMSpawnPositions = Array(Vector(-69, 10.750, -27.500), Vector(-85, 13, -106.710));
+		Else If(Current Map == Map(Paris));
+			Global.TDMSpawnPositions = Array(Vector(-54.352, 12, 13.908), Vector(6.693, 10, -65.377));
+			Global.FencePosition = Array(Vector(-70, 11, -142.250), 0);
+		Else If(Current Map == Map(Petra));
+			Global.TDMSpawnPositions = Array(Vector(2, -6, -13), Vector(4.500, -12.800, 48));
+		Else If(Current Map == Map(Rialto));
+			Global.TDMSpawnPositions = Array(Vector(10, 1, 86.125), Vector(-2.627, -1, -6.495));
+		Else If(Current Map == Map(Route 66) && Current Game Mode == Game Mode(Team Deathmatch));
+			Global.TDMSpawnPositions = Array(Vector(-112, 4.500, -58), Vector(-54.500, 3.270, 1.500));
+		Else If(Current Map == Map(Route 66));
+			Global.TDMSpawnPositions = Array(Vector(32.250, 8, -3.754), Vector(45.250, 2.380, 59.327));
+			Global.FencePosition = Array(Vector(0, 0, 0), 0);
+			disabled Else If(Current Map == Map(Runasapi));
+		Else If(Current Map == Map(Samoa));
+		Else If(Current Map == Map(Shambali Monastery));
+			disabled Else If(Current Map == Map(Suravasa));
+		Else If(Current Map == Map(Temple of Anubis) && Current Game Mode == Game Mode(Team Deathmatch));
+			Global.TDMSpawnPositions = Array(Vector(16.750, 4.480, 112.780), Vector(-44.150, 9.560, 23.190));
+		Else If(Current Map == Map(Temple of Anubis));
+			Global.TDMSpawnPositions = Array(Vector(-44.500, 10.500, 22.500), Vector(-24, -2, -18));
+			Global.FencePosition = Array(Vector(-145, 1, 47), 90);
+		Else If(Current Map == Map(Volskaya Industries) && Current Game Mode == Game Mode(Team Deathmatch));
+			Global.TDMSpawnPositions = Array(Vector(-127, -1.980, 49), Vector(28.510, -4.050, 78.250));
+		Else If(Current Map == Map(Volskaya Industries));
+			Global.TDMSpawnPositions = Array(Vector(-13.889, -4, 112.570), Vector(-11.400, -6.980, 1.700));
+			Global.FencePosition = Array(Vector(-19.560, -3, 207), 0);
+		Else If(Current Map == Map(Watchpoint: Gibraltar));
+		Else;
+			Create HUD Text(All Players(All Teams), Custom String("This Map is Not Supported!!"), Null, Null, Top, 0.695, Color(White), Null,
+				Null, Visible To, Default Visibility);
+			Create HUD Text(All Players(All Teams), Custom String("Please Turn Off This Map!"), Null, Null, Top, 0.700, Color(White), Null,
+				Null, Visible To, Default Visibility);
+			Create HUD Text(All Players(All Teams), Custom String("Game Will Restart in {0}s", Round To Integer(Global.ExpectedGamemode, Up)),
+				Null, Null, Top, 0.720, Color(White), Null, Null, Visible To and String, Default Visibility);
+			Global.ExpectedGamemode = 60;
+			Chase Global Variable Over Time(ExpectedGamemode, 0, 60, None);
+			Wait Until(Global.ExpectedGamemode == 0, 69);
+			Restart Match;
+		End;
+	}
+}
+
+rule("Skirmish Handler + Set Spawns - New Spawn Points")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		"(Current Game Mode == Game Mode(Skirmish)) != (Current Game Mode == Game Mode(Clash));"
+		Current Game Mode == Game Mode(Skirmish);
+	}
+
+	actions
+	{
+		Wait(5, Ignore Condition);
+		Respawn(All Players(All Teams));
+		disabled If(Current Map == Map(Antarctic Peninsula));
+		disabled Global.SkirmishSpawns = Randomized Array(Array(Array(Vector(354.556, 45.100, 175.445), Vector(187, 45.050, 175.851)), Array(Vector(
+			208.818, -9.870, -226), Vector(358.690, -9.870, -225.305)), Array(Vector(-83.424, -150.336, 137.925), Vector(-83, -150.513,
+			-17))));
+		If(Current Map == Map(Aatlis));
+			Global.SkirmishSpawns = Randomized Array(Array(Array(Vector(-72.799, 9.648, -39.955), Vector(76.230, 11.467, -39.982)), Array(
+				Vector(-76.253, 8.455, 39.969), Vector(80.996, 7.455, 40.431))));
+			Global.FencePosition = Array(Vector(4.354, 8.553, 0.028), 100);
+		Else If(Current Map == Map(Circuit royal));
+			Global.SkirmishSpawns = Randomized Array(Array(Array(Vector(17.153, 15, -47.400), Vector(-68.357, 5.476, -73.314)), Array(Vector(
+				98.500, 9, 18.160), Vector(54, 15.160, -13.329))));
+			Global.FencePosition = Array(Vector(37, 16, -110), 0);
+		Else If(Current Map == Map(Colosseo));
+			Global.SkirmishSpawns = Randomized Array(Array(Array(Vector(71, 7.130, -22), Vector(5, 0.320, 10)), Array(Vector(-5, 0.320, 10),
+				Vector(-71, 7.130, -22))));
+			Global.FencePosition = Array(Vector(0, 0, 108), 0);
+		Else If(Current Map == Map(Esperança));
+			Global.SkirmishSpawns = Randomized Array(Array(Array(Vector(93.835, -3, -69.386), Vector(20, -5.900, -52)), Array(Vector(-20,
+				-5.900, -52), Vector(-93.835, -3, -69.386))));
+			Global.FencePosition = Array(Vector(0, -1, 60), 0);
+			"hanaoka"
+			disabled Else If(Current Map == Map(Hanamura));
+			disabled Global.SkirmishSpawns = Randomized Array(Array(Array(Vector(-14, 40, -97), Vector(-2, 41.600, -11.400)), Array(Vector(-2, 41.600,
+				25.500), Vector(-14, 40, 111))));
+			disabled Global.FencePosition = Array(Vector(119.300, 40.500, 7), 90);
+		Else If(Current Map == Map(Junkertown));
+			Global.SkirmishSpawns = Randomized Array(Array(Array(Vector(-54.500, 7.270, -101), Vector(31.877, 9.069, -74.659)), Array(Vector(
+				-108.290, 6.440, -116.818), Vector(-61, 7.500, -118.500))));
+			Global.FencePosition = Array(Vector(75, 7, -107), 90);
+		Else If(Current Map == Map(New Junk City));
+			Global.SkirmishSpawns = Randomized Array(Array(Array(Vector(-36, 3.910, 99), Vector(-36, 3.910, -99)), Array(Vector(56, -1, 98),
+				Vector(56, -1, -98))));
+			Global.FencePosition = Array(Vector(0, 0, 0), 0);
+		Else If(Current Map == Map(New Queen Street));
+			Global.SkirmishSpawns = Randomized Array(Array(Array(Vector(-74.869, 8.140, -24.632), Vector(-6.523, 0, 10.332)), Array(Vector(
+				6.523, 0, 10.332), Vector(74.869, 8.140, -24.632))));
+			Global.FencePosition = Array(Vector(0, 1, -114), 0);
+		Else If(Current Map == Map(Numbani));
+			Global.SkirmishSpawns = Randomized Array(Array(Array(Vector(92, 0.070, 1.195), Vector(18.911, 0.070, 29.908)), Array(Vector(
+				206.782, -2, 22.237), Vector(143, -4, 19))));
+			Global.FencePosition = Array(Vector(130, -5, 132.125), 0);
+		Else If(Current Map == Map(Paraíso));
+			Global.SkirmishSpawns = Randomized Array(Array(Array(Vector(-5, 11, -56), Vector(-35.804, -2, 53.184)), Array(Vector(-75.773,
+				5.750, -178.823), Vector(9.275, 5, -91.287))));
+			Global.FencePosition = Array(Vector(-95, 3, -65), 90);
+		Else If(Current Map == Map(Runasapi));
+			Global.SkirmishSpawns = Randomized Array(Array(Array(Vector(96.375, 7, 10.875), Vector(14, -1.750, 12)), Array(Vector(-14, -1.750,
+				12), Vector(-96.375, 7, 10.875))));
+			Global.FencePosition = Array(Vector(0, -1, 60), 0);
+		Else If(Current Map == Map(Samoa));
+			Global.SkirmishSpawns = Randomized Array(Array(Array(Vector(308, 12.230, -227.250), Vector(160, 12.230, -227)), Array(Vector(
+				-400.500, 7.250, -111.500), Vector(-259.500, 7.250, -111.789)), Array(Vector(88.729, 340.630, 402), Vector(-33.701, 340.560,
+				401.678))));
+		Else If(Current Map == Map(Shambali Monastery));
+			Global.SkirmishSpawns = Randomized Array(Array(Array(Vector(-20, 23, 96), Vector(8.500, 6, 10.500)), Array(Vector(-22.438, 30.690,
+				202.148), Vector(-9.750, 25, 124))));
+			Global.FencePosition = Array(Vector(84, 24, 114), 90);
+		Else If(Current Map == Map(Suravasa));
+			Global.SkirmishSpawns = Randomized Array(Array(Array(Vector(16.271, 4.446, 88.218), Vector(64.163, 3.204, -75.644)), Array(Vector(
+				14.638, 7.720, 89.746), Vector(-26.785, 1.429, -98.721))));
+			Global.FencePosition = Array(Vector(-2, 0, 0), 0);
+		Else If(Current Map == Map(Watchpoint: Gibraltar));
+			Global.SkirmishSpawns = Randomized Array(Array(Array(Vector(25.455, -4.690, -73.279), Vector(31.501, -4.690, -132.383)), Array(
+				Vector(107.342, -2, 69.369), Vector(79.438, -3, -19))));
+			Global.FencePosition = Array(Vector(-47, -5, -34), 90);
+		End;
+		If(Array Contains(Array(Map(Antarctic Peninsula), Map(Samoa)), Current Map));
+			Global.Score[3] = 2;
+		Else If(Global.SkirmishSpawns == 1);
+			Global.Score[3] = 6;
+		Else;
+			Global.Score[3] = 3;
+		End;
+		If(Global.FencePosition != 0);
+			If(Global.FencePosition[1]);
+				For Global Variable(Loop, 0, 16, 1);
+					Create Beam Effect(All Players(All Teams), Grapple Beam, Global.FencePosition[0] + Vector(150, Global.Loop, 0),
+						Global.FencePosition[0] + Vector(-150, Global.Loop, 0), Null, Visible To);
+				End;
+				Create Beam Effect(All Players(All Teams), Grapple Beam, Global.FencePosition[0] + Vector(150, 0, 0),
+					Global.FencePosition[0] + Vector(150, 15, 0), Null, Visible To);
+				Create Beam Effect(All Players(All Teams), Grapple Beam, Global.FencePosition[0] + Vector(-150, 0, 0),
+					Global.FencePosition[0] + Vector(-150, 15, 0), Null, Visible To);
+			Else;
+				For Global Variable(Loop, 0, 16, 1);
+					Create Beam Effect(All Players(All Teams), Grapple Beam, Global.FencePosition[0] + Vector(0, Global.Loop, 150),
+						Global.FencePosition[0] + Vector(0, Global.Loop, -150), Null, Visible To);
+				End;
+				Create Beam Effect(All Players(All Teams), Grapple Beam, Global.FencePosition[0] + Vector(0, 0, 150),
+					Global.FencePosition[0] + Vector(0, 15, 150), Null, Visible To);
+				Create Beam Effect(All Players(All Teams), Grapple Beam, Global.FencePosition[0] + Vector(0, 0, -150),
+					Global.FencePosition[0] + Vector(0, 15, -150), Null, Visible To);
+				If(Current Map == Map(Blizzard World));
+					For Global Variable(Loop, 16, 25, 1);
+						Create Beam Effect(All Players(All Teams), Grapple Beam, Global.FencePosition[0] + Vector(0, Global.Loop, 150),
+							Global.FencePosition[0] + Vector(0, Global.Loop, -134), Null, Visible To);
+					End;
+				End;
+			End;
+		End;
+		Call Subroutine(SkirmishSpawnSetter);
+	}
+}
+
+rule("SkirmishSpawnSetter SUBROUTINE")
+{
+	event
+	{
+		Subroutine;
+		SkirmishSpawnSetter;
+	}
+
+	actions
+	{
+		If(Global.Score[7] + Global.Score[8] + Global.Score[2] >= Global.Score[3] || Total Time Elapsed < 15);
+			Global.Score[7] = 0;
+			Global.Score[8] = 0;
+			Global.Score[2] = Global.Score[2] % 1;
+			disabled If((Global.Score[0] + Global.Score[1]) % Global.Score[3] == 0);
+			If(Global.SkirmishSpawns != 0 && Global.SkirmishSpawns != 1);
+				Global.TDMSpawnPositions = First Of(Global.SkirmishSpawns);
+				Modify Global Variable(SkirmishSpawns, Remove From Array By Index, 0);
+			End;
+			If(Total Time Elapsed > 15);
+				Big Message(All Players(All Teams), Custom String("Switching {0} Maps!", Icon String(Recycle)));
+				Wait(1, Ignore Condition);
+			End;
+			If(Current Map == Map(Antarctic Peninsula));
+				"Labs"
+				If(Y Component Of(Global.TDMSpawnPositions[0]) > 45);
+					disabled Global.TeleporterPositions = Array(Vector(181.036, 45.530, 186.642), Vector(178.053, 45.690, 185.501), Vector(182.339, 45.280,
+						177.742), Vector(179.433, 47.491, 177.732), Vector(182.622, 45.590, 166.255), Vector(179.512, 45.690, 166.235));
+					Global.MercyRezScalar = 80;
+				"Sublevel"
+				Else If(Y Component Of(Global.TDMSpawnPositions[0]) < -150);
+					Global.TeleporterPositions = Array(Vector(-92.613, -151.510, -21.786), Vector(-90.467, -151.048, -26.532), Vector(-83.692,
+						-151.500, -20.287), Vector(-83.440, -151.048, -25.726), Vector(-72.165, -151.500, -20.166), Vector(-72.137, -151.048,
+						-25.829));
+					Global.MercyRezScalar = 75;
+				"Icebreaker"
+				Else;
+					Global.TeleporterPositions = Array(Vector(369.886, -8.970, -239.281), Vector(374.618, -9.040, -239.475), Vector(363.092, -9.310,
+						-227.851), Vector(367.616, -9.050, -227.931), Vector(361.312, -9.460, -220.465), Vector(364.325, -9.090, -217.519));
+					Global.MercyRezScalar = 75;
+				End;
+			Else If(Current Map == Map(Samoa));
+				"Downtown"
+				If(X Component Of(Global.TDMSpawnPositions[0]) > 120);
+					Global.TeleporterPositions = Array(Vector(163.540, 17.120, -208.274), Vector(156.461, 18.460, -205.578), Vector(156.699, 12.170,
+						-224.912), Vector(149.449, 14.600, -220.687), Vector(163.540, -99, -208.274), Vector(163.540, -100, -208.274));
+					Global.MercyRezScalar = 80;
+				"Beach"
+				Else If(X Component Of(Global.TDMSpawnPositions[0]) < -220);
+					disabled Global.TeleporterPositions = Array(Vector(-241.200, 3.820, -128.355), Vector(-236.072, 14.060, -128.113), Vector(-245.800, 7,
+						-111.630), Vector(-237.554, 10.200, -111.526), Vector(-240.113, 13, -85.418), Vector(-235.770, 13.950, -90.824));
+					Global.MercyRezScalar = 80;
+				"Volcano"
+				Else;
+					Global.TeleporterPositions = Array(Vector(-29.773, 347.060, 421.345), Vector(-32.488, 346.860, 422.813), Vector(-35.621, 340.560,
+						403.815), Vector(-42.220, 342.990, 409.282), Vector(-52.771, 340.540, 390.773), Vector(-56.475, 346.750, 394.482));
+					Global.MercyRezScalar = 75;
+				End;
+			Else If(Global.FencePosition != 0);
+				If(Global.FencePosition[1]);
+					If(Z Component Of(Global.TDMSpawnPositions[0]) > Z Component Of(Global.FencePosition[0]));
+						Global.Score[4] = True;
+						Global.Score[5] = Vector(0, 0.100, 1);
+					Else;
+						Global.Score[4] = False;
+						Global.Score[5] = Vector(0, 0.100, -1);
+					End;
+				Else;
+					If(X Component Of(Global.TDMSpawnPositions[0]) > X Component Of(Global.FencePosition[0]));
+						Global.Score[4] = True;
+						Global.Score[5] = Vector(1, 0.100, 0);
+					Else;
+						Global.Score[4] = False;
+						Global.Score[5] = Vector(-1, 0.100, 0);
+					End;
+				End;
+			End;
+			If(!Global.Score[6]);
+				For Global Variable(Loop, 0, Count Of(Global.TeleporterPositions), 1);
+					Create Effect((Current Map == Map(New Junk City)) == (Current Map == Map(Suravasa)) || Match Time <= 160 ? All Players(Team 1)
+						: Null, Ring, Color(Blue), Global.TeleporterPositions[Global.Loop], 1.500, Visible To);
+					Create Effect((Current Map == Map(New Junk City)) == (Current Map == Map(Suravasa)) || Match Time <= 160 ? All Players(Team 2)
+						: All Players(All Teams), Ring, Color(Gray), Global.TeleporterPositions[Global.Loop], 1.500, Visible To);
+				End;
+				", Map(Hanaoka)"
+				If(Array Contains(Array(Map(Circuit royal), Map(Colosseo), Map(Esperança), Map(Junkertown), Map(New Junk City), Map(
+					New Queen Street), Map(Numbani), Map(Paraíso), Map(Shambali Monastery), Map(Suravasa), Map(Watchpoint: Gibraltar)),
+					Current Map));
+					Global.Score[6] = True;
+				End;
+			End;
+		End;
+	}
+}
+
+rule("EnsureTDMSpawns SUBROUTINE")
+{
+	event
+	{
+		Subroutine;
+		EnsureTDMSpawns;
+	}
+
+	actions
+	{
+		Resurrect(All Dead Players(All Teams));
+		Teleport(Remove From Array(All Players(Team 1), Players Within Radius(Global.TDMSpawnPositions[0], 3, Team 1, Off)),
+			Global.TDMSpawnPositions[0]);
+		Teleport(Remove From Array(All Players(Team 2), Players Within Radius(Global.TDMSpawnPositions[1], 4.500, Team 2, Off)),
+			Global.TDMSpawnPositions[1]);
+	}
+}
+
+rule("ResetRound SUBROUTINE")
+{
+	event
+	{
+		Subroutine;
+		ResetRound;
+	}
+
+	actions
+	{
+		Set Status(All Players(All Teams), Null, Invincible, 6);
+		Start Forcing Throttle(All Players(All Teams), 0, 0, 0, 0, 0, 0);
+		Set Ability 1 Enabled(All Players(All Teams), False);
+		Set Jump Enabled(All Players(All Teams), False);
+		Cancel Primary Action(All Living Players(All Teams));
+		Call Subroutine(RemoveMomentum);
+		Global.PlayerSlot = 0;
+		While(Global.PlayerSlot < 2);
+			Teleport(Players In Slot(Global.PlayerSlot, Team 1), Global.TDMSpawnPositions[0] + Vector(Random Real(-2, 2), 0.069, Random Real(
+				-2, 2)));
+			Global.PlayerSlot += 1;
+		End;
+		Global.PlayerSlot = 0;
+		While(Global.PlayerSlot < 10);
+			Teleport(Players In Slot(Global.PlayerSlot, Team 2), Global.TDMSpawnPositions[1] + Vector(Random Real(-3.069, 3.069), 0.069,
+				Random Real(-3.069, 3.069)));
+			Global.PlayerSlot += 1;
+		End;
+		Clear Status(All Players(All Teams), Knocked Down);
+		Resurrect(All Dead Players(All Teams));
+		Set Player Health(All Players(Team 1), Max Health(First Of(All Players(Team 1))));
+		Set Player Health(All Players(Team 2), Max Health(First Of(All Players(Team 2))));
+		Set Ultimate Charge(All Players(Team 1), 100);
+		All Players(Team 1).LeaveSpawnTimer = 10;
+		All Players(Team 2).LeaveSpawnTimer = 5;
+		Call Subroutine(PlayerVariableSetter);
+		Set Match Time(175);
+		Start Rule(DisplayTips, Do Nothing);
+		Call Subroutine(StartRoundMessages);
+		Call Subroutine(EnsureTDMSpawns);
+		Stop Forcing Throttle(All Players(All Teams));
+		Set Ability 1 Enabled(All Players(All Teams), True);
+		Set Jump Enabled(All Players(All Teams), True);
+		Unpause Match Time;
+		Enable Built-In Game Mode Music;
+		Call Subroutine(MatchPointMessage);
+		Global.GracePeriod = True;
+		Wait(0.250, Ignore Condition);
+		Global.RoundStart = True;
+		Wait(5, Ignore Condition);
+		Global.GracePeriod = False;
+	}
+}
+
+rule("Joined Mid Round")
+{
+	event
+	{
+		Player Joined Match;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Current Game Mode != Game Mode(Elimination);
+		Is Game In Progress == True;
+	}
+
+	actions
+	{
+		If(Current Game Mode == Game Mode(Skirmish));
+			Event Player.LeaveSpawnTimer = 10;
+			Respawn(Event Player);
+		End;
+		Start Forcing Throttle(Event Player, 0, 0, 0, 0, 0, 0);
+		Set Ability 1 Enabled(Event Player, False);
+		Set Jump Enabled(Event Player, False);
+		Skip If(!Global.TDMSpawnPositions, 25);
+		If(Global.RoundStart && !Global.GracePeriod);
+			If(Team Of(Event Player) == Team 1);
+				Global.CombineBackStabReinResurrect[1] = True;
+			End;
+			Wait(0.690, Ignore Condition);
+			Kill(Event Player, Null);
+			Event Player.mercydeath = True;
+			Teleport(Event Player, Vector(0, -40, 0));
+			Wait(1.690, Ignore Condition);
+			Event Player.mercydeath = False;
+			Big Message(Event Player, Custom String("Sorry, round has already started, please wait until next round."));
+		Else If(Team Of(Event Player) == Team 1);
+			Wait(0.690, Ignore Condition);
+			Teleport(Event Player, Global.TDMSpawnPositions[0] + Vector(Random Real(-2, 2), 0.069, Random Real(-2, 2)));
+			Set Healing Received(Event Player, 0);
+			Set Ultimate Charge(Event Player, 100);
+		Else;
+			Wait(0.690, Ignore Condition);
+			Teleport(Event Player, Global.TDMSpawnPositions[1] + Vector(Random Real(-3.069, 3.069), 0.069, Random Real(-3.069, 3.069)));
+			Set Healing Received(Event Player, 100);
+		End;
+		Event Player.IsInMap = True;
+		If(Current Game Mode == Game Mode(Capture the Flag) || Current Game Mode == Game Mode(Skirmish));
+			Disable Game Mode HUD(Event Player);
+			Disable Game Mode In-World UI(Event Player);
+		End;
+		If(Global.RoundStart);
+			Stop Forcing Throttle(Event Player);
+			Set Ability 1 Enabled(Event Player, True);
+			Set Jump Enabled(Event Player, True);
+		End;
+		Disable Built-In Game Mode Respawning(Event Player);
+		Enable Death Spectate Target HUD(Event Player);
+		If(Current Game Mode == Game Mode(Skirmish));
+			Set Respawn Max Time(Event Player, 999);
+		End;
+	}
+}
+
+rule("Start Round")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Current Game Mode != Game Mode(Elimination);
+		Is Game In Progress == True;
+	}
+
+	actions
+	{
+		Create HUD Text(All Players(All Teams), Custom String("SETUP"), Null, Null, Top, 0.700, Color(White), Null, Null, Visible To,
+			Default Visibility);
+		Global.SetUpHUDText = Last Text ID;
+		If(Current Game Mode == Game Mode(Capture the Flag));
+			Wait(9, Ignore Condition);
+		Else If(Current Game Mode == Game Mode(Skirmish));
+			Wait(12, Ignore Condition);
+			"Else If(Current Game Mode == Game Mode(Clash));"
+			disabled Wait(12, Ignore Condition);
+		End;
+		Destroy HUD Text(Global.SetUpHUDText);
+		Pause Match Time;
+		Call Subroutine(ResetRound);
+	}
+}
+
+rule("Draw HUD")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Current Game Mode != Game Mode(Elimination);
+		Is Game In Progress == True;
+	}
+
+	actions
+	{
+		Create HUD Text(All Players(Team 1), Null, Null, Custom String("{0}{1}", All Living Players(Team 1)[0] ? Custom String("{0}",
+			All Living Players(Team 1)[0]) : Empty Array, All Living Players(Team 1)[1] ? Custom String("\n{0}", All Living Players(Team 1)
+			[1]) : Empty Array), Left, -0.690, Null, Null, Custom Color(0, 195, 255, 175), Visible To and String, Default Visibility);
+		Create HUD Text(All Players(Team 1), Null, Null, Custom String("{0}{1}", All Dead Players(Team 1)[0] ? Custom String("{0}",
+			All Dead Players(Team 1)[0]) : Empty Array, All Dead Players(Team 1)[1] ? Custom String("\n{0}", All Dead Players(Team 1)[1])
+			: Empty Array), Left, 0, Null, Null, Custom Color(69, 69, 69, 169), Visible To and String, Default Visibility);
+		Create HUD Text(All Players(Team 1), Null, Null, Global.NameList[0], Right, -0.690, Null, Null, Custom Color(255, 0, 42, 175),
+			Visible To and String, Default Visibility);
+		Create HUD Text(All Players(Team 1), Null, Null, Global.NameList[1], Right, 0, Null, Null, Custom Color(69, 69, 69, 169),
+			Visible To and String, Default Visibility);
+		Create HUD Text(All Players(Team 2), Null, Null, Custom String("{0}{1}", All Living Players(Team 1)[0] ? Custom String("{0}",
+			All Living Players(Team 1)[0]) : Empty Array, All Living Players(Team 1)[1] ? Custom String("\n{0}", All Living Players(Team 1)
+			[1]) : Empty Array), Right, -0.690, Null, Null, Custom Color(255, 0, 42, 175), Visible To and String, Default Visibility);
+		Create HUD Text(All Players(Team 2), Null, Null, Custom String("{0}{1}", All Dead Players(Team 1)[0] ? Custom String("{0}",
+			All Dead Players(Team 1)[0]) : Empty Array, All Dead Players(Team 1)[1] ? Custom String("\n{0}", All Dead Players(Team 1)[1])
+			: Empty Array), Right, 0, Null, Null, Custom Color(69, 69, 69, 169), Visible To and String, Default Visibility);
+		Create HUD Text(All Players(Team 2), Null, Null, Global.NameList[0], Left, -0.690, Null, Null, Custom Color(0, 195, 255, 175),
+			Visible To and String, Default Visibility);
+		Create HUD Text(All Players(Team 2), Null, Null, Global.NameList[1], Left, 0, Null, Null, Custom Color(69, 69, 69, 169),
+			Visible To and String, Default Visibility);
+		Create HUD Text(All Players(Team 1), Null, Null, Custom String("\nWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"),
+			Left, -1, Null, Null, Null, Visible To and String, Default Visibility);
+		Create HUD Text(All Players(Team 2), Null, Null, Custom String("\nWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"),
+			Right, -1, Null, Null, Null, Visible To and String, Default Visibility);
+		Create HUD Text(All Players(Team 1), Null, Null, Custom String("\n{0}", Global.Spacing), Right, -1, Null, Null, Null,
+			Visible To and String, Default Visibility);
+		Create HUD Text(All Players(Team 2), Null, Null, Custom String("\n{0}", Global.Spacing), Left, -1, Null, Null, Null,
+			Visible To and String, Default Visibility);
+	}
+}
+
+rule("Reins killed all Mercys")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global.RoundStart == True;
+		Match Time > 0;
+		Number Of Dead Players(Team 2) == Number Of Players(Team 2);
+	}
+
+	actions
+	{
+		Global.RoundStart = False;
+		Modify Team Score(Team 1, 1);
+		Global.Score[0] += 1;
+		Global.Score[7] += 1;
+		Big Message(All Players(All Teams), Custom String("{0} Reins Win", Hero Icon String(Hero(Reinhardt))));
+		Call Subroutine(EndRound);
+	}
+}
+
+rule("Mercys killed all Reins")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global.RoundStart == True;
+		Match Time > 0;
+		Number Of Dead Players(Team 1) == Number Of Players(Team 1);
+	}
+
+	actions
+	{
+		Global.RoundStart = False;
+		Modify Team Score(Team 2, 1);
+		Global.Score[1] += 1;
+		Global.Score[8] += 1;
+		Big Message(All Players(All Teams), Custom String("{0} Mercys Win", Hero Icon String(Hero(Mercy))));
+		Call Subroutine(EndRound);
+	}
+}
+
+rule("Round time ended")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global.RoundStart == True;
+		Match Time == 0;
+	}
+
+	actions
+	{
+		Global.RoundStart = False;
+		If(Number Of Players(Team 1) - Number Of Dead Players(Team 1) > Number Of Players(Team 2) - Number Of Dead Players(Team 2));
+			Modify Team Score(Team 1, 1);
+			Global.Score[0] += 1;
+			Global.Score[7] += 1;
+			Big Message(All Players(All Teams), Custom String("{0} Reins Win", Hero Icon String(Hero(Reinhardt))));
+		Else If(Number Of Players(Team 1) - Number Of Dead Players(Team 1) < Number Of Players(Team 2) - Number Of Dead Players(Team 2));
+			Modify Team Score(Team 2, 1);
+			Global.Score[1] += 1;
+			Global.Score[8] += 1;
+			Big Message(All Players(All Teams), Custom String("{0} Mercys Win", Hero Icon String(Hero(Mercy))));
+		Else;
+			Global.Score[2] += 0.500;
+			Big Message(All Players(All Teams), Custom String("{0} Draw {1}", Hero Icon String(Hero(Mercy)), Hero Icon String(Hero(
+				Reinhardt))));
+		End;
+		Call Subroutine(EndRound);
+	}
+}
+
+rule("EndRound SUBROUTINE")
+{
+	event
+	{
+		Subroutine;
+		EndRound;
+	}
+
+	actions
+	{
+		Disable Built-In Game Mode Music;
+		Set Slow Motion(33.330);
+		Set Aim Speed(All Players(All Teams), 33.330);
+		If(Global.Score[0] == 3 || Number Of Players(Team 2) == 0);
+			Enable Built-In Game Mode Music;
+			Declare Team Victory(Team 1);
+		Else If(Global.Score[1] == 3 || Number Of Players(Team 1) == 0);
+			Enable Built-In Game Mode Music;
+			Declare Team Victory(Team 2);
+		Else;
+			Pause Match Time;
+			If(Count Of(Global.SkirmishSpawns) > 0);
+				disabled If(Global.SkirmishSpawns != 0 && Global.SkirmishSpawns != 1 && Global.Score[2]);
+				Call Subroutine(SkirmishSpawnSetter);
+			End;
+			Wait(2.369, Ignore Condition);
+			Set Slow Motion(100);
+			Set Aim Speed(All Players(All Teams), 100);
+			Stop Forcing Player Outlines(All Players(All Teams), All Players(All Teams));
+			Global.RevealedMercys = False;
+			Call Subroutine(ResetRound);
+		End;
+	}
+}
+
+rule("MatchPointMessage SUBROUTINE")
+{
+	event
+	{
+		Subroutine;
+		MatchPointMessage;
+	}
+
+	actions
+	{
+		If(Team Score(Team 1) == 2);
+			Big Message(All Players(All Teams), Custom String("{0} Rein Match Point", Hero Icon String(Hero(Reinhardt))));
+		End;
+		If(Team Score(Team 2) == 2);
+			Big Message(All Players(All Teams), Custom String("{0} Mercy Match Point", Hero Icon String(Hero(Mercy))));
+		End;
+	}
+}
+
+rule("Fix Death Spectate Perspective")
+{
+	event
+	{
+		Player Died;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Current Game Mode != Game Mode(Elimination);
+		Event Player.perspectivetoggle == True;
+	}
+
+	actions
+	{
+		Event Player.perspectivetoggle = False;
+		Event Player.TDMDeathSpectate = True;
+	}
+}
+
+rule("Revert Perspective when alive")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Current Game Mode != Game Mode(Elimination);
+		Is Alive(Event Player) == True;
+		Event Player.TDMDeathSpectate == True;
+	}
+
+	actions
+	{
+		Event Player.perspectivetoggle = True;
+		Event Player.TDMDeathSpectate = False;
+	}
+}
+
+rule("RemoveMomentum SUBROUTINE")
+{
+	event
+	{
+		Subroutine;
+		RemoveMomentum;
+	}
+
+	actions
+	{
+		Apply Impulse(All Living Players(All Teams), Left, 0.069, To World, Cancel Contrary Motion);
+		Apply Impulse(All Living Players(All Teams), Right, 0.069, To World, Cancel Contrary Motion);
+		Apply Impulse(All Living Players(All Teams), Forward, 0.069, To World, Cancel Contrary Motion);
+		Apply Impulse(All Living Players(All Teams), Backward, 0.069, To World, Cancel Contrary Motion);
+		Apply Impulse(All Living Players(All Teams), Up, 0.069, To World, Cancel Contrary Motion);
+		Apply Impulse(All Living Players(All Teams), Down, 1, To World, Cancel Contrary Motion);
+	}
+}
+
+rule("StartRoundMessages SUBROUTINE")
+{
+	event
+	{
+		Subroutine;
+		StartRoundMessages;
+	}
+
+	actions
+	{
+		Wait(0.697, Ignore Condition);
+		For Global Variable(TDMCountDown, 3, 0, -1);
+			Big Message(All Players(All Teams), Custom String("{0}", Global.TDMCountDown));
+			Wait(0.250, Ignore Condition);
+			Play Effect(All Players(All Teams), Debuff Impact Sound, Color(White), Global.TDMSpawnPositions[0], 200);
+			Play Effect(All Players(All Teams), Debuff Impact Sound, Color(White), Global.TDMSpawnPositions[1], 200);
+			Wait(1.750, Ignore Condition);
+		End;
+		Big Message(All Players(All Teams), Custom String("Go!"));
+		Wait(0.250, Ignore Condition);
+		Play Effect(All Players(All Teams), Explosion Sound, Color(White), Global.TDMSpawnPositions[0], 200);
+		Play Effect(All Players(All Teams), Explosion Sound, Color(White), Global.TDMSpawnPositions[1], 200);
+		Play Effect(All Players(All Teams), Ring Explosion Sound, Color(White), Global.TDMSpawnPositions[0], 200);
+		Play Effect(All Players(All Teams), Ring Explosion Sound, Color(White), Global.TDMSpawnPositions[1], 200);
+	}
+}
+
+rule("Set Teleporter Positions - fixed TPs")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		(Array Contains(Array(Map(Castillo), Map(Ecopoint: Antarctica), Map(Ecopoint: Antarctica Winter)), Current Map)
+			|| Current Game Mode != Game Mode(Elimination)) == True;
+	}
+
+	actions
+	{
+		If(Current Map == Map(Blizzard World Winter));
+			Global.TeleporterPositions = Array(Vector(-76.731, 1.750, 148.763), Vector(-80.597, 1.750, 147.512), Vector(-78.002, 0.600,
+				123.339), Vector(-86.544, -1.400, 120.846));
+			disabled Else If(Current Map == Map(Antarctic Peninsula));
+			disabled Global.TeleporterPositions = Array(Vector(-76.731, 1.750, 148.763), Vector(-80.597, 1.750, 147.512), Vector(-78.002, 0.600,
+				123.339), Vector(-86.544, -1.400, 120.846));
+		Else If(Current Map == Map(Busan));
+			Global.TeleporterPositions = Array(Vector(167.479, 10.090, 273.461), Vector(161.844, 11.090, 275.923), Vector(161.486, 10.090,
+				259.763), Vector(155.703, 11.090, 262.226));
+			Global.SkirmishSpawns = 1;
+		Else If(Current Map == Map(Busan Downtown Lunar New Year));
+			Global.TeleporterPositions = Array(Vector(121.120, 17.455, -140.480), Vector(118.340, 17.344, -140.652), Vector(114.092, 16,
+				-125.529), Vector(120.676, 17, -125.390), Vector(115.072, 16, -110.423), Vector(121.499, 17, -110.423));
+			Global.SkirmishSpawns = 1;
+		Else If(Current Map == Map(Busan Sanctuary Lunar New Year));
+			Global.TeleporterPositions = Array(Vector(-249.321, 10.350, 157.033), Vector(-244.512, 10.360, 157.442), Vector(-250.934, 10.350,
+				170.910), Vector(-245.700, 10.360, 171.335));
+			Global.SkirmishSpawns = 1;
+		Else If(Current Map == Map(Castillo));
+			Global.TeleporterPositions = Array(Vector(-74.958, 32, 53.015), Vector(-80.291, 42.280, 20.575));
+		Else If(Current Map == Map(Circuit royal));
+			Global.TeleporterPositions = Array(Vector(-72.444, 6.040, -18.084), Vector(-72.500, 6.030, -22.500), Vector(-65.351, 6.040, -39),
+				Vector(-69.500, 6.030, -38.905), Vector(-65.329, 6.040, -43.983), Vector(-69.500, 6.030, -44), Vector(-72.423, 4.040, -68.056),
+				Vector(-72.643, 6.030, -61.129), Vector(-63.935, 13.766, -41.449), Vector(-69.622, 13.955, -41.489));
+			Global.SkirmishSpawns = 1;
+		Else If(Current Map == Map(Colosseo));
+			Global.TeleporterPositions = Array(Vector(-90.196, 9, -48.139), Vector(-86.737, 9, -46.546), Vector(-93.127, 9, -34.924), Vector(
+				-95.911, 9, -36.768), Vector(-99.183, 9, -23.481), Vector(-102.354, 9, -25.685));
+			Global.SkirmishSpawns = 1;
+		Else If(Current Map == Map(Dorado) && Current Game Mode == Game Mode(Team Deathmatch));
+			Global.TeleporterPositions = Array(Vector(157.212, 10.467, 6.857), Vector(163.652, 11.467, 8.987), Vector(131.134, 11.050, 26.125),
+				Vector(140.887, 11, 28.864), Vector(139.075, 14.010, 47.014), Vector(144.757, 14.010, 48.468));
+		Else If(Current Map == Map(Dorado));
+			Global.TeleporterPositions = Array(Vector(-2, -1.980, 23), Vector(-6, -2, 23.500), Vector(-2.815, 0.067, 4.192), Vector(-7.075,
+				0.539, 0.547), Vector(13.018, 9.997, -2.254), Vector(-6.098, 8.467, 1.388), Vector(1.464, 0.070, -12.086), Vector(-1.740,
+				0.060, -14.472));
+			Global.SkirmishSpawns = 1;
+		Else If(Current Map == Map(Ecopoint: Antarctica) || Current Map == Map(Ecopoint: Antarctica Winter));
+			Global.TeleporterPositions = Array(Vector(22.200, 3, 0), Vector(-10.249, 8.530, -0.328));
+		Else If(Current Map == Map(Eichenwalde));
+			Global.TeleporterPositions = Array(Vector(1, 6, 1), Vector(-2.838, 6, 0.583), Vector(-11.681, 0, -9.723), Vector(-12.436, 1,
+				-4.600), Vector(-26.585, 1, -0.400), Vector(-23, 1, 0));
+			Global.SkirmishSpawns = 1;
+		Else If(Current Map == Map(Eichenwalde Halloween));
+			Global.TeleporterPositions = Array(Vector(99.261, 12.660, -72.394), Vector(100.443, 12.730, -67.260), Vector(88.129, 12.660,
+				-67.354), Vector(90.089, 12.730, -59.594), Vector(76.068, 12.660, -65.783), Vector(77.565, 12.730, -60.214));
+		Else If(Current Map == Map(Esperança));
+			Global.TeleporterPositions = Array(Vector(-110.738, -1, -58.320), Vector(-114.165, -1, -60.295), Vector(-95, -3, -70), Vector(
+				-103.341, -1, -74.843), Vector(-95, -1, -85), Vector(-98.731, -1, -87.177));
+			Global.SkirmishSpawns = 1;
+		Else If(Current Map == Map(Hanamura));
+			Global.TeleporterPositions = Array(Vector(78, -1.870, 35), Vector(79, -2.190, 45), Vector(56, -1.870, 36.750), Vector(55.500,
+				-1.910, 41.500), Vector(40.840, 0.310, 34.500), Vector(43, 0, 44));
+			"hanaoka"
+			disabled Else If(Current Map == Map(Hanamura));
+			disabled Global.TeleporterPositions = Array(Vector(11, 44, 134), Vector(15, 44, 134), Vector(0, 44, 137), Vector(0, 44, 141), Vector(-10,
+				44, 137), Vector(-10, 44, 141), Vector(-26, 44, 132), Vector(-26, 44, 136));
+			disabled Global.SkirmishSpawns = 1;
+		Else If(Current Map == Map(Havana));
+			Global.TeleporterPositions = Array(Vector(53.304, 12, -6.402), Vector(158.949, 11, -30.557), Vector(23.538, 6, -33.374), Vector(
+				159.062, 11.069, -62.321));
+		Else If(Current Map == Map(Hollywood));
+			Global.TeleporterPositions = Array(Vector(-16.330, 5.750, -63.583), Vector(-19.705, 5.750, -62.723), Vector(-9.579, 1.730,
+				-52.414), Vector(-11.250, 1.750, -49.674), Vector(-6.158, 2.750, -127.251), Vector(-7.098, 2.750, -130.681));
+			Modify Global Variable(TeleporterPositions, Append To Array, Array(Vector(5.734, 3.750, -129.122), Vector(4.818, 3.750, -132.623),
+				Vector(-52.320, 3.750, -146.444), Vector(-53.125, 3.750, -149.725), Vector(-17, 3.750, -146.675), Vector(-13.500, 3.750,
+				-147.638)));
+		Else If(Current Map == Map(Hollywood Halloween));
+			Global.TeleporterPositions = Array(Vector(-11.190, 1.750, -15.242), Vector(-8.168, 1.750, -13.563), Vector(-8.311, 1.600, -4.828),
+				Vector(-5.999, 1.600, -8.518), Vector(0.869, 1.750, -0.458), Vector(2.813, 1.750, -3.642));
+		Else If(Current Map == Map(Horizon Lunar Colony) && Current Game Mode == Game Mode(Team Deathmatch));
+			Global.TeleporterPositions = Array(Vector(19.569, 6, -107.258), Vector(25.823, 8, -82.722));
+		Else If(Current Map == Map(Horizon Lunar Colony));
+			Global.TeleporterPositions = Array(Vector(29.500, 9, -6.500), Vector(31.250, 9, -3.250), Vector(16.330, 9, -11.500), Vector(12, 9,
+				-9.250), Vector(8, 9, -32), Vector(6.500, 9, -29.500), Vector(8, 13, -32), Vector(6.500, 13, -29.500));
+			Global.SkirmishSpawns = 1;
+		Else If(Current Map == Map(Junkertown));
+			Global.TeleporterPositions = Array(Vector(44.200, 9, -94.500), Vector(50.823, 10, -94), Vector(40.838, 10, -76.270), Vector(46, 10,
+				-76.654), Vector(44.837, 16, -75), Vector(45.222, 16, -70.867));
+			Global.SkirmishSpawns = 1;
+		Else If(Current Map == Map(King's Row));
+			Global.TeleporterPositions = Array(Vector(-32.908, -0.120, 17.191), Vector(-37.658, 0.130, 18.613), Vector(-26.557, 6, 1.805),
+				Vector(-37.425, 6, 1.811));
+		Else If(Current Map == Map(King's Row Winter));
+			Global.TeleporterPositions = Array(Vector(-93.933, 1.100, 8.151), Vector(-97.759, 1, 8.932), Vector(-98.988, 6.930, -6.302),
+				Vector(-102.144, 6.930, -5.928), Vector(-99.467, 1, -8.567), Vector(-102.757, 0.880, -8.014));
+		Else If(Current Map == Map(New Queen Street));
+			Global.TeleporterPositions = Array(Vector(88.165, 11, -36.480), Vector(94.215, 11, -36.505), Vector(88.292, 11, -8.457), Vector(
+				94.107, 11, -8.424));
+			Global.SkirmishSpawns = 1;
+		Else If(Current Map == Map(New Junk City));
+			Global.TeleporterPositions = Array(Vector(-55, 8.250, 80), Vector(-55.090, 8.250, -79.972), Vector(46.500, 4, 86), Vector(46.500,
+				4, -86));
+			Global.SkirmishSpawns = 1;
+		Else If(Current Map == Map(Numbani));
+			Global.TeleporterPositions = Array(Vector(14.438, 0.921, 18.586), Vector(9.442, 1, 18.044), Vector(13.896, 1, 32.294), Vector(
+				9.220, 1, 32.134), Vector(12.790, 1, 4.372), Vector(8.977, 1, 4.030));
+			Global.SkirmishSpawns = 1;
+		Else If(Current Map == Map(Paris) && Current Game Mode == Game Mode(Team Deathmatch));
+			Global.TeleporterPositions = Array(Vector(-60.513, 15, -93.498), Vector(-54.030, 13.050, -96.774), Vector(-46.490, 8.710, -57.234),
+				Vector(-35.709, 8.710, -67.814), Vector(-85.807, 9.740, -22.563), Vector(-48.401, 16, 24.176));
+		Else If(Current Map == Map(Paris));
+			Global.TeleporterPositions = Array(Vector(-60.513, 15, -93.498), Vector(-84, 13, -102));
+		Else If(Current Map == Map(Paraíso));
+			Global.TeleporterPositions = Array(Vector(-64.620, -1.526, 39.487), Vector(-58.892, -1.545, 39.717));
+		Else If(Current Map == Map(Rialto));
+			disabled Global.TeleporterPositions = Array(Vector(33.890, 0.750, 32.882), Vector(-6.719, 0.750, 26.137), Vector(15.375, -1.250, 9.375),
+				Vector(59.500, 1.750, -78.333), Vector(49, -1.250, 12.500), Vector(72, -0.250, -57.500));
+			Global.TeleporterPositions = Array(Vector(33.890, 0.750, 32.882), Vector(-6.719, 0.750, 26.137), Vector(4, -1.250, -7.800), Vector(
+				59.500, 1.750, -78.333), Vector(49, -1.250, 12.500), Vector(72, -0.250, -57.500));
+		Else If(Map(Route 66) == Current Map && Current Game Mode == Game Mode(Team Deathmatch));
+			Global.TeleporterPositions = Array(Vector(-59.270, 8.500, -19.559), Vector(-54.943, 8.790, -18.579), Vector(-60.387, 3.440,
+				-9.298), Vector(-57.684, 3.310, -13.192), Vector(-43.069, 3.510, 5.938), Vector(-40.678, 3.350, 2.423));
+		Else If(Current Map == Map(Route 66));
+			Global.TeleporterPositions = Array(Vector(57.382, 2.380, 58.741), Vector(56.174, 2.350, 62.219), Vector(44.688, 2.380, 61.431),
+				Vector(43.524, 2.350, 64.804), Vector(35.125, 0.400, 58.680), Vector(34, 1.300, 61.750));
+			Global.SkirmishSpawns = 1;
+		Else If(Current Map == Map(Runasapi));
+			Global.TeleporterPositions = Array(Vector(-111.250, 8, 20.166), Vector(-115.125, 8, 16.500), Vector(-97.500, 7, 9.840), Vector(
+				-101.250, 7, 6.250), Vector(-88.250, 6, -4.750), Vector(-91.695, 6, -8.125));
+			Global.SkirmishSpawns = 1;
+		Else If(Current Map == Map(Shambali Monastery));
+			Global.TeleporterPositions = Array(Vector(-6.166, 8, -6.520), Vector(-6.159, 8, -11.077), Vector(6.810, 8, -6.489), Vector(6.848,
+				8, -11.240));
+			Global.SkirmishSpawns = 1;
+		Else If(Current Map == Map(Suravasa));
+			Global.TeleporterPositions = Array(Vector(-27, 3, 83), Vector(-27, 3, -83), Vector(37.300, 5, 42), Vector(33.500, 7, -42));
+			Global.SkirmishSpawns = 1;
+		Else If(Current Map == Map(Temple of Anubis) && Current Game Mode == Game Mode(Skirmish));
+			Global.TeleporterPositions = Array(Vector(-11, -2, -39), Vector(-2.548, 0.770, -33.207), Vector(-1, -1.800, -14.384), Vector(5.145,
+				0.770, -23.235), Vector(20.154, 0.710, -17.316), Vector(17.455, 0.770, -19.206));
+			Global.SkirmishSpawns = 1;
+		Else If(Current Map == Map(Volskaya Industries) && Current Game Mode == Game Mode(Skirmish));
+			Global.TeleporterPositions = Array(Vector(-7.283, -6.980, -2.809), Vector(-1.576, -4.980, -7.854), Vector(-2, -5.880, 15.900),
+				Vector(2.368, -4.980, 12), Vector(18.826, -5, 22.805), Vector(21.799, -4.980, 20.165));
+			Global.SkirmishSpawns = 1;
+		Else If(Current Map == Map(Watchpoint: Gibraltar));
+			Global.TeleporterPositions = Array(Vector(15.500, -2, -134.250), Vector(10, -2, -132.250), Vector(21, -6, -159), Vector(17.600, -6,
+				-160.500), Vector(17, 6, -130.500), Vector(15, 6, -128.500));
+			Global.SkirmishSpawns = 1;
+		End;
+		Wait(1, Ignore Condition);
+		If(Global.ExperimentalChargeOnlyMap && Is True For Any(Array(Map(Castillo), Map(Hollywood)),
+			Current Array Element == Current Map));
+			Global.TeleporterCD = 3;
+		Else;
+			Global.TeleporterCD = 5;
+		End;
+		If(Global.SkirmishSpawns == 0);
+			For Global Variable(Loop, 0, Count Of(Global.TeleporterPositions), 2);
+				Create Effect(All Players(All Teams), Ring, Color(Blue), Global.TeleporterPositions[Global.Loop], 1.500, Visible To);
+				Create Effect(All Players(All Teams), Ring, Color(Blue), Global.TeleporterPositions[Global.Loop + 1], 1.500, Visible To);
+			End;
+		End;
+	}
+}
+
+rule("Teleporter Use Rein")
+{
+	event
+	{
+		Ongoing - Each Player;
+		Team 1;
+		All;
+	}
+
+	conditions
+	{
+		Global.TeleporterPositions != 0;
+		Is Jumping(Event Player) == True;
+		Altitude Of(Event Player) < 0.690;
+		Y Component Of(Velocity Of(Event Player)) > 0;
+	}
+
+	actions
+	{
+		For Player Variable(Event Player, TP, 0, Count Of(Global.TeleporterPositions), 1);
+			If(Distance Between(Vector(X Component Of(Position Of(Event Player)), Y Component Of(Global.TeleporterPositions[Event Player.TP]),
+				Z Component Of(Position Of(Event Player))), Global.TeleporterPositions[Event Player.TP]) < 1.750);
+				If(Is In Line of Sight(Event Player, Vector(0, 0.500, 0) + Global.TeleporterPositions[Event Player.TP],
+					Barriers Do Not Block LOS));
+					If(Is True For Any(Array(Map(New Junk City), Map(Suravasa)), Current Map == Current Array Element) && Match Time > 160);
+						Small Message(Event Player, Custom String("  Teleporter {0} not active yet!", Ability Icon String(Hero(Symmetra), Button(
+							Ability 2))));
+					Else;
+						If(Event Player.TP % 2 == 0);
+							Teleport(Event Player, Global.TeleporterPositions[Event Player.TP + 1]);
+							Event Player.IsInMap = False;
+						Else;
+							Teleport(Event Player, Global.TeleporterPositions[Event Player.TP - 1]);
+							Event Player.IsInMap = True;
+						End;
+						Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Blue), Event Player, 1);
+						Play Effect(All Players(All Teams), Buff Explosion Sound, Null, Event Player, 69);
+						Event Player.TP = Count Of(Global.TeleporterPositions);
+					End;
+				End;
+			End;
+		End;
+	}
+}
+
+rule("Teleporter Use Mercy")
+{
+	event
+	{
+		Ongoing - Each Player;
+		Team 2;
+		All;
+	}
+
+	conditions
+	{
+		Global.TeleporterPositions != 0;
+		Global.SkirmishSpawns == 0;
+		Is Jumping(Event Player) == True;
+		Altitude Of(Event Player) < 0.690;
+		Y Component Of(Velocity Of(Event Player)) > 0;
+	}
+
+	actions
+	{
+		For Player Variable(Event Player, TP, 0, Count Of(Global.TeleporterPositions), 1);
+			If(Distance Between(Vector(X Component Of(Position Of(Event Player)), Y Component Of(Global.TeleporterPositions[Event Player.TP]),
+				Z Component Of(Position Of(Event Player))), Global.TeleporterPositions[Event Player.TP]) < 1.750);
+				If(Is In Line of Sight(Event Player, Vector(0, 0.500, 0) + Global.TeleporterPositions[Event Player.TP],
+					Barriers Do Not Block LOS));
+					If(Event Player.TeleporterCD == 0);
+						If(Event Player.TP % 2 == 0);
+							Teleport(Event Player, Global.TeleporterPositions[Event Player.TP + 1]);
+							If(Current Map != Map(Rialto) || Event Player.TP != 0);
+								Event Player.IsInMap = False;
+							End;
+						Else;
+							Teleport(Event Player, Global.TeleporterPositions[Event Player.TP - 1]);
+							Event Player.IsInMap = True;
+						End;
+						Event Player.TeleporterCD = Global.TeleporterCD;
+						Chase Player Variable At Rate(Event Player, TeleporterCD, 0, 1, None);
+						If(Array Contains(Array(Map(Ecopoint: Antarctica), Map(Ecopoint: Antarctica Winter), Map(Horizon Lunar Colony), Map(Rialto)),
+							Current Map));
+							Create Effect(Event Player, Ring, Color(Red), Global.TeleporterPositions[0], 1.500 * ((5 - Event Player.TeleporterCD) / 5),
+								Visible To Position and Radius);
+							Event Player.TeleporterRingCD[0] = Last Created Entity;
+							Create Effect(Event Player, Ring, Color(Red), Global.TeleporterPositions[1], 1.500 * ((5 - Event Player.TeleporterCD) / 5),
+								Visible To Position and Radius);
+							Event Player.TeleporterRingCD[1] = Last Created Entity;
+							Event Player.TP = True;
+						Else;
+							Event Player.TP = False;
+						End;
+						If(!Event Player.TP || Current Map == Map(Rialto));
+							For Player Variable(Event Player, TP, Current Map == Map(Rialto) ? 1 : 0, Min(Count Of(Global.TeleporterPositions) / 2, 3), 1);
+								If(Event Player.TP == 0);
+									Create Effect(Event Player, Ring, Color(Red), Global.TeleporterPositions[1 - Event Player.IsInMap], 1.500 * ((
+										5 - Event Player.TeleporterCD) / 5), Visible To Position and Radius);
+								Else If(Event Player.TP == 1);
+									Create Effect(Event Player, Ring, Color(Red), Global.TeleporterPositions[3 - Event Player.IsInMap], 1.500 * ((
+										5 - Event Player.TeleporterCD) / 5), Visible To Position and Radius);
+								Else;
+									Create Effect(Event Player, Ring, Color(Red), Global.TeleporterPositions[5 - Event Player.IsInMap], 1.500 * ((
+										5 - Event Player.TeleporterCD) / 5), Visible To Position and Radius);
+								End;
+								Event Player.TeleporterRingCD[Event Player.TP + (Current Map == Map(Rialto) ? 1 : 0)] = Last Created Entity;
+							End;
+							If(Current Map == Map(Hollywood));
+								For Player Variable(Event Player, TP, 3, 6, 1);
+									If(Event Player.TP == 3);
+										Create Effect(Event Player, Ring, Color(Red), Global.TeleporterPositions[7 - Event Player.IsInMap], 1.500 * ((
+											5 - Event Player.TeleporterCD) / 5), Visible To Position and Radius);
+									Else If(Event Player.TP == 4);
+										Create Effect(Event Player, Ring, Color(Red), Global.TeleporterPositions[9 - Event Player.IsInMap], 1.500 * ((
+											5 - Event Player.TeleporterCD) / 5), Visible To Position and Radius);
+									Else;
+										Create Effect(Event Player, Ring, Color(Red), Global.TeleporterPositions[11 - Event Player.IsInMap], 1.500 * ((
+											5 - Event Player.TeleporterCD) / 5), Visible To Position and Radius);
+									End;
+									Event Player.TeleporterRingCD[Event Player.TP] = Last Created Entity;
+								End;
+							End;
+							Play Effect(All Players(All Teams), Bad Pickup Effect, Color(Blue), Event Player, 1);
+							Play Effect(All Players(All Teams), Buff Explosion Sound, Null, Event Player, 69);
+						End;
+						disabled Else;
+						disabled Small Message(Event Player, Custom String("  hmm maybe reinhardts can use this"));
+						disabled End;
+					Else;
+						Play Effect(All Players(All Teams), Bad Explosion, Color(Red), Event Player, 1);
+						Play Effect(All Players(All Teams), Debuff Impact Sound, Null, Event Player, 69);
+					End;
+					Event Player.TP = Count Of(Global.TeleporterPositions);
+					Small Message(Event Player, Custom String("  {0}s {1} CD", Round To Integer(Event Player.TeleporterCD, Up), Ability Icon String(
+						Hero(Symmetra), Button(Ability 2))));
+				End;
+			End;
+		End;
+	}
+}
+
+rule("Destroy Teleporter Ring CD")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		Mercy;
+	}
+
+	conditions
+	{
+		Event Player.TeleporterCD == 0;
+	}
+
+	actions
+	{
+		For Player Variable(Event Player, TP, 0, Count Of(Event Player.TeleporterRingCD), 1);
+			Destroy Effect(Event Player.TeleporterRingCD[Event Player.TP]);
+		End;
+	}
+}
+
+rule("Leave Spawn")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Current Game Mode != Game Mode(Elimination);
+		Total Time Elapsed > 15;
+		Global.RoundStart == True;
+		Is Alive(Event Player) == True;
+		Is In Spawn Room(Event Player) == True;
+	}
+
+	actions
+	{
+		Big Message(Event Player, Custom String("Leave Spawn! ({0}s)", Round To Integer(Event Player.LeaveSpawnTimer, Down)));
+		Chase Player Variable At Rate(Event Player, LeaveSpawnTimer, 0, 1, None);
+		If(!Event Player.IsInMap[1]);
+			Create Effect(Event Player, Sphere, Color(Red), Is In Spawn Room(Event Player) && (Global.BubblePosition == 0 || Distance Between(
+				Event Player, Global.BubblePosition) >= 12.400) ? Eye Position(Event Player) : Vector(0, -36, 0), 1, Position and Radius);
+			Event Player.IsInMap[1] = True;
+		End;
+		Play Effect(Event Player, Explosion Sound, Color(Red), Event Player, 69);
+		Set Healing Received(Event Player, 0);
+		Wait Until(!Is In Spawn Room(Event Player) || (Global.BubblePosition != 0 && Distance Between(Event Player, Global.BubblePosition)
+			< 12.400), Event Player.LeaveSpawnTimer);
+		If(Is In Spawn Room(Event Player) && (Global.BubblePosition == 0 || Distance Between(Event Player, Global.BubblePosition)
+			>= 12.400));
+			Event Player.mercydeath = True;
+			Kill(Event Player, Null);
+			Wait(0.250, Ignore Condition);
+			Event Player.mercydeath = False;
+		End;
+		Set Healing Received(Event Player, 100);
+		Chase Player Variable At Rate(Event Player, LeaveSpawnTimer, Team Of(Event Player) == Team 1 ? 10 : 5, 0.200, None);
+	}
+}
+
+rule("Tractor Beam visual")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Current Game Mode != Game Mode(Elimination);
+	}
+
+	actions
+	{
+		If(Current Map == Map(Château Guillard) || Current Map == Map(Château Guillard Halloween));
+			Global.TractorBeamPosition = Array(Vector(159.039, -4, 65.976), 6.900);
+		Else If(Current Map == Map(Circuit royal));
+			Global.TractorBeamPosition = Array(Vector(9, 4, 39), 6.900);
+			disabled Else If(Current Map == Map(Hanamura) || Current Map == Map(Hanamura Winter));
+		Else If(Current Map == Map(Hanamura Winter));
+			Global.TractorBeamPosition = Array(Vector(-40.790, -5, -51.350), 6.900);
+		Else If(Current Map == Map(Suravasa));
+			Global.TractorBeamPosition = Array(Vector(-79.500, 0, 42), 3.690);
+		End;
+		If(Global.TractorBeamPosition != 0);
+			Create Effect(All Players(Team 1), Light Shaft, Color(Aqua), Global.TractorBeamPosition[0], Global.TractorBeamPosition[1],
+				Visible To);
+			Create Effect(All Players(Team 2), Light Shaft, Color(Gray), Global.TractorBeamPosition[0], Global.TractorBeamPosition[1],
+				Visible To Position and Radius);
+			Create Effect(All Players(All Teams), Sphere, Color(Gray), Global.TractorBeamPosition[0] + Vector(0, 38, 0), 3.690, Visible To);
+			Create Effect(All Players(All Teams), Sphere, Color(Lime Green), Global.TractorBeamPosition[0] + Vector(0, 41.500, 0), 3.369,
+				Visible To);
+			Create Effect(All Players(All Teams), Good Aura, Color(Aqua), Global.TractorBeamPosition[0] + Vector(0, 35.690, 0), 3.690,
+				Visible To);
+			For Global Variable(Loop, 0, 360, 22.500);
+				Create Effect(All Players(All Teams), Sphere, Color(Gray), Global.TractorBeamPosition[0] + Vector(3.690 * Sine From Degrees(
+					Global.Loop), 38.500, 3.690 * Cosine From Degrees(Global.Loop)), 3.690, Visible To);
+			End;
+		End;
+	}
+}
+
+rule("Tractor Beam levitation")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Global.TractorBeamPosition != 0;
+		Distance Between(Vector(X Component Of(Position Of(Event Player)), Y Component Of(Global.TractorBeamPosition[0]), Z Component Of(
+			Position Of(Event Player))), Global.TractorBeamPosition[0]) <= Global.TractorBeamPosition[1];
+		Y Component Of(Position Of(Event Player)) + 1 > Y Component Of(Global.TractorBeamPosition[0]);
+	}
+
+	actions
+	{
+		If(Team Of(Event Player) == Team 1);
+			Start Accelerating(Event Player, Up, 100, 2.690, To World, Direction Rate and Max Speed);
+			Small Message(Event Player, Custom String("  You've been caught in a tractor beam!!"));
+			If(!Global.TractorBeamPosition[2]);
+				Create Effect(All Players(All Teams), Energy Sound, Null, Global.TractorBeamPosition[0] + Vector(0, 35.690, 0), 99,
+					Visible To Position and Radius);
+				Global.TractorBeamPosition[2] = Last Created Entity;
+			End;
+			Wait Until(Distance Between(Vector(X Component Of(Position Of(Event Player)), Y Component Of(Global.TractorBeamPosition[0]),
+				Z Component Of(Position Of(Event Player))), Global.TractorBeamPosition[0]) > Global.TractorBeamPosition[1], 9999);
+			Stop Accelerating(Event Player);
+			If(Distance Between(Vector(X Component Of(Position Of(Farthest Player From(Event Player, Team 1))), Y Component Of(
+				Global.TractorBeamPosition[0]), Z Component Of(Position Of(Farthest Player From(Event Player, Team 1)))),
+				Global.TractorBeamPosition[0]) > Global.TractorBeamPosition[1]);
+				Destroy Effect(Global.TractorBeamPosition[2]);
+				Global.TractorBeamPosition[2] = 0;
+			End;
+		Else;
+			Small Message(Event Player, Custom String("  hmm maybe reinhardts can use this"));
+			Wait(5, Ignore Condition);
+		End;
+	}
+}
+
+rule("CTF Draw HUD")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		"(Current Game Mode == Game Mode(Capture the Flag) || Current Game Mode == Game Mode(Skirmish)) != (Current Game Mode == Game Mode(\r\n			Clash));"
+		(Current Game Mode == Game Mode(Capture the Flag)) != (Current Game Mode == Game Mode(Skirmish));
+	}
+
+	actions
+	{
+		Wait(6.969, Ignore Condition);
+		Disable Game Mode HUD(All Players(All Teams));
+		Disable Game Mode In-World UI(All Players(All Teams));
+		Create HUD Text(All Players(Team 1), Custom String("{0} - {1}{2}", Custom String("{0}{1}", Hero Icon String(Hero(Reinhardt)),
+			Global.Score[0]), Global.Score[1], Hero Icon String(Hero(Mercy))), Null, Null, Top, -1, Color(Purple), Null, Null,
+			Visible To and String, Default Visibility);
+		Create HUD Text(All Players(Team 2), Custom String("{0} - {1}{2}", Custom String("{0}{1}", Hero Icon String(Hero(Mercy)),
+			Global.Score[1]), Global.Score[0], Hero Icon String(Hero(Reinhardt))), Null, Null, Top, -1, Color(Purple), Null, Null,
+			Visible To and String, Default Visibility);
+		Create HUD Text(All Players(All Teams), Null, Null, Custom String("\n\r\n"), Top, 1, Null, Null, Null, Visible To and String,
+			Visible Never);
+		Create HUD Text(All Players(All Teams), Null, Null, Custom String("\nW"), Top, -2, Null, Null, Null, Visible To and String,
+			Default Visibility);
+		Create HUD Text(All Players(All Teams), Null, Null, Custom String("{0}{1}", Round To Integer(Match Time, Down),
+			Match Time < 10 ? Custom String(".{0}", Round To Integer((Match Time - Round To Integer(Match Time, Down)) * 10, Down))
+			: Empty Array), Top, 0.690, Null, Null, Color(White), Visible To and String, Default Visibility);
+	}
+}
+
+rule("TDM Objective message")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Current Game Mode == Game Mode(Team Deathmatch);
+	}
+
+	actions
+	{
+		Set Objective Description(All Players(Team 2), Custom String("Survive"), Visible To);
+		Set Objective Description(All Players(Team 1), Custom String("Fight"), Visible To);
+	}
+}
+
+rule("Heart beat sound at 30 seconds remaining")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Match Time <= 30;
+		Match Time >= 0.740;
+		(Global.RoundStart || !Is True For Any(Array(Is In Setup, Is Assembling Heroes, Is Between Rounds, !(
+			Current Game Mode == Game Mode(Elimination)), Is Match Complete), Current Array Element)) == True;
+	}
+
+	actions
+	{
+		Play Effect(Event Player, Explosion Sound, Null, Event Player, 42 - Match Time);
+		Wait(0.240, Ignore Condition);
+		Play Effect(Event Player, Debuff Impact Sound, Null, Event Player, 36 - Match Time);
+		Wait(0.500 + Match Time / 30, Ignore Condition);
+		Loop If Condition Is True;
+	}
+}
+
+rule("End of wall Blizz World")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Current Map == Map(Blizzard World);
+		Event Player.IsImmuneToWall != True;
+		(Z Component Of(Position Of(Event Player)) < 54 || (Z Component Of(Position Of(Event Player)) < 70 && Y Component Of(Position Of(
+			Event Player)) >= 4.900)) == True;
+	}
+
+	actions
+	{
+		Call Subroutine(SetWallImmune);
+	}
+}
+
+rule("End of wall Horizon Lunar Colony")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Current Map == Map(Horizon Lunar Colony);
+		Current Game Mode == Game Mode(Skirmish);
+		Event Player.IsImmuneToWall != True;
+		Z Component Of(Position Of(Event Player)) > -79;
+	}
+
+	actions
+	{
+		Call Subroutine(SetWallImmune);
+	}
+}
+
+rule("End of wall Junkertown")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Current Map == Map(Junkertown);
+		Event Player.IsImmuneToWall != True;
+		X Component Of(Position Of(Event Player)) < -73.875;
+	}
+
+	actions
+	{
+		Call Subroutine(SetWallImmune);
+	}
+}
+
+rule("End of wall Volskaya Industries")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Current Map == Map(Volskaya Industries);
+		Current Game Mode == Game Mode(Skirmish);
+		Event Player.IsImmuneToWall != True;
+		Z Component Of(Position Of(Event Player)) < 53;
+	}
+
+	actions
+	{
+		Call Subroutine(SetWallImmune);
+	}
+}
+
+rule("SetWallImmune SUBROUTINE")
+{
+	event
+	{
+		Subroutine;
+		SetWallImmune;
+	}
+
+	actions
+	{
+		Event Player.IsImmuneToWall = True;
+		If(Current Map == Map(Blizzard World));
+			Wait Until(Z Component Of(Position Of(Event Player)) >= 70 || (Z Component Of(Position Of(Event Player)) >= 54 && Y Component Of(
+				Position Of(Event Player)) < 4.900), 9999);
+		Else If(Current Map == Map(Horizon Lunar Colony));
+			Wait Until(Z Component Of(Position Of(Event Player)) <= -79, 9999);
+		Else If(Current Map == Map(Junkertown));
+			Wait Until(X Component Of(Position Of(Event Player)) >= -73.875, 9999);
+		Else;
+			Wait Until(Z Component Of(Position Of(Event Player)) >= 53, 9999);
+		End;
+		Event Player.IsImmuneToWall = False;
+	}
+}
+
+rule("Wall to halve flashpoint map size X+")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Count Of(Global.FencePosition) == 2;
+		!Global.FencePosition[1] == True;
+		Global.Score[4] == True;
+		Is Alive(Event Player) == True;
+		Event Player.IsImmuneToWall != True;
+		X Component Of(Position Of(Event Player)) < X Component Of(Global.FencePosition[0]);
+	}
+
+	actions
+	{
+		Call Subroutine(WallBoop);
+	}
+}
+
+rule("Wall to halve flashpoint map size X-")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Count Of(Global.FencePosition) == 2;
+		!Global.FencePosition[1] == True;
+		Global.Score[4] == False;
+		Is Alive(Event Player) == True;
+		Event Player.IsImmuneToWall != True;
+		X Component Of(Position Of(Event Player)) > X Component Of(Global.FencePosition[0]);
+	}
+
+	actions
+	{
+		Call Subroutine(WallBoop);
+	}
+}
+
+rule("Wall to halve flashpoint map size Z+")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Count Of(Global.FencePosition) == 2;
+		Global.FencePosition[1] == True;
+		Global.Score[4] == True;
+		Is Alive(Event Player) == True;
+		Event Player.IsImmuneToWall != True;
+		Z Component Of(Position Of(Event Player)) < Z Component Of(Global.FencePosition[0]);
+	}
+
+	actions
+	{
+		Call Subroutine(WallBoop);
+	}
+}
+
+rule("Wall to halve flashpoint map size Z-")
+{
+	event
+	{
+		Ongoing - Each Player;
+		All;
+		All;
+	}
+
+	conditions
+	{
+		Count Of(Global.FencePosition) == 2;
+		Global.FencePosition[1] == True;
+		Global.Score[4] == False;
+		Is Alive(Event Player) == True;
+		Event Player.IsImmuneToWall != True;
+		Z Component Of(Position Of(Event Player)) > Z Component Of(Global.FencePosition[0]);
+	}
+
+	actions
+	{
+		Call Subroutine(WallBoop);
+	}
+}
+
+rule("WallBoop SUBROUTINE")
+{
+	event
+	{
+		Subroutine;
+		WallBoop;
+	}
+
+	actions
+	{
+		Abort If(!Global.RoundStart);
+		Wait(0.050, Ignore Condition);
+		Abort If(Event Player.IsImmuneToWall);
+		If(Is Using Ability 1(Event Player));
+			Cancel Primary Action(Event Player);
+		End;
+		Set Ability 1 Enabled(Event Player, False);
+		Start Damage Over Time(Event Player, Null, 9999, 40);
+		Event Player.WallDamageOT = Last Damage Over Time ID;
+		Set Move Speed(Event Player, 30);
+		Call Subroutine(WallBoop2);
+		If(Team Of(Event Player) == Team 1 || Event Player.MercyGACount > 0);
+			Set Ability 1 Enabled(Event Player, True);
+		End;
+		Set Move Speed(Event Player, 100);
+		Stop Damage Over Time(Event Player.WallDamageOT);
+	}
+}
+
+rule("WallBoop2 SUBROUTINE")
+{
+	event
+	{
+		Subroutine;
+		WallBoop2;
+	}
+
+	actions
+	{
+		Apply Impulse(Event Player, Global.Score[5], 20, To World, Cancel Contrary Motion);
+		Wait(0.250, Ignore Condition);
+		Loop If Condition Is True;
+	}
+}
+
+rule("Clip into Skirmish Spawn set up - fixed clips")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Current Game Mode == Game Mode(Skirmish);
+	}
+
+	actions
+	{
+		If(Current Map == Map(Circuit royal));
+			Global.D = Array(Vector(101.263, 16.462, -4.091), Vector(116.850, 16.350, 26.787), Vector(104.809, 10.350, 1.599), Vector(117.372,
+				10.350, 21.813), Vector(116.927, 10.350, 26.991), Vector(66.261, 14.472, -26.357), Vector(61.090, 14.472, -35.002), Vector(
+				80.273, 10.462, 37.002), Vector(72.610, 10.462, 41.767), Vector(62.470, 12.462, 45.389));
+		Else If(Current Map == Map(Samoa));
+			Global.D = Array(Vector(111.008, 347.008, 393.494), Vector(95.878, 343.154, 408.182), Vector(86.274, 347.542, 422.138), Vector(
+				317.052, 14.802, -221.575), Vector(310.129, 18.809, -206.682));
+		Else If(Current Map == Map(Antarctic Peninsula));
+			Global.D = Array(Vector(205.130, -8.855, -218.907), Vector(202.702, -8.875, -228.082), Vector(195.754, -8.855, -239.426), Vector(
+				-72.175, -151.250, 141.953), Vector(-83.438, -151.250, 141.989), Vector(-91.968, -151.250, 143.505));
+		Else If(Current Map == Map(Colosseo));
+			Global.D = Array(Vector(88.357, 9.350, -47.454), Vector(94.455, 9.350, -36.180), Vector(100.744, 9.350, -24.717));
+		Else If(Current Map == Map(Busan));
+			Global.D = Array(Vector(280.798, 11.500, 208.324), Vector(286.840, 11.550, 222.176));
+		Else If(Current Map == Map(Hanamura));
+			Global.D = Array(Vector(74, -2, 0), Vector(69, -2, 26.500));
+			Global.SpawnClipRein = True;
+		Else If(Current Map == Map(Junkertown));
+			Global.D = Array(Vector(-76.660, 6.660, -104), Vector(-109.160, 6.660, -107.380), Vector(-97.150, 7.660, -166.250), Vector(-80.400,
+				7.660, -174));
+		Else If(Current Map == Map(New Queen Street));
+			Global.D = Array(Vector(-91.223, 11.450, -8.712), Vector(-91.212, 11.450, -36.441));
+		Else If(Current Map == Map(Numbani));
+			Global.D = Array(Vector(214, 0.300, 5.700), Vector(214, 0.300, 39.600), Vector(224, 0.200, 7.650), Vector(224, 0.200, 37.680),
+				Vector(219.667, 0.300, 33.464), Vector(219.700, 0.300, 11.623), Vector(219.700, 0.300, 33.796), Vector(145.818, -3.500,
+				47.989), Vector(157.140, -3.500, 36.715));
+			Create Effect(All Players(Team 2), Sphere, Color(Red), Vector(164.900, -3.900, 55.800), 8.300, Visible To);
+		Else If(Current Map == Map(Paraíso));
+			Global.D = Array(Vector(-21, 6, -80.200), Vector(-13.170, 5, -86.100), Vector(-57.500, 3.750, -131.500), Vector(-57.250, 4.750,
+				-157.500), Vector(-43.850, 4.750, -170.360));
+			Create Effect(All Players(Team 2), Sphere, Color(Red), Vector(-18, 7.500, -91), 4, Visible To);
+			Create Beam Effect(All Players(All Teams), Grapple Beam, Vector(-22.750, -2, 69), Vector(-26.431, -4.200, 91.838), Null,
+				Visible To);
+			Create Beam Effect(All Players(All Teams), Grapple Beam, Vector(-26.431, -4.200, 91.838), Vector(-66.341, -4.160, 97.715), Null,
+				Visible To);
+		Else If(Current Map == Map(Paris) && Current Game Mode == Game Mode(Skirmish));
+			Global.D = Array(Vector(8.750, 10, -75.750), Vector(16.864, 9, -61.354));
+			Global.SpawnClipRein = True;
+		Else If(Current Map == Map(Shambali Monastery));
+			Global.D = Array(Vector(-8, 31.100, 203.500), Vector(-24.320, 31.100, 216.600), Vector(-60.250, 26.100, 186.830), Vector(-56.770,
+				26.100, 175.222), Vector(-56.770, 29.500, 175.222));
+		Else If(Current Map == Map(Watchpoint: Gibraltar));
+			Global.D = Array(Vector(105.340, -2, -17), Vector(94, -2, -5.700), Vector(100.790, 1, 10), Vector(94, 1, 50.610), Vector(75.330, 1,
+				55.690));
+		End;
+		If(Global.D != 0);
+			If(Global.SpawnClipRein);
+				Create Effect(All Players(Team 1), Sphere, Color(Blue), Global.D[0], 1.500, Visible To);
+				Create Effect(All Players(Team 1), Sphere, Color(Blue), Global.D[1], 1.500, Visible To);
+			Else;
+				For Global Variable(Loop, 0, 10, 1);
+					Create Effect(All Players(Team 2), Sphere, Color(Blue), Global.D[Global.Loop], 1, Visible To);
+				End;
+			End;
+		End;
+	}
+}
+
+rule("Mercy Clip into Skirmish Rein Spawn execute - Added More Clips")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global.D != 0;
+		Global.SpawnClipRein != True;
+		Remove From Array(Append To Array(Players Within Radius(Global.D[0], 1, Team 2, Off), Append To Array(Players Within Radius(
+			Global.D[1], 1, Team 2, Off), Append To Array(Players Within Radius(Global.D[2], 1, Team 2, Off), Append To Array(
+			Players Within Radius(Global.D[3], 1, Team 2, Off), Append To Array(Players Within Radius(Global.D[4], 1, Team 2, Off),
+			Append To Array(Players Within Radius(Global.D[5], 1, Team 2, Off), Append To Array(Players Within Radius(Global.D[6], 1,
+			Team 2, Off), Append To Array(Players Within Radius(Global.D[7], 1, Team 2, Off), Append To Array(Players Within Radius(
+			Global.D[8], 1, Team 2, Off), Players Within Radius(Global.D[9], 1, Team 2, Off)))))))))), Global.SpawnNoClip)
+			!= Remove From Array(Global.SpawnNoClip, Append To Array(Players Within Radius(Global.D[0], 1, Team 2, Off), Append To Array(
+			Players Within Radius(Global.D[1], 1, Team 2, Off), Append To Array(Players Within Radius(Global.D[2], 1, Team 2, Off),
+			Append To Array(Players Within Radius(Global.D[3], 1, Team 2, Off), Append To Array(Players Within Radius(Global.D[4], 1,
+			Team 2, Off), Append To Array(Players Within Radius(Global.D[5], 1, Team 2, Off), Append To Array(Players Within Radius(
+			Global.D[6], 1, Team 2, Off), Append To Array(Players Within Radius(Global.D[7], 1, Team 2, Off), Append To Array(
+			Players Within Radius(Global.D[8], 1, Team 2, Off), Players Within Radius(Global.D[9], 1, Team 2, Off)))))))))));
+	}
+
+	actions
+	{
+		Global.SpawnNoClip = Append To Array(Players Within Radius(Global.D[0], 1, Team 2, Off), Append To Array(Players Within Radius(
+			Global.D[1], 1, Team 2, Off), Append To Array(Players Within Radius(Global.D[2], 1, Team 2, Off), Append To Array(
+			Players Within Radius(Global.D[3], 1, Team 2, Off), Append To Array(Players Within Radius(Global.D[4], 1, Team 2, Off),
+			Append To Array(Players Within Radius(Global.D[5], 1, Team 2, Off), Append To Array(Players Within Radius(Global.D[6], 1,
+			Team 2, Off), Append To Array(Players Within Radius(Global.D[7], 1, Team 2, Off), Append To Array(Players Within Radius(
+			Global.D[8], 1, Team 2, Off), Players Within Radius(Global.D[9], 1, Team 2, Off))))))))));
+		Disable Movement Collision With Environment(Global.SpawnNoClip, False);
+		Enable Movement Collision With Environment(Remove From Array(All Players(Team 2), Global.SpawnNoClip));
+	}
+}
+
+rule("Rein Clip into Skirmish Mercy Spawn execute")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		Global.D != 0;
+		Global.SpawnClipRein == True;
+		Remove From Array(Append To Array(Players Within Radius(Global.D[0], 1.500, Team 1, Off), Players Within Radius(Global.D[1], 1.500,
+			Team 1, Off)), Global.SpawnNoClip) != Remove From Array(Global.SpawnNoClip, Append To Array(Players Within Radius(Global.D[0],
+			1.500, Team 1, Off), Players Within Radius(Global.D[1], 1.500, Team 1, Off)));
+	}
+
+	actions
+	{
+		Global.SpawnNoClip = Append To Array(Players Within Radius(Global.D[0], 1.500, Team 1, Off), Players Within Radius(Global.D[1],
+			1.500, Team 1, Off));
+		Disable Movement Collision With Environment(Global.SpawnNoClip, False);
+		Enable Movement Collision With Environment(Remove From Array(All Players(Team 1), Global.SpawnNoClip));
+	}
+}
+
+rule("Flashpoint rein TP active message")
+{
+	event
+	{
+		Ongoing - Global;
+	}
+
+	conditions
+	{
+		(Current Map == Map(New Junk City)) != (Current Map == Map(Suravasa));
+		Match Time <= 160;
+	}
+
+	actions
+	{
+		Big Message(All Players(All Teams), Custom String("Rein {0} Teleporters {1} Active", Hero Icon String(Hero(Reinhardt)),
+			Ability Icon String(Hero(Symmetra), Button(Ability 2))));
+	}
+}
+
+rule("Ensure mercy dies in one shot")
+{
+	event
+	{
+		Player Dealt Damage;
+		Team 1;
+		All;
+	}
+
+	conditions
+	{
+		Is Alive(Victim) == True;
+		Team Of(Victim) == Team 2;
+	}
+
+	actions
+	{
+		Kill(Victim, Attacker);
+	}
+}
