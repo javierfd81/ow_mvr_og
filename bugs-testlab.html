@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OG mvr — Bug Test Lab</title>
+<style>
+  :root{
+    --bg:#090C12; --bg-2:#0E131C; --bg-3:#141C29; --raise:#182234;
+    --line:#1E2A3B; --line-2:#2C3B52;
+    --ink:#D6DFEA; --ink-2:#AEBACB; --ink-dim:#8592A4; --ink-faint:#586475;
+    --rein:#FF2A48; --mercy:#22C7FF; --sys:#F99E1A;
+    --crit:#FF5B6E; --major:#FF922B; --minor:#F5C542; --good:#43D492;
+    --font:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --mono:ui-monospace,"Cascadia Code","JetBrains Mono","SF Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{
+    margin:0; background:var(--bg); color:var(--ink); font-family:var(--font);
+    font-size:17px; line-height:1.6; -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(120,140,170,.05) 1px, transparent 0),
+      radial-gradient(900px 520px at 82% -6%, rgba(255,42,72,.14), transparent 60%),
+      radial-gradient(820px 480px at 10% 2%, rgba(34,199,255,.12), transparent 60%);
+    background-size:24px 24px, 100% 100%, 100% 100%;
+    background-attachment:fixed;
+  }
+  ::selection{background:rgba(249,158,26,.28)}
+  .wrap{max-width:760px; margin:0 auto; padding:0 clamp(15px,4vw,28px)}
+
+  /* top bar */
+  .topbar{position:sticky; top:0; z-index:20; backdrop-filter:blur(9px);
+    background:linear-gradient(180deg,rgba(9,12,18,.94),rgba(9,12,18,.72)); border-bottom:1px solid var(--line)}
+  .topbar .row{max-width:760px; margin:0 auto; padding:10px clamp(15px,4vw,28px); display:flex; align-items:center; gap:10px}
+  .topbar .dot{width:9px;height:9px;border-radius:2px;background:var(--sys);box-shadow:0 0 10px var(--sys); flex:none}
+  .topbar b{font-weight:800; letter-spacing:.02em; font-size:.98rem}
+  .topbar span{color:var(--ink-faint); font-family:var(--mono); font-size:.7rem}
+  .topbar .jump{margin-left:auto; display:flex; gap:5px; overflow-x:auto; scrollbar-width:none}
+  .topbar .jump::-webkit-scrollbar{display:none}
+  .topbar .jump a{font-family:var(--mono); font-size:.74rem; font-weight:700; text-decoration:none; color:var(--ink-dim);
+    border:1px solid var(--line); border-radius:6px; width:30px; height:28px; display:grid; place-items:center; flex:none}
+  .topbar .jump a:hover{color:var(--ink); border-color:var(--line-2)}
+  .topbar .jump a.c1{color:var(--crit)} @media(max-width:560px){.topbar span,.topbar .jump{display:none}}
+
+  /* hero */
+  .hero{padding:clamp(34px,7vw,60px) 0 clamp(20px,4vw,34px)}
+  .eyebrow{font-family:var(--mono); font-size:.72rem; letter-spacing:.24em; text-transform:uppercase; color:var(--sys);
+    display:flex; align-items:center; gap:9px}
+  .eyebrow::before{content:""; width:22px; height:1px; background:var(--sys); opacity:.7}
+  .hero h1{font-size:clamp(2rem,7vw,3.2rem); line-height:1; margin:.32em 0 .3em; font-weight:800; text-transform:uppercase; letter-spacing:-.015em; text-wrap:balance}
+  .hero h1 .a{color:var(--mercy)} .hero h1 .b{color:var(--rein)}
+  .hero p{color:var(--ink-2); max-width:58ch; margin:0}
+  .hero p b{color:var(--ink)}
+
+  /* how to help */
+  .help{background:var(--bg-2); border:1px solid var(--line); border-radius:12px; padding:20px 22px; margin-top:24px}
+  .help h2{margin:0 0 14px; font-size:1.02rem; font-weight:800; text-transform:uppercase; letter-spacing:.02em; color:var(--sys)}
+  .help ol{margin:0; padding-left:1.15em; display:flex; flex-direction:column; gap:7px}
+  .help ol li{color:var(--ink-2); font-size:.94rem}
+  .help ol li b{color:var(--ink)}
+  .help .callout{margin-top:14px; padding:11px 14px; border-left:3px solid var(--sys); background:rgba(249,158,26,.06);
+    border-radius:0 8px 8px 0; font-size:.9rem; color:var(--ink-2)}
+  .help .callout b{color:var(--sys)}
+
+  /* legend */
+  .legend{display:flex; flex-wrap:wrap; gap:8px; margin:18px 0 6px}
+  .sev{font-family:var(--mono); font-size:.72rem; font-weight:700; padding:4px 9px; border-radius:6px; border:1px solid currentColor;
+    display:inline-flex; align-items:center; gap:6px; text-transform:uppercase; letter-spacing:.03em}
+  .sev.crit{color:var(--crit); background:rgba(255,91,110,.08)}
+  .sev.major{color:var(--major); background:rgba(255,146,43,.08)}
+  .sev.minor{color:var(--minor); background:rgba(245,197,66,.08)}
+  .sev .d{width:7px;height:7px;border-radius:50%;background:currentColor}
+
+  /* bug card */
+  .bug{position:relative; background:var(--bg-2); border:1px solid var(--line); border-radius:14px; padding:22px;
+    margin-top:18px; border-top:3px solid var(--edge,var(--sys)); scroll-margin-top:64px}
+  .bug.crit{--edge:var(--crit)} .bug.major{--edge:var(--major)} .bug.minor{--edge:var(--minor)}
+  .bug .bhead{display:flex; align-items:flex-start; gap:13px; margin-bottom:6px}
+  .bug .bnum{flex:none; width:38px; height:38px; border-radius:9px; display:grid; place-items:center; font-family:var(--mono);
+    font-weight:800; font-size:1.05rem; background:rgba(255,255,255,.03); border:1px solid var(--line-2); color:var(--edge)}
+  .bug h3{margin:0; font-size:1.16rem; font-weight:800; letter-spacing:-.01em; line-height:1.2; flex:1; align-self:center}
+  .bug .sev{align-self:center; flex:none}
+
+  .need{display:flex; flex-wrap:wrap; gap:6px; margin:14px 0 4px}
+  .need .n{font-family:var(--mono); font-size:.73rem; color:var(--ink-2); background:var(--bg-3); border:1px solid var(--line);
+    border-radius:20px; padding:5px 11px; display:inline-flex; align-items:center; gap:6px}
+  .need .n .k{color:var(--ink-faint); text-transform:uppercase; letter-spacing:.06em; font-size:.66rem}
+
+  .steps-h{font-family:var(--mono); font-size:.72rem; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-dim); margin:18px 0 8px}
+  .bug ol.steps{margin:0; padding-left:1.3em; display:flex; flex-direction:column; gap:8px}
+  .bug ol.steps li{color:var(--ink); font-size:.96rem}
+  .bug ol.steps li b{color:#fff}
+
+  .outcomes{display:grid; gap:10px; margin-top:16px}
+  @media(min-width:560px){.outcomes{grid-template-columns:1fr 1fr}}
+  .oc{border-radius:10px; padding:13px 15px; font-size:.9rem}
+  .oc .lbl{font-family:var(--mono); font-size:.7rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase; display:flex; align-items:center; gap:7px; margin-bottom:6px}
+  .oc.good{background:rgba(67,212,146,.07); border:1px solid rgba(67,212,146,.22)}
+  .oc.good .lbl{color:var(--good)}
+  .oc.bad{background:rgba(255,91,110,.07); border:1px solid rgba(255,91,110,.24)}
+  .oc.bad .lbl{color:var(--crit)}
+  .oc .body{color:var(--ink-2)} .oc .body b{color:var(--ink)}
+
+  .tip{margin-top:14px; font-size:.85rem; color:var(--ink-faint); font-style:italic}
+  .tip::before{content:"💡 "; font-style:normal}
+
+  /* report */
+  .report{background:linear-gradient(180deg,#0d0a07,#0b0d13); border:1px solid #3a2c12; border-radius:14px; padding:22px; margin:32px 0}
+  .report h2{margin:0 0 6px; font-size:1.1rem; font-weight:800; text-transform:uppercase; letter-spacing:.02em; color:var(--sys)}
+  .report p{margin:0 0 14px; color:var(--ink-2); font-size:.92rem}
+  .report .box{position:relative}
+  .report pre{margin:0; background:#07090e; border:1px solid var(--line); border-radius:10px; padding:16px; overflow-x:auto;
+    font-family:var(--mono); font-size:.82rem; color:var(--ink-2); line-height:1.7}
+  .report pre .k{color:var(--sys)}
+  .copybtn{position:absolute; top:10px; right:10px; font-family:var(--mono); font-size:.72rem; font-weight:700; cursor:pointer;
+    background:var(--bg-3); color:var(--ink); border:1px solid var(--line-2); border-radius:7px; padding:6px 11px; transition:.15s}
+  .copybtn:hover{border-color:var(--sys); color:var(--sys)}
+  .copybtn:active{transform:scale(.96)}
+  .copybtn:focus-visible{outline:2px solid var(--sys); outline-offset:2px}
+  .copybtn.done{color:var(--good); border-color:var(--good)}
+
+  footer{border-top:1px solid var(--line); padding:26px 0 54px; color:var(--ink-faint); font-size:.85rem; text-align:center}
+  footer b{color:var(--ink-2)}
+
+  .rv{opacity:0; transform:translateY(12px); transition:opacity .5s ease, transform .5s ease}
+  .rv.in{opacity:1; transform:none}
+  @media (prefers-reduced-motion:reduce){.rv{opacity:1; transform:none; transition:none}}
+
+  /* print / save-as-PDF: switch to a clean light document */
+  @media print{
+    :root{
+      --bg:#fff; --bg-2:#fff; --bg-3:#f4f6f9; --raise:#fff;
+      --line:#c9d2de; --line-2:#aab6c6;
+      --ink:#12161d; --ink-2:#2c3542; --ink-dim:#54606f; --ink-faint:#6b7686;
+      --rein:#b21f34; --mercy:#0a6f96; --sys:#b9760c;
+      --crit:#d33246; --major:#c25a12; --minor:#8f7410; --good:#1c9c63;
+    }
+    body{background:#fff !important; color:#12161d; font-size:12pt}
+    .topbar{position:static; box-shadow:none; backdrop-filter:none; background:#fff}
+    .topbar .jump, .copybtn{display:none !important}
+    .rv{opacity:1 !important; transform:none !important}
+    .hero h1 .a{color:#0a6f96} .hero h1 .b{color:#b21f34}
+    .bug, .report, .help, section{break-inside:avoid; page-break-inside:avoid}
+    .report{background:#f4f6f9 !important; border-color:#c9d2de}
+    .report pre{background:#f4f6f9; color:#2c3542; border-color:#c9d2de}
+    .report pre .k{color:#b9760c}
+    a{color:#12161d; text-decoration:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="row">
+    <span class="dot"></span><b>OG&nbsp;mvr</b><span>// bug test lab</span>
+    <nav class="jump" aria-label="Jump to bug">
+      <a href="#b1" class="c1" title="Bug 1">1</a>
+      <a href="#b2" title="Bug 2">2</a>
+      <a href="#b3" title="Bug 3">3</a>
+      <a href="#b4" title="Bug 4">4</a>
+      <a href="#b5" title="Bug 5">5</a>
+    </nav>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow rv">Community bug hunt · Mercy vs Reinhardt</div>
+    <h1 class="rv">Help us squash <span class="a">Mercy</span> &amp; <span class="b">Rein</span> bugs</h1>
+    <p class="rv">No coding needed. Pick a bug, play the steps exactly, and tell us whether you saw
+      <b>✅ what should happen</b> or <b>🐞 the bug</b>. Every result — even "couldn't reproduce" — helps.</p>
+
+    <div class="help rv">
+      <h2>How to help</h2>
+      <ol>
+        <li>Pick a bug below and follow the steps <b>exactly</b>.</li>
+        <li>Compare what you saw to <b>✅ Should happen</b> vs <b>🐞 The bug</b>.</li>
+        <li>Report back using the template at the bottom (there's a copy button).</li>
+      </ol>
+      <div class="callout"><b>Always include</b> your player count, map, and game mode — several bugs only
+        appear in specific setups.</div>
+    </div>
+
+    <div class="legend rv">
+      <span class="sev crit"><span class="d"></span>Critical</span>
+      <span class="sev major"><span class="d"></span>Major</span>
+      <span class="sev minor"><span class="d"></span>Minor</span>
+    </div>
+  </header>
+
+  <!-- BUG 1 -->
+  <section class="bug crit rv" id="b1">
+    <div class="bhead">
+      <div class="bnum">1</div>
+      <h3>Infinite Resurrect (Mercy rez with no cooldown)</h3>
+      <span class="sev crit"><span class="d"></span>Critical</span>
+    </div>
+    <div class="need">
+      <span class="n"><span class="k">Players</span> 2+ Mercy</span>
+      <span class="n"><span class="k">Setup</span> one Mercy dead</span>
+      <span class="n"><span class="k">Mode</span> any</span>
+    </div>
+    <div class="steps-h">Steps</div>
+    <ol class="steps">
+      <li>As Mercy, start resurrecting a dead teammate.</li>
+      <li>Let the resurrect bar fill <b>almost all the way</b> — do <b>not</b> cancel it early.</li>
+      <li>Right as it's about to finish, tap <b>Resurrect (or Secondary Fire) again</b>.</li>
+    </ol>
+    <div class="outcomes">
+      <div class="oc good"><div class="lbl">✅ Should happen</div><div class="body">Either the rez finishes and your
+        Resurrect goes on its normal long cooldown, <b>or</b> it cancels and nobody is revived.</div></div>
+      <div class="oc bad"><div class="lbl">🐞 The bug</div><div class="body">Your teammate <b>IS</b> revived
+        <b>and</b> your Resurrect cooldown shows <b>0</b> — so you can rez again instantly, forever.</div></div>
+    </div>
+    <div class="tip">The timing is tight (right at the end of the cast) — it may take a few tries to nail.</div>
+  </section>
+
+  <!-- BUG 2 -->
+  <section class="bug minor rv" id="b2">
+    <div class="bhead">
+      <div class="bnum">2</div>
+      <h3>End-of-round Rein swap misfires in big lobbies</h3>
+      <span class="sev minor"><span class="d"></span>Minor</span>
+    </div>
+    <div class="need">
+      <span class="n"><span class="k">Players</span> 8–11</span>
+      <span class="n"><span class="k">Note</span> advanced test</span>
+      <span class="n"><span class="k">Role</span> Host required</span>
+    </div>
+    <div class="steps-h">Steps</div>
+    <ol class="steps">
+      <li>Get a lobby with <b>8–11 players</b> (2 active Reins).</li>
+      <li>Make sure <b>not many people are queued</b> to be the next Rein (fewer than 2 in the seeker queue).</li>
+      <li>At the end of a round, the <b>Host holds Ability&nbsp;1 + Ability&nbsp;2 + Reload</b> at the same time to force the Rein swap.</li>
+    </ol>
+    <div class="outcomes">
+      <div class="oc good"><div class="lbl">✅ Should happen</div><div class="body">Two new Reins are pulled from
+        the Mercy team to fill <b>both</b> Rein slots.</div></div>
+      <div class="oc bad"><div class="lbl">🐞 The bug</div><div class="body">Only <b>one (or zero)</b> new Rein
+        gets pulled — both Rein slots aren't filled correctly.</div></div>
+    </div>
+    <div class="tip">Please report the exact player count.</div>
+  </section>
+
+  <!-- BUG 3 -->
+  <section class="bug major rv" id="b3">
+    <div class="bhead">
+      <div class="bnum">3</div>
+      <h3>Mercy can't fly after hitting a Skirmish wall with no GA</h3>
+      <span class="sev major"><span class="d"></span>Major</span>
+    </div>
+    <div class="need">
+      <span class="n"><span class="k">Mode</span> Skirmish</span>
+      <span class="n"><span class="k">Role</span> Mercy</span>
+      <span class="n"><span class="k">Maps</span> Blizzard World · Horizon · Junkertown · Volskaya · New Junk City · Suravasa</span>
+    </div>
+    <div class="steps-h">Steps</div>
+    <ol class="steps">
+      <li>Use up <b>all</b> your Guardian Angel (GA) charges so you have <b>none</b> left.</li>
+      <li>Fly or walk into the glowing <b>fence line</b> that splits the map (it knocks you back).</li>
+    </ol>
+    <div class="outcomes">
+      <div class="oc good"><div class="lbl">✅ Should happen</div><div class="body">After the wall knocks you back,
+        your GA works again once it recharges.</div></div>
+      <div class="oc bad"><div class="lbl">🐞 The bug</div><div class="body">Your GA (jump-to-ally) <b>stays
+        disabled</b> — you can't fly for a while, maybe the rest of the round.</div></div>
+    </div>
+    <div class="tip">Does GA ever come back on its own? If so, roughly how long?</div>
+  </section>
+
+  <!-- BUG 4 -->
+  <section class="bug minor rv" id="b4">
+    <div class="bhead">
+      <div class="bnum">4</div>
+      <h3>Death sphere kills you even after you leave</h3>
+      <span class="sev minor"><span class="d"></span>Minor</span>
+    </div>
+    <div class="need">
+      <span class="n"><span class="k">Role</span> Mercy</span>
+      <span class="n"><span class="k">Maps</span> Castillo · Ilios Lighthouse · Ilios Well · King's Row</span>
+      <span class="n"><span class="k">Paris</span> reverse (stay inside)</span>
+    </div>
+    <div class="steps-h">Steps</div>
+    <ol class="steps">
+      <li>Fly into the red sphere. You'll see a warning like <b>"illegal hiding spot"</b> / <b>"Get Back in Sphere!"</b>.</li>
+      <li><b>Leave</b> the sphere within <b>3 seconds</b>.</li>
+    </ol>
+    <div class="outcomes">
+      <div class="oc good"><div class="lbl">✅ Should happen</div><div class="body">Leaving in time saves you.</div></div>
+      <div class="oc bad"><div class="lbl">🐞 The bug</div><div class="body">You still get bounced up and
+        <b>killed after ~3 seconds</b>, even though you left in time.</div></div>
+    </div>
+  </section>
+
+  <!-- BUG 5 -->
+  <section class="bug minor rv" id="b5">
+    <div class="bhead">
+      <div class="bnum">5</div>
+      <h3>Resurrect refund glitch when a Mercy leaves</h3>
+      <span class="sev minor"><span class="d"></span>Minor</span>
+    </div>
+    <div class="need">
+      <span class="n"><span class="k">Players</span> several Mercys</span>
+      <span class="n"><span class="k">Note</span> rare — mostly "report if seen"</span>
+    </div>
+    <div class="steps-h">Steps</div>
+    <ol class="steps">
+      <li>Have Mercys resurrecting each other during a round.</li>
+      <li>If a <b>Mercy player leaves the match</b> while another Mercy is <b>mid-resurrect</b>, watch the
+        <b>"Refunded Resurrect"</b> message.</li>
+    </ol>
+    <div class="outcomes">
+      <div class="oc good"><div class="lbl">✅ Should happen</div><div class="body">The player who revived the
+        person who left gets a clean <b>"Refunded Resurrect"</b>.</div></div>
+      <div class="oc bad"><div class="lbl">🐞 The bug</div><div class="body">The refund goes to the <b>wrong</b>
+        person, or doesn't happen, or resurrect tracking acts strangely.</div></div>
+    </div>
+    <div class="tip">If you ever see a weird or wrong "Refunded Resurrect" message, screenshot it and report.</div>
+  </section>
+
+  <!-- REPORT -->
+  <section class="report rv">
+    <h2>📋 How to report</h2>
+    <p>Copy this, fill it in, and send it back for each bug you test:</p>
+    <div class="box">
+      <button class="copybtn" id="copybtn" type="button">Copy</button>
+      <pre id="tpl"><span class="k">Bug #:</span>            (1–5)
+<span class="k">Reproduced?</span>       Yes / No / Sort of
+<span class="k">How many tries:</span>
+<span class="k">Player count:</span>
+<span class="k">Map:</span>
+<span class="k">Game mode:</span>
+<span class="k">What happened:</span>
+<span class="k">Video/screenshot:</span>  (if you have one — hugely helpful!)</pre>
+    </div>
+  </section>
+
+  <footer>
+    Thanks for helping test <b>OG mvr</b> — every confirmation (or "couldn't reproduce") is useful! 🙏
+  </footer>
+
+</div>
+
+<script>
+  (function(){
+    var rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (rm){
+      document.querySelectorAll('.rv').forEach(function(el){ el.classList.add('in'); });
+    } else if ('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(es){
+        es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+      }, { rootMargin:'0px 0px -6% 0px', threshold:.08 });
+      document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+    } else {
+      document.querySelectorAll('.rv').forEach(function(el){ el.classList.add('in'); });
+    }
+
+    var btn = document.getElementById('copybtn');
+    var tpl = document.getElementById('tpl');
+    if (btn && tpl){
+      btn.addEventListener('click', function(){
+        var text = tpl.innerText;
+        var done = function(){ btn.textContent='Copied ✓'; btn.classList.add('done');
+          setTimeout(function(){ btn.textContent='Copy'; btn.classList.remove('done'); }, 1800); };
+        if (navigator.clipboard && navigator.clipboard.writeText){
+          navigator.clipboard.writeText(text).then(done, function(){ fallback(text); done(); });
+        } else { fallback(text); done(); }
+      });
+    }
+    function fallback(text){
+      var ta=document.createElement('textarea'); ta.value=text; ta.style.position='fixed'; ta.style.opacity='0';
+      document.body.appendChild(ta); ta.select();
+      try{ document.execCommand('copy'); }catch(e){}
+      document.body.removeChild(ta);
+    }
+  })();
+</script>
+
+</body>
+</html>
