@@ -6,18 +6,25 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a single **Overwatch 2 Workshop** game mode: **"OG mvr"** (OG Mercy VS Rein). Team 1 plays Reinhardt, Team 2 plays Mercy — an asymmetric mode where flying Reins hunt Mercys who keep Guardian Angel and can go invisible. There is no application source code in the conventional sense; the entire mode is one text file written in the Overwatch Workshop scripting DSL.
 
-- [mvr_og.code](mvr_og.code) — the mode, exported via the Workshop editor's **Copy Code** feature (~5,500 lines).
-- `mvr_og copy.code` — a byte-identical manual backup (untracked). When you edit the mode, keep these two in sync, or treat `copy` as a disposable checkpoint.
+The repository has two folders plus documentation at the root:
+
+- [codes/mvr_og.code](codes/mvr_og.code) — the mode itself, exported via the Workshop editor's **Copy Code** feature (~5,500 lines). This is the source of truth.
+- `codes/mvr_og copy.code` — an optional byte-identical manual backup (untracked, may not be present). If you keep one, sync it when you edit the mode, or treat it as a disposable checkpoint. Git history is the durable backup.
+- `bugs/` — bug tracking and community test docs, **not** game code:
+  - `bugs/bugs.md` — the canonical bug tracker (root cause, proposed fix, implementation/test status; line numbers reference `codes/mvr_og.code`).
+  - `bugs/bugs-repro.md`, `bugs/bugs-discord.md` — player-facing reproduction checklists (the `-discord` file is the copy-paste-per-message variant).
+  - `bugs/bugs-testlab.html` — a standalone "Bug Test Lab" web page.
+- `CLAUDE.md`, `README.md` — documentation at the repo root.
 
 ## There is no build / test / lint toolchain
 
 Do not look for `package.json`, a test runner, or a compiler — none exist and none apply. The only way to "run" this code is inside Overwatch:
 
-1. Copy the full contents of `mvr_og.code`.
+1. Copy the full contents of `codes/mvr_og.code`.
 2. In the Overwatch Workshop editor: **Settings → Import → paste** (the reverse of Copy Code).
 3. Play/preview in a Workshop lobby to observe behavior.
 
-Because there is no automated verification, edits must be reasoned about carefully against the DSL's semantics before handing the file back to the user to import and test in-game. Version control (git) is the only tooling; the mode is not yet committed (`master` has no commits).
+Because there is no automated verification, edits must be reasoned about carefully against the DSL's semantics before handing the file back to the user to import and test in-game. Version control (git) is the only tooling, and it is the durable backup for the mode's history.
 
 ## File anatomy
 

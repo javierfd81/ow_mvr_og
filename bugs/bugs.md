@@ -1,12 +1,12 @@
 # OG mvr — Bug Tracker
 
-Tracks bugs found in `mvr_og.code` (the "OG mvr" — Mercy vs Reinhardt — Overwatch Workshop mode),
+Tracks bugs found in `codes/mvr_og.code` (the "OG mvr" — Mercy vs Reinhardt — Overwatch Workshop mode),
 their root cause, proposed fix, implementation status, and test status.
 
-- **Source file:** `mvr_og.code` (5,552 lines)
+- **Source file:** `codes/mvr_og.code` (5,552 lines)
 - **Last updated:** 2026-07-08
 
-> Line numbers reference `mvr_og.code`. They shift as the file is edited — re-anchor by rule name
+> Line numbers reference `codes/mvr_og.code`. They shift as the file is edited — re-anchor by rule name
 > (shown in each entry) if a number looks stale.
 
 ---

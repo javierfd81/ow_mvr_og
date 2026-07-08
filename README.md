@@ -4,7 +4,7 @@ An **Overwatch 2 Workshop** game mode. Team 1 flies in as Reinhardt and hunts Te
 
 > For those who enjoy the original Mercy VS Rein, this is for you! No silenced souls. No broken maps. Flying Reins and Mercy GA galore!
 
-The entire mode lives in a single file, [mvr_og.code](mvr_og.code) — the export produced by the Overwatch Workshop editor's **Copy Code** feature.
+The entire mode lives in a single file, [codes/mvr_og.code](codes/mvr_og.code) — the export produced by the Overwatch Workshop editor's **Copy Code** feature.
 
 ## How to play
 
@@ -14,7 +14,7 @@ Asymmetric hunt: **Reinhardts** (Team 1) chase **Mercys** (Team 2) across a rota
 
 This repository is the source of truth for the mode's code. To load it into Overwatch:
 
-1. Copy the full contents of [mvr_og.code](mvr_og.code).
+1. Copy the full contents of [codes/mvr_og.code](codes/mvr_og.code).
 2. In Overwatch: **Play → Game Browser → Create → Settings → Import** (the reverse of the editor's Copy Code).
 3. Paste and confirm, then start a Workshop lobby.
 
@@ -41,15 +41,20 @@ There is no build step or test suite — the file *is* the mode. Editing means c
 
 Two layers of tuning:
 
-- **Hero stat scalars** live in the `settings` block of [mvr_og.code](mvr_og.code) under `heroes.General` (e.g. Mercy movement speed, Rein health, cooldown scalars).
+- **Hero stat scalars** live in the `settings` block of [codes/mvr_og.code](codes/mvr_og.code) under `heroes.General` (e.g. Mercy movement speed, Rein health, cooldown scalars).
 - **In-lobby toggles** are exposed as Workshop Settings (the `workshop` block) — e.g. GA recharge rate, Super Jump cooldown, multi-jump count, and switches for the heal-per-elim / sacrifice-health / respawn-on-death mechanics. These can be adjusted from the lobby without editing code.
 
 ## Repository layout
 
-| File | Purpose |
+| Path | Purpose |
 | --- | --- |
-| [mvr_og.code](mvr_og.code) | The complete game mode (Workshop DSL export). |
+| [codes/mvr_og.code](codes/mvr_og.code) | The complete game mode (Workshop DSL export). |
+| [bugs/bugs.md](bugs/bugs.md) | Bug tracker: root cause, proposed fix, and implementation/test status. |
+| [bugs/bugs-repro.md](bugs/bugs-repro.md) | Player-facing, step-by-step bug reproduction checklist. |
+| [bugs/bugs-discord.md](bugs/bugs-discord.md) | Discord copy-paste version of the reproduction checklist. |
+| [bugs/bugs-testlab.html](bugs/bugs-testlab.html) | Standalone "Bug Test Lab" web page. |
 | [CLAUDE.md](CLAUDE.md) | Guidance for working on the code with Claude Code, including DSL conventions and file structure. |
+| [README.md](README.md) | This file. |
 
 ## Credits
 
